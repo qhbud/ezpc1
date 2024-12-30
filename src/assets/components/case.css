@@ -1,0 +1,95 @@
+.CASEpopup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.CASEpopup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.CASEgpu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.CASEgpu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.CASEgpu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.CASEgpu-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.CASEgpu-details {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* Adjust proportions for each detail */
+  column-gap: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+.CASEgpu-details span {
+  font-size: 14px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis for overflow text */
+}
+
+@media (max-width: 500px) {
+  .CASEgpu-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .CASEgpu-icon {
+    margin-bottom: 10px;
+  }
+
+  .CASEgpu-details {
+    grid-template-columns: repeat(2, 1fr); /* Adjust columns for smaller screens */
+    column-gap: 10px;
+  }
+}
+
+.CASEgpu-header {
+  display: grid;
+  grid-template-columns: 4fr 2fr 2fr;
+  column-gap: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 2px solid #ddd;
+  padding: 10px;
+}
+
+.CASEgpu-header span {
+  text-align: left;
+}
+
+.CASEgpu-header span:hover {
+  text-decoration: underline;
+}

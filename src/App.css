@@ -1,0 +1,854 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex; /* Enables horizontal alignment */
+  justify-content: center; /* Center items horizontally */
+  align-items: flex-start; /* Align containers to the top */
+  gap: 20px; /* Space between containers */
+}
+
+
+.container {
+    margin-top: 130px; /* Shifts everything down by 100 pixels */
+    /* OR */
+    padding-top: 100px;
+}
+
+
+
+
+.case {
+  position: absolute; /* Takes the element out of the normal document flow */
+  top: 50%; /* Centers vertically */
+  left: 50%; /* Centers horizontally */
+  transform: translate(-50%, -50%); /* Precisely centers the element */
+
+  z-index: -1; 
+  border: 20px solid #000000; 
+  background-color: transparent; /* Transparent background */
+  
+  /* Use viewport-based sizing */
+  width: 90vw; /* 90% of viewport width */
+  height: 90vh; /* 90% of viewport height */
+  
+  /* Maintain aspect ratio */
+  aspect-ratio: 16 / 9; /* Common widescreen aspect ratio, adjust as needed */
+  
+  /* Ensure it doesn't get too large or too small */
+  max-width: 1050px;
+  max-height: 800px;
+  
+  /* Center the case */
+  margin: 0 auto;
+  
+  /* Ensure border is included in total size */
+  box-sizing: border-box;
+}
+
+
+.select-case-btn {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 42%; /* Keep it a fixed distance from the left edge */
+  top: 101%; /* Center the button vertically */
+  transform: translateY(0%); /* Perfectly center the button */
+  transform: translateX(-50%); /* Perfectly center the button */
+  z-index: 999;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.amazonIconCASE{
+  left: 51.4%;
+  top: 100.8%;
+  transform: translateY(0%); /* Perfectly center the button */
+  transform: translateX(-50%);
+  max-height: 36px;
+  position: absolute;
+  border: 1px solid #000000; 
+  z-index: 3;
+  border-radius: 10px;
+}
+
+.CASE-cost {
+  position: absolute;
+  left: 57%;
+  top: 100.8%;
+  transform: translateY(0%); /* Perfectly center the button */
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+
+.colored-box {
+  display: inline-block; /* Wrap only the content inside */
+  padding: 0px; /* Adjust padding to your liking */
+  border-radius: 12px;
+  background-color: #909090;
+}
+
+.gpu-container {
+  position: relative;
+  display: inline-block;
+  margin-right: auto;
+  padding: 0px; /* Slight padding for visual effect */
+  margin-top: 0px; /* Move the content inside down */
+}
+
+.gpu-background {
+  width: 400px;
+  height: auto;
+  display: block;
+  margin-top: -40px;
+  clip-path: polygon(0 14%, 100% 14%, 100% 85%, 0 85%);
+  z-index: 1;
+}
+
+.gray-box {
+  background-color: #000000;
+  padding: 5px;
+  border-radius: 3px;
+  max-height: 221px;
+  max-width: 400px;
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+
+
+
+.amazonIcon{
+ top: 14px;
+ left: 314px;
+ max-height: 27px;
+ position: absolute;
+ z-index: 3;
+}
+
+.gpu-container .dropdown { 
+  margin-top: -40px; /* Move the content inside down */
+  position: absolute;
+  top: 48px; /* Move closer to the top */
+  left: 6px; /* Move closer to the left */
+  z-index: 1; /* Ensures it appears above the image */
+}
+
+.gpu-cost {
+  position: absolute;
+  top: 14.5px;
+  right: 6px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.gpu-vram {
+  position: absolute;
+  top: 44.5px;
+  right: 6px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+
+.select-gpu-btn {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 8px; /* Keep it a fixed distance from the left edge */
+  top: 50%; /* Center the button vertically */
+  transform: translateY(-286%); /* Perfectly center the button */
+  z-index: 3;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-gpu-btn2 {
+  position: relative; /* Position the button absolutely within the box */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.select-gpu-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+.amazonIconCPU{
+  top: 43px;
+  left: 184px;
+  max-height: 27px;
+  position: absolute;
+  z-index: 3;
+ }
+
+ .cpu-threads {
+  position: absolute;
+  top: 50.5px;
+  right: 144px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.colored-boxCPU {
+  display: inline-block; /* Wrap only the content inside */
+  padding: 0px; /* Adjust padding to your liking */
+  border-radius: 12px;
+  background-color: #909090;
+  left: 20px;
+}
+
+.cpu-container {
+  position: relative;
+  display: inline-block;
+  padding: 0px; /* Slight padding for visual effect */ /* Move the content inside down */
+}
+
+.cpu-background {
+  transform: translateX(-12%); /* Center the image horizontally */
+  top: 2px;
+  position: relative; /* Keeps it within the box */
+  width: 290px;
+  height: auto;
+  clip-path: polygon(12% 0%, 88% 0%, 88% 100%, 12% 100%);
+  z-index: 1;
+   /* Centers horizontally using its container */
+}
+
+
+.cpu-box {
+  background-color: #000000;
+  position: relative; /* Make it relative for absolute positioning of children */
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 224px; /* Ensure box's width is consistent */
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden; 
+}
+
+.select-cpu-btn {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 12px; /* Keep it a fixed distance from the left edge */
+  top: 48%; /* Center the button vertically */
+  transform: translateY(-286%); /* Perfectly center the button */
+  z-index: 3;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-cpu-btn:hover {
+  background-color: #0056b3;
+}
+
+.select-cpu-btn2 {
+  position: relative; /* Position the button absolutely within the box */
+
+  padding: 10px 20px;
+  background-color: #b80707;
+  z-index: 3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cpu-cost {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+
+
+
+
+
+.amazonIconPSU{
+  top: 43px;
+  left: 184px;
+  max-height: 27px;
+  position: absolute;
+  z-index: 3;
+ }
+
+
+
+.colored-boxPSU {
+  display: inline-block; /* Wrap only the content inside */
+  padding: 0px; /* Adjust padding to your liking */
+  border-radius: 12px;
+  background-color: #909090;
+  left: 20px;
+}
+
+.PSU-container {
+  position: relative;
+  display: inline-block;
+  padding: 0px; /* Slight padding for visual effect */ /* Move the content inside down */
+}
+
+.PSU-background {
+  transform: translateX(-12%); /* Center the image horizontally */
+  top: 2px;
+  position: relative; /* Keeps it within the box */
+  width: 290px;
+  height: auto;
+  clip-path: polygon(12% 0%, 88% 0%, 88% 100%, 12% 100%);
+  z-index: 1;
+   /* Centers horizontally using its container */
+}
+
+
+.PSU-box {
+  background-color: #000000;
+  position: relative; /* Make it relative for absolute positioning of children */
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 224px; /* Ensure box's width is consistent */
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden; 
+}
+
+.select-PSU-btn {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 12px; /* Keep it a fixed distance from the left edge */
+  top: 48%; /* Center the button vertically */
+  transform: translateY(-286%); /* Perfectly center the button */
+  z-index: 3;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-PSU-btn:hover {
+  background-color: #0056b3;
+}
+
+.select-PSU-btn2 {
+  position: relative; /* Position the button absolutely within the box */
+
+  padding: 10px 20px;
+  background-color: #b80707;
+  z-index: 3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.PSU-cost {
+  position: absolute;
+  top: 11.5px;
+  right: 13px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+
+
+
+
+
+
+.amazonIconRAM{
+  top: 7px;
+  left: 244px;
+  max-height: 27px;
+  position: absolute;
+  z-index: 3;
+}
+
+
+ .RAM-threads {
+  position: absolute;
+  top: 36.5px;
+  right: 4px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.colored-boxRAM {
+  display: inline-block; /* Wrap only the content inside */
+  padding: 0px; /* Adjust padding to your liking */
+  border-radius: 12px;
+  background-color: #909090;
+}
+
+.RAM-container {
+  position: relative; 
+  display: inline-block;
+  padding: 0px; /* Slight padding for visual effect */ /* Move the content inside down */
+}
+
+.RAM-background {
+  transform: translateX(0.1%); /* Center the image horizontally */
+  top: -50px;
+  position: relative; /* Keeps it within the box */
+  width: 320px;
+  height: auto;
+  clip-path: polygon(0 22%, 100% 22%, 100% 77%, 0 77%);
+  z-index: 1;
+   /* Centers horizontally using its container */
+}
+
+
+.RAM-box {
+  background-color: #000000;
+  position: relative; /* Make it relative for absolute positioning of children */
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 320px; /* Ensure box's width is consistent */
+  height: 135px;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden; 
+}
+
+.select-RAM-btn {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 6px; /* Keep it a fixed distance from the left edge */
+  top: 74%; /* Center the button vertically */
+  transform: translateY(-286%);
+   /* Perfectly center the button */
+  z-index: 3;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ramCount {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 6px; /* Keep it a fixed distance from the left edge */
+  top: 100%; /* Center the button vertically */
+  transform: translateY(-286%); /* Perfectly center the button */
+  z-index: 3;
+  padding: 10px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ramCount:hover {
+  background-color: #0056b3;
+}
+
+
+.select-RAM-btn:hover {
+  background-color: #0056b3;
+}
+
+.select-RAM-btn2 {
+  position: relative; /* Position the button absolutely within the box */
+
+  padding: 10px 20px;
+  background-color: #b80707;
+  z-index: 3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.RAM-cost {
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+
+
+
+
+.amazonIconCOOLER{
+  top: 49px;
+  left: 58px;
+  max-height: 27px;
+  position: absolute;
+  z-index: 3;
+ }
+
+ .COOLER-threads {
+  position: absolute;
+  top: 50.5px;
+  right: 144px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.colored-boxCOOLER {
+  display: inline-block; /* Wrap only the content inside */
+  padding: 0px; /* Adjust padding to your liking */
+  border-radius: 12px;
+  background-color: #909090;
+  left: 20px;
+}
+
+.COOLER-container {
+  position: relative;
+  display: inline-block;
+  padding: 0px; /* Slight padding for visual effect */ /* Move the content inside down */
+}
+
+.COOLER-background {
+  transform: translateX(-12%); /* Center the image horizontally */
+  top: 2px;
+  position: relative; /* Keeps it within the box */
+  width: 290px;
+  height: auto;
+  clip-path: polygon(12% 0%, 88% 0%, 88% 100%, 12% 100%);
+  z-index: 1;
+   /* Centers horizontally using its container */
+}
+
+
+.COOLER-box {
+  background-color: #000000;
+  position: relative; /* Make it relative for absolute positioning of children */
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 224px; /* Ensure box's width is consistent */
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden; 
+}
+
+.select-COOLER-btn {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 12px; /* Keep it a fixed distance from the left edge */
+  top: 48%; /* Center the button vertically */
+  transform: translateY(-286%); /* Perfectly center the button */
+  z-index: 3;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-COOLER-btn:hover {
+  background-color: #0056b3;
+}
+
+.select-COOLER-btn2 {
+  position: relative; /* Position the button absolutely within the box */
+
+  padding: 10px 20px;
+  background-color: #b80707;
+  z-index: 3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.COOLER-cost {
+  position: absolute;
+  top: 49px;
+  left: 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.amazonIconSTOR{
+  top: 7px;
+  left: 244px;
+  max-height: 27px;
+  position: absolute;
+  z-index: 3;
+}
+
+
+ .STOR-threads {
+  position: absolute;
+  top: 36.5px;
+  right: 4px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.colored-boxSTOR {
+  display: inline-block;
+  padding: 0px; /* Adjust padding to your liking */
+  border-radius: 12px;
+  left: 20px;
+  background-color: #909090;
+}
+
+.STOR-container {
+  position: relative; 
+  display: inline-block;
+  padding: 0px; /* Slight padding for visual effect */ /* Move the content inside down */
+}
+
+.STOR-background {
+  transform: translateX(0.1%); /* Center the image horizontally */
+  top: -50px;
+  position: relative; /* Keeps it within the box */
+  width: 320px;
+  height: auto;
+  clip-path: polygon(0 22%, 100% 22%, 100% 77%, 0 77%);
+  z-index: 1;
+   /* Centers horizontally using its container */
+}
+
+
+.STOR-box {
+  background-color: #000000;
+  position: relative; /* Make it relative for absolute positioning of children */
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 320px; /* Ensure box's width is consistent */
+  height: 135px;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden; 
+}
+
+.select-STOR-btn {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 6px; /* Keep it a fixed distance from the left edge */
+  top: 74%; /* Center the button vertically */
+  transform: translateY(-286%); /* Perfectly center the button */
+  z-index: 3;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.select-STOR-btn:hover {
+  background-color: #0056b3;
+}
+
+.select-STOR-btn2 {
+  position: relative; /* Position the button absolutely within the box */
+
+  padding: 10px 20px;
+  background-color: #b80707;
+  z-index: 3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.STOR-cost {
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+
+
+
+
+.amazonIconMOBO{
+  top: 49px;
+  left: 58px;
+  max-height: 27px;
+  position: absolute;
+  z-index: 3;
+ }
+
+ .MOBO-threads {
+  position: absolute;
+  top: 50.5px;
+  right: 144px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.colored-boxMOBO {
+  display: inline-block; /* Wrap only the content inside */
+  padding: 0px; /* Adjust padding to your liking */
+  border-radius: 12px;
+  background-color: #909090;
+  top: 1000px;
+  left: 0px;
+}
+
+.MOBO-container {
+  position: relative;
+  display: inline-block;
+  padding: 0px; /* Slight padding for visual effect */ /* Move the content inside down */
+  
+}
+
+.MOBO-background {
+  transform: translateX(-12%); /* Center the image horizontally */
+  top: 2px;
+  position: relative; /* Keeps it within the box */
+  width: 290px;
+  height: auto;
+  clip-path: polygon(12% 0%, 88% 0%, 88% 100%, 12% 100%);
+  z-index: 1;
+   /* Centers horizontally using its container */
+}
+
+
+.MOBO-box {
+  background-color: #000000;
+  position: relative; /* Make it relative for absolute positioning of children */
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 224px; /* Ensure box's width is consistent */
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden; 
+}
+
+.select-MOBO-btn {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 12px; /* Keep it a fixed distance from the left edge */
+  top: 48%; /* Center the button vertically */
+  transform: translateY(-286%); /* Perfectly center the button */
+  z-index: 3;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-MOBO-btn:hover {
+  background-color: #0056b3;
+}
+
+.select-MOBO-btn2 {
+  position: relative; /* Position the button absolutely within the box */
+
+  padding: 10px 20px;
+  background-color: #b80707;
+  z-index: 3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.MOBO-cost {
+  position: absolute;
+  top: 49px;
+  left: 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+
