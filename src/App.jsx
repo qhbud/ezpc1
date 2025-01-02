@@ -1,3 +1,6 @@
+import { Amplify } from 'aws-amplify';
+import outputs from '../amplify_outputs.json';
+Amplify.configure(outputs);
 import { useState } from 'react';
 import './App.css';
 import Popup from './assets/components/Popup';
