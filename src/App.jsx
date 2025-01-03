@@ -1,6 +1,6 @@
-import { Amplify } from 'aws-amplify';
-import outputs from '../amplify_outputs.json';
-Amplify.configure(outputs);
+// import { Amplify } from 'aws-amplify';
+// import outputs from '../amplify_outputs.json';
+// Amplify.configure(outputs);
 import { useState } from 'react';
 import './App.css';
 import Popup from './assets/components/Popup';
@@ -107,6 +107,10 @@ import pbn80 from './assets/components/80+ Bronze non modular.svg'
 import pbs80 from './assets/components/80+ Bronze semi.svg'
 import pg80 from './assets/components/80+ Gold.svg'
 import pn80 from './assets/components/80+ non modular.svg'
+
+import Treemap from './assets/components/treemap.jsx';
+
+
 
 const PSU = [
   {name: "Corsair RM750", Icon: pg80, Wattage: 750, type: "Fully Modular", Grade: "80+ Gold", cost: 100, Link : "https://amzn.to/4iEgQRG"},
@@ -1121,7 +1125,18 @@ function App() {
         )}
       </div>
       
-
+      <div className="map1">
+        <Treemap data={[
+          { label: "A", value: selectedGPU.cost },
+          { label: "B", value: selectedCPU.cost },
+          { label: "C", value: selectedCOOLER.cost },
+          { label: "D", value: selectedRAM.cost },
+          { label: "E", value: selectedSTOR.cost },
+          { label: "F", value: selectedMOBO.cost },
+          { label: "G", value: selectedPSU.cost },
+          { label: "H", value: selectedCASE.cost }
+        ]} />
+      </div>
 
     </div>
   );

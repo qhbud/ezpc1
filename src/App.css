@@ -8,6 +8,13 @@
   gap: 20px; /* Space between containers */
 }
 
+.map1 {
+  display: block; /* Reset Flexbox */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Reset margin */
+  width: 100%; /* Ensure full-width availability */
+}
+
 
 .container {
     margin-top: 130px; /* Shifts everything down by 100 pixels */
