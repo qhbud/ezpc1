@@ -1,7 +1,11 @@
-// import { Amplify } from 'aws-amplify';
-// import outputs from '../amplify_outputs.json';
-// Amplify.configure(outputs);
-import { useState } from 'react';
+import { generateClient } from '../amplify/amplify/data/resource.ts';
+
+/**
+ * @type {import('amplify/data').Client<import('../amplify/amplify/data/resource.ts').Schema>}
+ */
+const client = generateClient();
+
+import {useEffect, useState} from 'react';
 import './App.css';
 import Popup from './assets/components/Popup';
 import PopupCPU from './assets/components/cpuPop';
@@ -681,19 +685,19 @@ const Storage = [
 
 function App() {
   const [storageComponents, setStorageComponents] = useState([
-    { id: 1, isExtra: false },
+    {id: 1, isExtra: false},
   ]);
 
   const handleAddStorage = () => {
     setStorageComponents((prev) => [
       ...prev,
-      { id: prev.length + 1, isExtra: true },
+      {id: prev.length + 1, isExtra: true},
     ]);
   };
 
   const handleRemoveStorage = (id) => {
     setStorageComponents((prev) =>
-      prev.filter((component) => component.id !== id)
+        prev.filter((component) => component.id !== id)
     );
   };
 
@@ -783,365 +787,396 @@ function App() {
     setMOBOIsPopupOpen(false);
   };
 
+  const [todos, setTodos] = useState([]);
+
+  const fetchTodos = async () => {
+    try {
+      const { data: todos, errors } = await client.models.Todo.list();
+      if (errors) {
+        console.error("Error fetching todos:", errors);
+        return [];
+      }
+      return todos;
+    } catch (error) {
+      console.error("Unexpected error fetching todos:", error);
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchedTodos = await fetchTodos();
+      setTodos(fetchedTodos);
+    };
+
+    fetchData();
+  }, []);
+
+
   return (
-    <div className="container">
-      {YRAMselected.toString}
 
 
-      <div className="App">
-      </div>
-
-      {CASEisPopupOpen && (
-          <PopupCase
-            CPUs={Case}
-            onClose={() => setIsCASEPopupOpen(false)}
-            onSelect={handleSelectCASE}
-          />
-        )}
-    {selected && YCOOLERselected && YCPUselected && YMOBOselected && YPSUselected && YPSUselected && YRAMselected && YSTORselected ? (
-        <div className="case">
+      <div className="container">
+        {YRAMselected.toString}
 
 
-
-          <button
-            className="select-case-btn"
-            onClick={() => setCASEIsPopupOpen(true)}
-          >
-
-          {selectedCASE ? selectedCASE.name : "Select Case"}
-          </button>
-
-          <a href={selectedCASE.Link}>
-                  <img src={amazonicon} className="amazonIconCASE" alt="Amazon" />
-                  <div className="CASE-cost">${selectedCASE.cost}</div>
-                </a>
-
-
+        <div className="App">
         </div>
-      ) : (null)}
 
-      <div className="colored-box">
-        {/* GPU Section */}
-        <div className="gpu-container">
-          {selected ? (
-            <div className="gray-box">
-              <img
-                src={selectedGPU.Icon}
-                alt="gpu"
-                className="gpu-background"
-              />
+        {CASEisPopupOpen && (
+            <PopupCase
+                CPUs={Case}
+                onClose={() => setIsCASEPopupOpen(false)}
+                onSelect={handleSelectCASE}
+            />
+        )}
+        {selected && YCOOLERselected && YCPUselected && YMOBOselected && YPSUselected && YPSUselected && YRAMselected && YSTORselected ? (
+            <div className="case">
+
+
               <button
-                className="select-gpu-btn"
-                onClick={() => setIsPopupOpen(true)}
+                  className="select-case-btn"
+                  onClick={() => setCASEIsPopupOpen(true)}
               >
-                {selectedGPU.name}
+
+                {selectedCASE ? selectedCASE.name : "Select Case"}
               </button>
-              <a href={selectedGPU.Link}>
-                <img src={amazonicon} className="amazonIcon" alt="Amazon" />
-                <div className="gpu-cost">${selectedGPU.cost}</div>
+
+              <a href={selectedCASE.Link}>
+                <img src={amazonicon} className="amazonIconCASE" alt="Amazon"/>
+                <div className="CASE-cost">${selectedCASE.cost}</div>
               </a>
-              <div className="gpu-vram">{selectedGPU.vram}gbvram </div>
+
+
             </div>
-          ) : (
-            <button
-              className="select-gpu-btn2"
-              onClick={() => setIsPopupOpen(true)}
-            >
-              Select GPU
-            </button>
+        ) : (null)}
+
+        <div className="colored-box">
+          {/* GPU Section */}
+          <div className="gpu-container">
+            {selected ? (
+                <div className="gray-box">
+                  <img
+                      src={selectedGPU.Icon}
+                      alt="gpu"
+                      className="gpu-background"
+                  />
+                  <button
+                      className="select-gpu-btn"
+                      onClick={() => setIsPopupOpen(true)}
+                  >
+                    {selectedGPU.name}
+                  </button>
+                  <a href={selectedGPU.Link}>
+                    <img src={amazonicon} className="amazonIcon" alt="Amazon"/>
+                    <div className="gpu-cost">${selectedGPU.cost}</div>
+                  </a>
+                  <div className="gpu-vram">{selectedGPU.vram}gbvram</div>
+                </div>
+            ) : (
+                <button
+                    className="select-gpu-btn2"
+                    onClick={() => setIsPopupOpen(true)}
+                >
+                  Select GPU
+                </button>
+            )}
+          </div>
+          {isPopupOpen && (
+              <Popup
+                  GPUs={GPUs}
+                  onClose={() => setIsPopupOpen(false)}
+                  onSelect={handleSelectGPU}
+              />
           )}
         </div>
-        {isPopupOpen && (
-          <Popup
-            GPUs={GPUs}
-            onClose={() => setIsPopupOpen(false)}
-            onSelect={handleSelectGPU}
-          />
-        )}
-      </div>
 
-      <span style={{ display: 'inline-block', width: '20px' }}></span>
+        <span style={{display: 'inline-block', width: '20px'}}></span>
 
-      <div className="colored-boxCPU">
-        {/* CPU Section */}
-        <div className="cpu-container">
-          {YCPUselected ? (
-            <div className="cpu-box">
-              <img
-                src={selectedCPU.Icon}
-                alt="cpu"
-                className="cpu-background"
+        <div className="colored-boxCPU">
+          {/* CPU Section */}
+          <div className="cpu-container">
+            {YCPUselected ? (
+                <div className="cpu-box">
+                  <img
+                      src={selectedCPU.Icon}
+                      alt="cpu"
+                      className="cpu-background"
+                  />
+                  <button
+                      className="select-cpu-btn"
+                      onClick={() => setCPUIsPopupOpen(true)}
+                  >
+                    {selectedCPU.name}
+                  </button>
+                  <a href={selectedCPU.Link}>
+                    <img src={amazonicon} className="amazonIconCPU" alt="Amazon"/>
+                    <div className="cpu-cost">${selectedCPU.cost}</div>
+                  </a>
+                  <div className="cpu-threads">{selectedCPU.Threads} threads</div>
+                </div>
+            ) : (
+                <button
+                    className="select-cpu-btn2"
+                    onClick={() => setCPUIsPopupOpen(true)}
+                >
+                  Select CPU
+                </button>
+            )}
+          </div>
+          {CPUisPopupOpen && (
+              <PopupCPU
+                  CPUs={CPUs}
+                  onClose={() => setCPUIsPopupOpen(false)}
+                  onSelect={handleSelectCPU}
               />
-              <button
-                className="select-cpu-btn"
-                onClick={() => setCPUIsPopupOpen(true)}
-              >
-                {selectedCPU.name}
-              </button>
-              <a href={selectedCPU.Link}>
-                <img src={amazonicon} className="amazonIconCPU" alt="Amazon" />
-                <div className="cpu-cost">${selectedCPU.cost}</div>
-              </a>
-              <div className="cpu-threads">{selectedCPU.Threads} threads </div>
-            </div>
-          ) : (
-            <button
-              className="select-cpu-btn2"
-              onClick={() => setCPUIsPopupOpen(true)}
-            >
-              Select CPU
-            </button>
           )}
         </div>
-        {CPUisPopupOpen && (
-          <PopupCPU
-            CPUs={CPUs}
-            onClose={() => setCPUIsPopupOpen(false)}
-            onSelect={handleSelectCPU}
-          />
-        )}
-      </div>
 
-      <span style={{ display: 'inline-block', width: '20px' }}></span>
+        <span style={{display: 'inline-block', width: '20px'}}></span>
 
-      <div className="colored-boxCOOLER">
-        {/* CPU Section */}
-        <div className="COOLER-container">
-          {YCOOLERselected ? (
-            <div className="COOLER-box">
-              <img
-                src={selectedCOOLER.Icon}
-                alt="COOLER"
-                className="COOLER-background"
+        <div className="colored-boxCOOLER">
+          {/* CPU Section */}
+          <div className="COOLER-container">
+            {YCOOLERselected ? (
+                <div className="COOLER-box">
+                  <img
+                      src={selectedCOOLER.Icon}
+                      alt="COOLER"
+                      className="COOLER-background"
+                  />
+                  <button
+                      className="select-COOLER-btn"
+                      onClick={() => setCOOLERIsPopupOpen(true)}
+                  >
+                    {selectedCOOLER.name}
+                  </button>
+                  <a href={selectedCOOLER.Link}>
+                    <img
+                        src={amazonicon}
+                        className="amazonIconCOOLER"
+                        alt="Amazon"
+                    />
+                    <div className="COOLER-cost">${selectedCOOLER.cost}</div>
+                  </a>
+                </div>
+            ) : (
+                <button
+                    className="select-COOLER-btn2"
+                    onClick={() => {
+                      console.log('Cooler button clicked');
+                      setCOOLERIsPopupOpen(true);
+                    }}
+                >
+                  Select Cooler
+                </button>
+            )}
+          </div>
+          {COOLERisPopupOpen && (
+              <PopupCOOLER
+                  CPUs={Coolers}
+                  onClose={() => setCOOLERIsPopupOpen(false)}
+                  onSelect={handleSelectCOOLER}
               />
-              <button
-                className="select-COOLER-btn"
-                onClick={() => setCOOLERIsPopupOpen(true)}
-              >
-                {selectedCOOLER.name}
-              </button>
-              <a href={selectedCOOLER.Link}>
-                <img
-                  src={amazonicon}
-                  className="amazonIconCOOLER"
-                  alt="Amazon"
-                />
-                <div className="COOLER-cost">${selectedCOOLER.cost}</div>
-              </a>
-            </div>
-          ) : (
-            <button
-              className="select-COOLER-btn2"
-              onClick={() => {
-                console.log('Cooler button clicked');
-                setCOOLERIsPopupOpen(true);
-              }}
-            >
-              Select Cooler
-            </button>
           )}
         </div>
-        {COOLERisPopupOpen && (
-          <PopupCOOLER
-            CPUs={Coolers}
-            onClose={() => setCOOLERIsPopupOpen(false)}
-            onSelect={handleSelectCOOLER}
-          />
-        )}
-      </div>
 
-      <div style={{ height: "20px" }}></div>
+        <div style={{height: "20px"}}></div>
 
-      <div className="colored-boxRAM">
-        {/* CPU Section */}
-        <div className="RAM-container">
-          {YRAMselected ? (
-            <div className="RAM-box">
-              <img
-                src={selectedRAM.Icon}
-                alt="cpu"
-                className="RAM-background"
+        <div className="colored-boxRAM">
+          {/* CPU Section */}
+          <div className="RAM-container">
+            {YRAMselected ? (
+                <div className="RAM-box">
+                  <img
+                      src={selectedRAM.Icon}
+                      alt="cpu"
+                      className="RAM-background"
+                  />
+                  <button
+                      className="select-RAM-btn"
+                      onClick={() => setRAMIsPopupOpen(true)}
+                  >
+                    {selectedRAM.name}
+                  </button>
+                  <a href={selectedRAM.Link}>
+                    <img src={amazonicon} className="amazonIconRAM" alt="Amazon"/>
+                    <div className="RAM-cost">${selectedRAM.cost}</div>
+                  </a>
+                  <div className="RAM-threads">{selectedRAM.RR} MHz</div>
+
+                  <button
+                      className="ramCount"
+                      onClick={() => setramcount(ramcount === 1 ? 2 : 1)}
+                  >
+                    ({ramcount}x)
+                  </button>
+                </div>
+            ) : (
+                <button
+                    className="select-RAM-btn2"
+                    onClick={() => setRAMIsPopupOpen(true)}
+                >
+                  Select RAM
+                </button>
+            )}
+          </div>
+          {RAMisPopupOpen && (
+              <PopupRAM
+                  CPUs={RAMs}
+                  onClose={() => setRAMIsPopupOpen(false)}
+                  onSelect={handleSelectRAM}
               />
-              <button
-                className="select-RAM-btn"
-                onClick={() => setRAMIsPopupOpen(true)}
-              >
-                {selectedRAM.name}
-              </button>
-              <a href={selectedRAM.Link}>
-                <img src={amazonicon} className="amazonIconRAM" alt="Amazon" />
-                <div className="RAM-cost">${selectedRAM.cost}</div>
-              </a>
-              <div className="RAM-threads">{selectedRAM.RR} MHz </div>
-
-              <button
-                className="ramCount"
-                onClick={() => setramcount(ramcount === 1 ? 2 : 1)}
-              >
-                ({ramcount}x)
-              </button>
-            </div>
-          ) : (
-            <button
-              className="select-RAM-btn2"
-              onClick={() => setRAMIsPopupOpen(true)}
-            >
-              Select RAM
-            </button>
           )}
         </div>
-        {RAMisPopupOpen && (
-          <PopupRAM
-            CPUs={RAMs}
-            onClose={() => setRAMIsPopupOpen(false)}
-            onSelect={handleSelectRAM}
-          />
-        )}
-      </div>
 
-      <span style={{ display: 'inline-block', width: '20px' }}></span>
+        <span style={{display: 'inline-block', width: '20px'}}></span>
 
-      <div className="colored-boxSTOR">
-        {/* CPU Section */}
-        <div className="STOR-container">
-          {YSTORselected ? (
-            <div className="STOR-box">
-              <img
-                src={selectedSTOR.Icon}
-                alt="cpu"
-                className="STOR-background"
+        <div className="colored-boxSTOR">
+          {/* CPU Section */}
+          <div className="STOR-container">
+            {YSTORselected ? (
+                <div className="STOR-box">
+                  <img
+                      src={selectedSTOR.Icon}
+                      alt="cpu"
+                      className="STOR-background"
+                  />
+                  <button
+                      className="select-STOR-btn"
+                      onClick={() => setSTORIsPopupOpen(true)}
+                  >
+                    {selectedSTOR.name}
+                  </button>
+                  <a href={selectedSTOR.Link}>
+                    <img src={amazonicon} className="amazonIconSTOR" alt="Amazon"/>
+                    <div className="STOR-cost">${selectedSTOR.cost}</div>
+                  </a>
+                </div>
+            ) : (
+                <button
+                    className="select-STOR-btn2"
+                    onClick={() => setSTORIsPopupOpen(true)}
+                >
+                  Select Storage
+                </button>
+            )}
+          </div>
+          {STORisPopupOpen && (
+              <PopupSTOR
+                  CPUs={Storage}
+                  onClose={() => setSTORsPopupOpen(false)}
+                  onSelect={handleSelectSTOR}
               />
-              <button
-                className="select-STOR-btn"
-                onClick={() => setSTORIsPopupOpen(true)}
-              >
-                {selectedSTOR.name}
-              </button>
-              <a href={selectedSTOR.Link}>
-                <img src={amazonicon} className="amazonIconSTOR" alt="Amazon" />
-                <div className="STOR-cost">${selectedSTOR.cost}</div>
-              </a>
-            </div>
-          ) : (
-            <button
-              className="select-STOR-btn2"
-              onClick={() => setSTORIsPopupOpen(true)}
-            >
-              Select Storage
-            </button>
           )}
         </div>
-        {STORisPopupOpen && (
-          <PopupSTOR
-            CPUs={Storage}
-            onClose={() => setSTORsPopupOpen(false)}
-            onSelect={handleSelectSTOR}
-          />
-        )}
-      </div>
 
 
-      <div style={{ height: "20px" }}></div>
+        <div style={{height: "20px"}}></div>
 
 
-
-      <div className="colored-boxMOBO">
-        {/* CPU Section */}
-        <div className="MOBO-container">
-          {YMOBOselected ? (
-            <div className="MOBO-box">
-              <img
-                src={selectedMOBO.Icon}
-                alt="cpu"
-                className="MOBO-background"
+        <div className="colored-boxMOBO">
+          {/* CPU Section */}
+          <div className="MOBO-container">
+            {YMOBOselected ? (
+                <div className="MOBO-box">
+                  <img
+                      src={selectedMOBO.Icon}
+                      alt="cpu"
+                      className="MOBO-background"
+                  />
+                  <button
+                      className="select-MOBO-btn"
+                      onClick={() => setMOBOIsPopupOpen(true)}
+                  >
+                    {selectedMOBO.name}
+                  </button>
+                  <a href={selectedMOBO.Link}>
+                    <img src={amazonicon} className="amazonIconMOBO" alt="Amazon"/>
+                    <div className="MOBO-cost">${selectedMOBO.cost}</div>
+                  </a>
+                </div>
+            ) : (
+                <button
+                    className="select-MOBO-btn2"
+                    onClick={() => setMOBOIsPopupOpen(true)}
+                >
+                  Select MOBO
+                </button>
+            )}
+          </div>
+          {MOBOisPopupOpen && (
+              <PopupMOBO
+                  CPUs={MOBO}
+                  onClose={() => setMOBOIsPopupOpen(false)}
+                  onSelect={handleSelectMOBO}
               />
-              <button
-                className="select-MOBO-btn"
-                onClick={() => setMOBOIsPopupOpen(true)}
-              >
-                {selectedMOBO.name}
-              </button>
-              <a href={selectedMOBO.Link}>
-                <img src={amazonicon} className="amazonIconMOBO" alt="Amazon" />
-                <div className="MOBO-cost">${selectedMOBO.cost}</div>
-              </a>
-            </div>
-          ) : (
-            <button
-              className="select-MOBO-btn2"
-              onClick={() => setMOBOIsPopupOpen(true)}
-            >
-              Select MOBO
-            </button>
           )}
         </div>
-        {MOBOisPopupOpen && (
-          <PopupMOBO
-            CPUs={MOBO}
-            onClose={() => setMOBOIsPopupOpen(false)}
-            onSelect={handleSelectMOBO}
-          />
-        )}
-      </div>
 
-      <span style={{ display: 'inline-block', width: '30px' }}></span>
+        <span style={{display: 'inline-block', width: '30px'}}></span>
 
-      <div className="colored-boxPSU">
-        {/* CPU Section */}
-        <div className="PSU-container">
-          {YPSUselected ? (
-            <div className="PSU-box">
-              <img
-                src={selectedPSU.Icon}
-                alt="PSU"
-                className="PSU-background"
+        <div className="colored-boxPSU">
+          {/* CPU Section */}
+          <div className="PSU-container">
+            {YPSUselected ? (
+                <div className="PSU-box">
+                  <img
+                      src={selectedPSU.Icon}
+                      alt="PSU"
+                      className="PSU-background"
+                  />
+                  <button
+                      className="select-PSU-btn"
+                      onClick={() => setPSUIsPopupOpen(true)}
+                  >
+                    {selectedPSU.name}
+                  </button>
+                  <a href={selectedPSU.Link}>
+                    <img src={amazonicon} className="amazonIconPSU" alt="Amazon"/>
+                    <div className="PSU-cost">${selectedPSU.cost}</div>
+                  </a>
+                </div>
+            ) : (
+                <button
+                    className="select-PSU-btn2"
+                    onClick={() => setPSUIsPopupOpen(true)}
+                >
+                  Select PSU
+                </button>
+            )}
+          </div>
+          {PSUisPopupOpen && (
+              <PopupPSU
+                  CPUs={PSU}
+                  onClose={() => setPSUIsPopupOpen(false)}
+                  onSelect={handleSelectPSU}
               />
-              <button
-                className="select-PSU-btn"
-                onClick={() => setPSUIsPopupOpen(true)}
-              >
-                {selectedPSU.name}
-              </button>
-              <a href={selectedPSU.Link}>
-                <img src={amazonicon} className="amazonIconPSU" alt="Amazon" />
-                <div className="PSU-cost">${selectedPSU.cost}</div>
-              </a>
-            </div>
-          ) : (
-            <button
-              className="select-PSU-btn2"
-              onClick={() => setPSUIsPopupOpen(true)}
-            >
-              Select PSU
-            </button>
           )}
         </div>
-        {PSUisPopupOpen && (
-          <PopupPSU
-            CPUs={PSU}
-            onClose={() => setPSUIsPopupOpen(false)}
-            onSelect={handleSelectPSU}
-          />
-        )}
-      </div>
-      
-      <div className="map1">
-        <Treemap data={[
-          { label: "A", value: selectedGPU.cost },
-          { label: "B", value: selectedCPU.cost },
-          { label: "C", value: selectedCOOLER.cost },
-          { label: "D", value: selectedRAM.cost },
-          { label: "E", value: selectedSTOR.cost },
-          { label: "F", value: selectedMOBO.cost },
-          { label: "G", value: selectedPSU.cost },
-          { label: "H", value: selectedCASE.cost }
-        ]} />
-      </div>
 
-    </div>
+        <div className="map1">
+          <Treemap data={[
+            {label: "A", value: selectedGPU.cost},
+            {label: "B", value: selectedCPU.cost},
+            {label: "C", value: selectedCOOLER.cost},
+            {label: "D", value: selectedRAM.cost},
+            {label: "E", value: selectedSTOR.cost},
+            {label: "F", value: selectedMOBO.cost},
+            {label: "G", value: selectedPSU.cost},
+            {label: "H", value: selectedCASE.cost}
+          ]}/>
+        </div>
+
+        <ul>
+          {todos.map((todo) => (
+              <li key={todo.id}>{todo.name}</li> // Adjust fields based on your data structure
+          ))}
+        </ul>
+
+      </div>
   );
 }
-
 
 
 export default App;
