@@ -1,103 +1,137 @@
 import React from 'react';
 
-const TreemapItem = ({ label, value, color, x, y, width, height }) => (
-  <div
-    className="absolute p-2 overflow-hidden text-white"
-    style={{
-      backgroundColor: color,
-      left: `${x}%`,
-      top: `${y}%`,
-      width: `${width}%`,
-      height: `${height}%`
-    }}
-  >
-    <div className="font-medium">{label}</div>
-    <div className="text-sm opacity-80">{value}</div>
-  </div>
-);
-
-const calculateLayout = (items, containerWidth, containerHeight) => {
-  const processRow = (items, width, startX, startY, height) => {
-    const rowTotal = items.reduce((sum, item) => sum + item.value, 0);
-    let x = startX;
-    
-    return items.map(item => {
-      const itemWidth = (item.value / rowTotal) * width;
-      const rect = {
-        ...item,
-        x: (x / containerWidth) * 100,
-        y: (startY / containerHeight) * 100,
-        width: (itemWidth / containerWidth) * 100,
-        height: (height / containerHeight) * 100
-      };
-      x += itemWidth;
-      return rect;
-    });
-  };
-
-  // First row - top 2 largest items
-  const firstRow = items.slice(0, 2);
-  const remainingItems = items.slice(2);
-  const firstRowHeight = containerHeight * 0.5;
-  
-  // Second row - next 3 items
-  const secondRow = remainingItems.slice(0, 3);
-  const lastRow = remainingItems.slice(3);
-  const secondRowHeight = containerHeight * 0.25;
-  
-  // Combine all rows
-  return [
-    ...processRow(firstRow, containerWidth, 0, 0, firstRowHeight),
-    ...processRow(secondRow, containerWidth, 0, firstRowHeight, secondRowHeight),
-    ...processRow(lastRow, containerWidth, 0, firstRowHeight + secondRowHeight, secondRowHeight)
-  ];
+const TreemapItem = ({ label, value, color, x, y, width, height }) => {
+  // Ensure the content stays within bounds
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        backgroundColor: color,
+        left: `${x}%`,
+        top: `${y}%`,
+        width: `${width}%`,
+        height: `${height}%`,
+        padding: '8px',
+        overflow: 'hidden',
+        color: 'white',
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }}
+    >
+      <div style={{ fontWeight: '500' }}>{label}</div>
+      <div style={{ fontSize: '0.875rem', opacity: 0.8 }}>${value}</div>
+    </div>
+  );
 };
 
-const defaultData = [
-  { label: "Category A", value: 500 },
-  { label: "Category B", value: 300 },
-  { label: "Category C", value: 200 },
-  { label: "Category D", value: 150 },
-  { label: "Category E", value: 120 },
-  { label: "Category F", value: 100 },
-  { label: "Category G", value: 80 },
-  { label: "Category H", value: 50 }
-];
+const Treemap = ({ data }) => {
+  // Normalize and validate data
+  const processedData = React.useMemo(() => {
+    const defaultData = Array(8).fill(null).map((_, i) => ({
+      label: `Category ${i + 1}`,
+      value: 10
+    }));
 
-const Treemap = ({ data = defaultData }) => {
-  // Validate data is an array and has items
-  if (!Array.isArray(data) || data.length === 0) {
-    return (
-      <div className="p-4 text-red-500">
-        Please provide valid data array with label and value properties
-      </div>
-    );
-  }
+    if (!Array.isArray(data) || data.length === 0) {
+      return defaultData;
+    }
 
-  // Ensure we have exactly 8 items
-  const paddedData = [...data];
-  while (paddedData.length < 8) {
-    paddedData.push({ label: `Category ${paddedData.length + 1}`, value: 10 });
-  }
-  const finalData = paddedData.slice(0, 8);
+    const paddedData = [...data];
+    while (paddedData.length < 8) {
+      paddedData.push({
+        label: `Category ${paddedData.length + 1}`,
+        value: 10
+      });
+    }
+    return paddedData.slice(0, 8).map(item => ({
+      ...item,
+      value: Number(item.value) || 0
+    }));
+  }, [data]);
 
   const colors = [
     '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd',
     '#1d4ed8', '#3b82f6', '#60a5fa', '#93c5fd'
   ];
 
-  // Sort data by value descending
-  const sortedData = [...finalData].sort((a, b) => b.value - a.value);
-  const layout = calculateLayout(sortedData, 3, 2);
+  // Sort data by value
+  const sortedData = [...processedData].sort((a, b) => b.value - a.value);
+
+  // Calculate layout
+  const layout = React.useMemo(() => {
+    const total = sortedData.reduce((sum, item) => sum + item.value, 0);
+    
+    // First row (2 items, 50% height)
+    const firstRow = sortedData.slice(0, 2);
+    const firstRowTotal = firstRow.reduce((sum, item) => sum + item.value, 0);
+    let currentX = 0;
+    const firstRowItems = firstRow.map(item => {
+      const width = (item.value / firstRowTotal) * 100;
+      const rect = {
+        ...item,
+        x: currentX,
+        y: 0,
+        width,
+        height: 50
+      };
+      currentX += width;
+      return rect;
+    });
+
+    // Second row (3 items, 25% height)
+    const secondRow = sortedData.slice(2, 5);
+    const secondRowTotal = secondRow.reduce((sum, item) => sum + item.value, 0);
+    currentX = 0;
+    const secondRowItems = secondRow.map(item => {
+      const width = (item.value / secondRowTotal) * 100;
+      const rect = {
+        ...item,
+        x: currentX,
+        y: 50,
+        width,
+        height: 25
+      };
+      currentX += width;
+      return rect;
+    });
+
+    // Third row (3 items, 25% height)
+    const thirdRow = sortedData.slice(5, 8);
+    const thirdRowTotal = thirdRow.reduce((sum, item) => sum + item.value, 0);
+    currentX = 0;
+    const thirdRowItems = thirdRow.map(item => {
+      const width = (item.value / thirdRowTotal) * 100;
+      const rect = {
+        ...item,
+        x: currentX,
+        y: 75,
+        width,
+        height: 25
+      };
+      currentX += width;
+      return rect;
+    });
+
+    return [...firstRowItems, ...secondRowItems, ...thirdRowItems];
+  }, [sortedData]);
 
   return (
-    <div 
-      className="relative w-full"
-      style={{
-        paddingTop: '66.667%' // 2:3 ratio
-      }}
-    >
-      <div className="absolute inset-0">
+    <div style={{
+      position: 'relative',
+      width: '100%',
+      paddingBottom: '66.667%', // 2:3 aspect ratio
+      backgroundColor: '#f3f4f6',
+      overflow: 'hidden'
+    }}>
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%'
+      }}>
         {layout.map((item, index) => (
           <TreemapItem
             key={item.label + index}

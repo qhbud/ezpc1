@@ -817,7 +817,31 @@ function App() {
                 </a>
 
 
-        </div>
+          <div className="r2" style={{
+              width: '100%',
+              display: 'block'  // Override flex display
+            }}>
+              <div style={{ 
+                width: '100%',
+                maxWidth: '800px',
+                margin: '0 auto',
+                display: 'block'  // Override flex display
+              }}>
+                <Treemap data={[
+                  { label: "GPU", value: selectedGPU.cost },
+                  { label: "CPU", value: selectedCPU.cost },
+                  { label: "Cooler", value: selectedCOOLER.cost },
+                  { label: "RAM", value: selectedRAM.cost },
+                  { label: "Storage", value: selectedSTOR.cost },
+                  { label: "Motherboard", value: selectedMOBO.cost },
+                  { label: "PSU", value: selectedPSU.cost },
+                  { label: "Case", value: selectedCASE.cost }
+                ]} />
+              </div>
+            </div>
+
+
+      </div>
       ) : (null)}
 
       <div className="colored-box">
@@ -1124,21 +1148,12 @@ function App() {
           />
         )}
       </div>
-      
-      <div className="map1">
-        <Treemap data={[
-          { label: "A", value: selectedGPU.cost },
-          { label: "B", value: selectedCPU.cost },
-          { label: "C", value: selectedCOOLER.cost },
-          { label: "D", value: selectedRAM.cost },
-          { label: "E", value: selectedSTOR.cost },
-          { label: "F", value: selectedMOBO.cost },
-          { label: "G", value: selectedPSU.cost },
-          { label: "H", value: selectedCASE.cost }
-        ]} />
-      </div>
+
+
 
     </div>
+
+    
   );
 }
 

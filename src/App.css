@@ -8,12 +8,7 @@
   gap: 20px; /* Space between containers */
 }
 
-.map1 {
-  display: block; /* Reset Flexbox */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Reset margin */
-  width: 100%; /* Ensure full-width availability */
-}
+
 
 
 .container {
@@ -22,7 +17,10 @@
     padding-top: 100px;
 }
 
+.r2 {
 
+  margin-top: 900px;
+}
 
 
 .case {
