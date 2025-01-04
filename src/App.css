@@ -23,6 +23,13 @@
 }
 
 
+.r1 {
+
+  margin-top: 100px;
+}
+
+
+
 .case {
   position: absolute; /* Takes the element out of the normal document flow */
   top: 50%; /* Centers vertically */

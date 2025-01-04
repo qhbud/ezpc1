@@ -840,6 +840,29 @@ function App() {
               </div>
             </div>
 
+            <div className="r1" style={{
+              width: '100%',
+              display: 'block'  // Override flex display
+            }}>
+              <div style={{ 
+                width: '100%',
+                maxWidth: '800px',
+                margin: '0 auto',
+                display: 'block'  // Override flex display
+              }}>
+                <Treemap data={[
+                  { label: "GPU", value: 1 },
+                  { label: "CPU", value: 1 },
+                  { label: "Cooler", value: 1 },
+                  { label: "RAM", value: 1 },
+                  { label: "Storage", value: 1 },
+                  { label: "Motherboard", value: 1 },
+                  { label: "PSU", value: 1 },
+                  { label: "Case", value: 1 }
+                ]} />
+              </div>
+            </div>
+
 
       </div>
       ) : (null)}
