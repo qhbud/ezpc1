@@ -1,6 +1,6 @@
-// import { Amplify } from 'aws-amplify';
-// import outputs from '../amplify_outputs.json';
-// Amplify.configure(outputs);
+import { Amplify } from 'aws-amplify';
+import outputs from '../amplify_outputs.json';
+Amplify.configure(outputs);
 import { useState } from 'react';
 import './App.css';
 import Popup from './assets/components/Popup';
@@ -782,6 +782,20 @@ function App() {
     setYMOBOSelected(true); // Mark CPU as selected
     setMOBOIsPopupOpen(false);
   };
+
+  const sendBuild = {
+    id: 0,
+    gpu: selectedGPU,
+    cpu: selectedCPU,
+    cooler: selectedCOOLER,
+    ram: selectedRAM,
+    numram: ramcount,
+    drive: selectedSTOR,
+    // no storage count yet
+    mobo: selectedMOBO,
+    psu: selectedPSU,
+    case: selectedCASE
+  }
 
   return (
     <div className="container">
