@@ -1,6 +1,6 @@
-import { Amplify } from 'aws-amplify';
-import outputs from '../amplify_outputs.json';
-Amplify.configure(outputs);
+// import { Amplify } from 'aws-amplify';
+// import outputs from '../amplify_outputs.json';
+// Amplify.configure(outputs);
 import { useState } from 'react';
 import './App.css';
 import Popup from './assets/components/Popup';
@@ -808,7 +808,7 @@ function App() {
       {CASEisPopupOpen && (
           <PopupCase
             CPUs={Case}
-            onClose={() => setIsCASEPopupOpen(false)}
+            onClose={() => setCASEIsPopupOpen(false)}
             onSelect={handleSelectCASE}
           />
         )}
@@ -1095,7 +1095,7 @@ function App() {
         {STORisPopupOpen && (
           <PopupSTOR
             CPUs={Storage}
-            onClose={() => setSTORsPopupOpen(false)}
+            onClose={() => setSTORIsPopupOpen(false)}
             onSelect={handleSelectSTOR}
           />
         )}
