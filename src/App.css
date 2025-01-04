@@ -32,7 +32,7 @@
 
 .case {
   position: absolute; /* Takes the element out of the normal document flow */
-  top: 50%; /* Centers vertically */
+  top: 46%; /* Centers vertically */
   left: 50%; /* Centers horizontally */
   transform: translate(-50%, -50%); /* Precisely centers the element */
 

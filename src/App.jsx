@@ -1,6 +1,6 @@
-import { Amplify } from 'aws-amplify';
-import outputs from '../amplify_outputs.json';
-Amplify.configure(outputs);
+// import { Amplify } from 'aws-amplify';
+// import outputs from '../amplify_outputs.json';
+// Amplify.configure(outputs);
 import { useState } from 'react';
 import './App.css';
 import Popup from './assets/components/Popup';
@@ -109,6 +109,7 @@ import pg80 from './assets/components/80+ Gold.svg'
 import pn80 from './assets/components/80+ non modular.svg'
 
 import Treemap from './assets/components/treemap.jsx';
+import ParticlesBackground from './assets/components/Particles.jsx';
 
 
 
@@ -799,6 +800,7 @@ function App() {
 
   return (
     <div className="container">
+      <ParticlesBackground/>
       {YRAMselected.toString}
 
 
@@ -808,7 +810,7 @@ function App() {
       {CASEisPopupOpen && (
           <PopupCase
             CPUs={Case}
-            onClose={() => setIsCASEPopupOpen(false)}
+            onClose={() => setCASEIsPopupOpen(false)}
             onSelect={handleSelectCASE}
           />
         )}
@@ -1095,7 +1097,7 @@ function App() {
         {STORisPopupOpen && (
           <PopupSTOR
             CPUs={Storage}
-            onClose={() => setSTORsPopupOpen(false)}
+            onClose={() => setSTORIsPopupOpen(false)}
             onSelect={handleSelectSTOR}
           />
         )}
