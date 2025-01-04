@@ -109,6 +109,7 @@ import pg80 from './assets/components/80+ Gold.svg'
 import pn80 from './assets/components/80+ non modular.svg'
 
 import Treemap from './assets/components/treemap.jsx';
+import ParticlesBackground from './assets/components/Particles.jsx';
 
 
 
@@ -799,6 +800,7 @@ function App() {
 
   return (
     <div className="container">
+      <ParticlesBackground/>
       {YRAMselected.toString}
 
 
