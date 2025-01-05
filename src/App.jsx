@@ -1,9 +1,10 @@
-import { generateClient } from '../amplify/amplify/data/resource.ts';
+import { Amplify } from 'aws-amplify';
+import { generateClient } from 'aws-amplify/api';
+import { createBuild } from './graphql/mutations';
+import awsconfig from './aws-exports';
+import { listBuilds } from './graphql/queries.js'
 
-/**
- * @type {import('amplify/data').Client<import('../amplify/amplify/data/resource.ts').Schema>}
- */
-const client = generateClient();
+Amplify.configure(awsconfig);
 
 import {useEffect, useState} from 'react';
 import './App.css';
@@ -703,11 +704,11 @@ function App() {
 
   const [selectedGPU, setSelectedGPU] = useState(GPUs[0]);
   const [selectedCPU, setSelectedCPU] = useState(CPUs[0]);
-  const [selectedRAM, setSelectedRAM] = useState(CPUs[0]);
-  const [selectedCOOLER, setSelectedCOOLER] = useState(CPUs[0]);
-  const [selectedSTOR, setSelectedSTOR] = useState(CPUs[0]);
-  const [selectedPSU, setSelectedPSU] = useState(CPUs[0])
-  const [selectedMOBO, setSelectedMOBO] = useState(CPUs[0]);
+  const [selectedRAM, setSelectedRAM] = useState(RAMs[0]);
+  const [selectedCOOLER, setSelectedCOOLER] = useState(Coolers[0]);
+  const [selectedSTOR, setSelectedSTOR] = useState(Storage[0]);
+  const [selectedPSU, setSelectedPSU] = useState(PSU[0])
+  const [selectedMOBO, setSelectedMOBO] = useState(MOBO[0]);
   const [selectedCASE, setSelectedCASE] = useState(Case[0]);
 
 
@@ -787,30 +788,50 @@ function App() {
     setMOBOIsPopupOpen(false);
   };
 
-  const [todos, setTodos] = useState([]);
-
-  const fetchTodos = async () => {
-    try {
-      const { data: todos, errors } = await client.models.Todo.list();
-      if (errors) {
-        console.error("Error fetching todos:", errors);
-        return [];
-      }
-      return todos;
-    } catch (error) {
-      console.error("Unexpected error fetching todos:", error);
-      return [];
-    }
-  };
+  const [builds, setBuilds] = useState([])
 
   useEffect(() => {
-    const fetchData = async () => {
-      const fetchedTodos = await fetchTodos();
-      setTodos(fetchedTodos);
-    };
+    fetchBuilds()
+  }, [])
 
-    fetchData();
-  }, []);
+  const client = generateClient();
+
+  const fetchBuilds = async () => {
+    try {
+      const buildData = await client.graphql({ query: listBuilds });
+      console.log(buildData);
+      setBuilds(buildData);
+      console.log(builds);
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
+  const addBuild = async () => {
+    try {
+      const result = await client.graphql({
+        query: createBuild,
+        variables: {
+          input: {
+            gpu: selectedGPU.name,
+            cpu: selectedCPU.name,
+            cooler: selectedCOOLER.name,
+            ram: selectedRAM.name,
+            numram: selectedRAM.RR,
+            drive: selectedSTOR.name,
+            numstorage: selectedSTOR.size,
+            mobo: selectedMOBO.name,
+            psu: selectedPSU.name
+          }
+        }
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
 
 
   return (
@@ -1168,11 +1189,7 @@ function App() {
           ]}/>
         </div>
 
-        <ul>
-          {todos.map((todo) => (
-              <li key={todo.id}>{todo.name}</li> // Adjust fields based on your data structure
-          ))}
-        </ul>
+        <button onClick={addBuild}>Submit Build</button>
 
       </div>
   );
