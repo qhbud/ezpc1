@@ -801,7 +801,6 @@ function App() {
   return (
     <div className="container">
       <ParticlesBackground/>
-      {YRAMselected.toString}
 
 
       <div className="App">
@@ -882,6 +881,7 @@ function App() {
 
       </div>
       ) : (null)}
+
 
       <div className="colored-box">
         {/* GPU Section */}
@@ -1188,6 +1188,21 @@ function App() {
         )}
       </div>
 
+      <div 
+          className="buildInfo" 
+          style={{ 
+            maxWidth: (selected && 
+                      YCOOLERselected && 
+                      YCPUselected && 
+                      YMOBOselected && 
+                      YPSUselected && 
+                      YRAMselected && 
+                      YSTORselected) ? "950px" : "300px" 
+          }}
+        >
+      known issues: <br />
+      total cost: {Number(selectedGPU.cost) + Number(selectedCPU.cost) + Number(selectedCOOLER.cost) + Number(selectedSTOR.cost) + Number(selectedMOBO.cost) + Number(selectedPSU.cost) + Number(selectedRAM.cost) * Number(ramcount)}
+      </div>
 
 
     </div>

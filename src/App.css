@@ -19,7 +19,7 @@
 
 .r2 {
 
-  margin-top: 900px;
+  margin-top: 1065px;
 }
 
 
@@ -58,6 +58,16 @@
   box-sizing: border-box;
 }
 
+.buildInfo {
+  background-color: #969a9f;
+  margin: 110px;
+  padding: 50px;
+  max-width: 955px;
+  max-height: 8000px;
+  width: 80vw; /* 90% of viewport width */
+  border-radius: 10px;
+  text-align: center;
+}
 
 .select-case-btn {
   position: absolute; /* Position the button absolutely within the box */
