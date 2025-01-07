@@ -147,7 +147,7 @@ const RAMs = [
     Icon: cl1616,
     cost: 80,
     Link: 'https://amzn.to/3YVqSVx',
-    DDR: 4,
+    DDR: "DDR4",
     RR: 3200,
   },
   {
@@ -155,7 +155,7 @@ const RAMs = [
     Icon: cl1632,
     cost: 105,
     Link: 'https://amzn.to/3CA6pOx',
-    DDR: 4,
+    DDR: "DDR4",
     RR: 3200,
   },
   {
@@ -163,7 +163,7 @@ const RAMs = [
     Icon: cl1816,
     cost: 65,
     Link: 'https://amzn.to/3YYbBmE',
-    DDR: 4,
+    DDR: "DDR4",
     RR: 3600,
   },
   {
@@ -171,7 +171,7 @@ const RAMs = [
     Icon: cl3016,
     cost: 120,
     Link: 'https://amzn.to/3YYbBmE',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6000,
   },
   {
@@ -179,7 +179,7 @@ const RAMs = [
     Icon: cl3024,
     cost: 165,
     Link: 'https://amzn.to/3Ohho1Q',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6000,
   },
   {
@@ -187,7 +187,7 @@ const RAMs = [
     Icon: cl3032,
     cost: 220,
     Link: 'https://amzn.to/40Q6irZ',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6000,
   },
   {
@@ -195,7 +195,7 @@ const RAMs = [
     Icon: cl3048,
     cost: 330,
     Link: 'https://amzn.to/4fvUdg5',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6000,
   },
   {
@@ -203,7 +203,7 @@ const RAMs = [
     Icon: cl3616,
     cost: 130,
     Link: 'https://amzn.to/3ZbrdV8',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6400,
   },
   {
@@ -211,7 +211,7 @@ const RAMs = [
     Icon: cl3648,
     cost: 363,
     Link: 'https://amzn.to/3ZabmGq',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6400,
   },
 ];
@@ -285,6 +285,7 @@ const CPUs = [
     Multi: 98,
     Threads: 32,
     Release: 2022,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/48ICeRb',
   },
@@ -296,6 +297,7 @@ const CPUs = [
     Multi: 70,
     Threads: 24,
     Release: 2021,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UOs37I',
   },
@@ -307,6 +309,7 @@ const CPUs = [
     Multi: 80,
     Threads: 24,
     Release: 2022,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UQQhhJ',
   },
@@ -318,6 +321,7 @@ const CPUs = [
     Multi: 60,
     Threads: 20,
     Release: 2021,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/4hKDR4P',
   },
@@ -329,6 +333,7 @@ const CPUs = [
     Multi: 61,
     Threads: 20,
     Release: 2022,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UNNia1',
   },
@@ -340,6 +345,7 @@ const CPUs = [
     Multi: 46,
     Threads: 16,
     Release: 2021,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/4hI1Txq',
   },
@@ -352,6 +358,7 @@ const CPUs = [
     Multi: 100.0,
     Threads: 32,
     Release: 2022,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4hI1POc',
   },
@@ -363,6 +370,7 @@ const CPUs = [
     Multi: 94.7,
     Threads: 32,
     Release: 2023,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/48N0UYT',
   },
@@ -374,6 +382,7 @@ const CPUs = [
     Multi: 79.51,
     Threads: 24,
     Release: 2022,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4hGBosf',
   },
@@ -385,6 +394,7 @@ const CPUs = [
     Multi: 69.97,
     Threads: 24,
     Release: 2023,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4euYSxw',
   },
@@ -396,6 +406,7 @@ const CPUs = [
     Multi: 52.3,
     Threads: 16,
     Release: 2023,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3CkuvMS',
   },
@@ -407,6 +418,7 @@ const CPUs = [
     Multi: 56.15,
     Threads: 16,
     Release: 2022,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3AOWiVg',
   },
@@ -418,6 +430,7 @@ const CPUs = [
     Multi: 43.89,
     Threads: 12,
     Release: 2022,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3YNf6fC',
   },
@@ -429,6 +442,7 @@ const CPUs = [
     Multi: 40.61,
     Threads: 12,
     Release: 2023,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3ABJSQF',
   },
@@ -440,6 +454,7 @@ const CPUs = [
     Multi: 58.02,
     Threads: 24,
     Release: 2020,
+    Chipset: "AM4",
     Design: 'AMD',
     Link: 'https://amzn.to/4etDqJn',
   },
@@ -451,6 +466,7 @@ const CPUs = [
     Multi: 39.77,
     Threads: 16,
     Release: 2022,
+    Chipset: "AM4",
     Design: 'AMD',
     Link: 'https://amzn.to/4etv44i',
   },
@@ -462,6 +478,7 @@ const CPUs = [
     Multi: 32.5,
     Threads: 12,
     Release: 2020,
+    Chipset: "AM4",
     Design: 'AMD',
     Link: 'https://amzn.to/3UNtvam',
   },
@@ -699,12 +716,12 @@ function App() {
   };
 
   const [selectedGPU, setSelectedGPU] = useState(GPUs[0]);
-  const [selectedCPU, setSelectedCPU] = useState(CPUs[0]);
-  const [selectedRAM, setSelectedRAM] = useState(CPUs[0]);
-  const [selectedCOOLER, setSelectedCOOLER] = useState(CPUs[0]);
-  const [selectedSTOR, setSelectedSTOR] = useState(CPUs[0]);
-  const [selectedPSU, setSelectedPSU] = useState(CPUs[0])
-  const [selectedMOBO, setSelectedMOBO] = useState(CPUs[0]);
+  const [selectedCPU, setSelectedCPU] = useState(CPUs[14]);
+  const [selectedRAM, setSelectedRAM] = useState(RAMs[0]);
+  const [selectedCOOLER, setSelectedCOOLER] = useState(Coolers[0]);
+  const [selectedSTOR, setSelectedSTOR] = useState(Storage[0]);
+  const [selectedPSU, setSelectedPSU] = useState(PSU[0])
+  const [selectedMOBO, setSelectedMOBO] = useState(MOBO[0]);
   const [selectedCASE, setSelectedCASE] = useState(Case[0]);
 
 
@@ -1200,8 +1217,47 @@ function App() {
                       YSTORselected) ? "950px" : "300px" 
           }}
         >
-      known issues: <br />
-      total cost: {Number(selectedGPU.cost) + Number(selectedCPU.cost) + Number(selectedCOOLER.cost) + Number(selectedSTOR.cost) + Number(selectedMOBO.cost) + Number(selectedPSU.cost) + Number(selectedRAM.cost) * Number(ramcount)}
+       {selectedMOBO.Ram === selectedRAM.DDR && selectedCPU.Chipset === selectedMOBO.Chipset ? (
+        <p style={{ color: 'green' }}>All components are compatible!</p>
+      ) : (
+        <p style={{ color: 'maroon' }}>
+          Compatibility issues detected:
+          <ul>
+            {selectedMOBO.Ram !== selectedRAM.DDR && (
+              <li>RAM type mismatch: MOBO requires {selectedMOBO.Ram}, but selected RAM is {selectedRAM.DDR}.</li>
+            )}
+            {selectedCPU.Chipset !== selectedMOBO.Chipset && (
+              <li>Chipset mismatch: CPU chipset is {selectedCPU.Chipset}, but MOBO requires {selectedMOBO.Chipset}.</li>
+            )}
+          </ul>
+        </p>
+      )}
+      <br />
+            {(
+        YCPUselected || 
+        YCOOLERselected || 
+        YMOBOselected || 
+        YPSUselected || 
+        YRAMselected || 
+        YSTORselected || 
+        selected
+      ) && (
+        
+                <div>
+                    <hr class="build-divider" />
+
+                  Total Cost: 
+                  { 
+              (YCPUselected ? Number(selectedCPU.cost) : 0) +
+              (YCOOLERselected ? Number(selectedCOOLER.cost) : 0) +
+              (YMOBOselected ? Number(selectedMOBO.cost) : 0) +
+              (YPSUselected ? Number(selectedPSU.cost) : 0) +
+              (YRAMselected ? Number(selectedRAM.cost) * Number(ramcount) : 0) +
+              (YSTORselected ? Number(selectedSTOR.cost) : 0) +
+              (selectedGPU ? Number(selectedGPU.cost) : 0)
+            }
+          </div>
+          )}
       </div>
 
 
