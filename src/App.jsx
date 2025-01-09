@@ -1205,60 +1205,57 @@ function App() {
         )}
       </div>
 
-      <div 
-          className="buildInfo" 
-          style={{ 
-            maxWidth: (selected && 
-                      YCOOLERselected && 
-                      YCPUselected && 
-                      YMOBOselected && 
-                      YPSUselected && 
-                      YRAMselected && 
-                      YSTORselected) ? "950px" : "300px" 
-          }}
+              <div 
+            className="buildInfo" 
+            style={{ 
+                maxWidth: (selected && 
+                          YCOOLERselected && 
+                          YCPUselected && 
+                          YMOBOselected && 
+                          YPSUselected && 
+                          YRAMselected && 
+                          YSTORselected) ? "950px" : "300px" 
+            }}
         >
-       {selectedMOBO.Ram === selectedRAM.DDR && selectedCPU.Chipset === selectedMOBO.Chipset ? (
-        <p style={{ color: 'green' }}>All components are compatible!</p>
-      ) : (
-        <p style={{ color: 'maroon' }}>
-          Compatibility issues detected:
-          <ul>
-            {selectedMOBO.Ram !== selectedRAM.DDR && (
-              <li>RAM type mismatch: MOBO requires {selectedMOBO.Ram}, but selected RAM is {selectedRAM.DDR}.</li>
-            )}
-            {selectedCPU.Chipset !== selectedMOBO.Chipset && (
-              <li>Chipset mismatch: CPU chipset is {selectedCPU.Chipset}, but MOBO requires {selectedMOBO.Chipset}.</li>
-            )}
-          </ul>
-        </p>
-      )}
-      <br />
-            {(
-        YCPUselected || 
-        YCOOLERselected || 
-        YMOBOselected || 
-        YPSUselected || 
-        YRAMselected || 
-        YSTORselected || 
-        selected
-      ) && (
-        
-                <div>
-                    <hr class="build-divider" />
-
-                  Total Cost: 
-                  { 
-              (YCPUselected ? Number(selectedCPU.cost) : 0) +
-              (YCOOLERselected ? Number(selectedCOOLER.cost) : 0) +
-              (YMOBOselected ? Number(selectedMOBO.cost) : 0) +
-              (YPSUselected ? Number(selectedPSU.cost) : 0) +
-              (YRAMselected ? Number(selectedRAM.cost) * Number(ramcount) : 0) +
-              (YSTORselected ? Number(selectedSTOR.cost) : 0) +
-              (selectedGPU ? Number(selectedGPU.cost) : 0)
-            }
-          </div>
+          {(selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected ) || (selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YRAMselected) ? (
+            <p style={{ color: 'maroon' }}>
+              Compatibility issues detected:
+              <ul>
+                {selectedMOBO.Ram !== selectedRAM.DDR && (
+                  <li>RAM type mismatch: MOBO requires {selectedMOBO.Ram}, but selected RAM is {selectedRAM.DDR}.</li>
+                )}
+                {selectedCPU.Chipset !== selectedMOBO.Chipset && (
+                  <li>Chipset mismatch: CPU chipset is {selectedCPU.Chipset}, but MOBO requires {selectedMOBO.Chipset}.</li>
+                )}
+              </ul>
+            </p>
+          ) : (
+            <p style={{ color: 'green' }}>All components are compatible!</p>
           )}
-      </div>
+          <br />
+          {(YCPUselected || 
+            YCOOLERselected || 
+            YMOBOselected || 
+            YPSUselected || 
+            YRAMselected || 
+            YSTORselected || 
+            selected) && (
+              <div>
+                  <hr class="build-divider" />
+
+                Total Cost: 
+                { 
+                  (YCPUselected ? Number(selectedCPU.cost) : 0) +
+                  (YCOOLERselected ? Number(selectedCOOLER.cost) : 0) +
+                  (YMOBOselected ? Number(selectedMOBO.cost) : 0) +
+                  (YPSUselected ? Number(selectedPSU.cost) : 0) +
+                  (YRAMselected ? Number(selectedRAM.cost) * Number(ramcount) : 0) +
+                  (YSTORselected ? Number(selectedSTOR.cost) : 0) +
+                  (selectedGPU ? Number(selectedGPU.cost) : 0)
+                }
+              </div>
+          )}
+        </div>
 
 
     </div>
