@@ -843,7 +843,7 @@ function App() {
           {selectedCASE ? selectedCASE.name : "Select Case"}
           </button>
 
-          <a href={selectedCASE.Link}>
+          <a href={selectedCASE.Link} target="_blank" rel="noopener noreferrer">
                   <img src={amazonicon} className="amazonIconCASE" alt="Amazon" />
                   <div className="CASE-cost">${selectedCASE.cost}</div>
                 </a>
@@ -916,7 +916,7 @@ function App() {
               >
                 {selectedGPU.name}
               </button>
-              <a href={selectedGPU.Link}>
+              <a href={selectedGPU.Link} target="_blank" rel="noopener noreferrer">
                 <img src={amazonicon} className="amazonIcon" alt="Amazon" />
                 <div className="gpu-cost">${selectedGPU.cost}</div>
               </a>
@@ -958,7 +958,7 @@ function App() {
               >
                 {selectedCPU.name}
               </button>
-              <a href={selectedCPU.Link}>
+              <a href={selectedCPU.Link} target="_blank" rel="noopener noreferrer">
                 <img src={amazonicon} className="amazonIconCPU" alt="Amazon" />
                 <div className="cpu-cost">${selectedCPU.cost}</div>
               </a>
@@ -1000,7 +1000,7 @@ function App() {
               >
                 {selectedCOOLER.name}
               </button>
-              <a href={selectedCOOLER.Link}>
+              <a href={selectedCOOLER.Link} target="_blank" rel="noopener noreferrer">
                 <img
                   src={amazonicon}
                   className="amazonIconCOOLER"
@@ -1048,7 +1048,7 @@ function App() {
               >
                 {selectedRAM.name}
               </button>
-              <a href={selectedRAM.Link}>
+              <a href={selectedRAM.Link} target="_blank" rel="noopener noreferrer">
                 <img src={amazonicon} className="amazonIconRAM" alt="Amazon" />
                 <div className="RAM-cost">${selectedRAM.cost}</div>
               </a>
@@ -1097,7 +1097,7 @@ function App() {
               >
                 {selectedSTOR.name}
               </button>
-              <a href={selectedSTOR.Link}>
+              <a href={selectedSTOR.Link} target="_blank" rel="noopener noreferrer">
                 <img src={amazonicon} className="amazonIconSTOR" alt="Amazon" />
                 <div className="STOR-cost">${selectedSTOR.cost}</div>
               </a>
@@ -1141,7 +1141,7 @@ function App() {
               >
                 {selectedMOBO.name}
               </button>
-              <a href={selectedMOBO.Link}>
+              <a href={selectedMOBO.Link} target="_blank" rel="noopener noreferrer">
                 <img src={amazonicon} className="amazonIconMOBO" alt="Amazon" />
                 <div className="MOBO-cost">${selectedMOBO.cost}</div>
               </a>
@@ -1182,7 +1182,7 @@ function App() {
               >
                 {selectedPSU.name}
               </button>
-              <a href={selectedPSU.Link}>
+              <a href={selectedPSU.Link} target="_blank" rel="noopener noreferrer">
                 <img src={amazonicon} className="amazonIconPSU" alt="Amazon" />
                 <div className="PSU-cost">${selectedPSU.cost}</div>
               </a>
@@ -1251,7 +1251,7 @@ function App() {
                   (YPSUselected ? Number(selectedPSU.cost) : 0) +
                   (YRAMselected ? Number(selectedRAM.cost) * Number(ramcount) : 0) +
                   (YSTORselected ? Number(selectedSTOR.cost) : 0) +
-                  (selectedGPU ? Number(selectedGPU.cost) : 0)
+                  (selected ? Number(selectedGPU.cost) : 0)
                 }
               </div>
           )}
