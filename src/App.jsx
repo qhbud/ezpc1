@@ -114,6 +114,7 @@ import pg80 from './assets/components/80+ Gold.svg'
 import pn80 from './assets/components/80+ non modular.svg'
 
 import Treemap from './assets/components/treemap.jsx';
+import ParticlesBackground from './assets/components/Particles.jsx';
 
 
 
@@ -151,7 +152,7 @@ const RAMs = [
     Icon: cl1616,
     cost: 80,
     Link: 'https://amzn.to/3YVqSVx',
-    DDR: 4,
+    DDR: "DDR4",
     RR: 3200,
   },
   {
@@ -159,7 +160,7 @@ const RAMs = [
     Icon: cl1632,
     cost: 105,
     Link: 'https://amzn.to/3CA6pOx',
-    DDR: 4,
+    DDR: "DDR4",
     RR: 3200,
   },
   {
@@ -167,7 +168,7 @@ const RAMs = [
     Icon: cl1816,
     cost: 65,
     Link: 'https://amzn.to/3YYbBmE',
-    DDR: 4,
+    DDR: "DDR4",
     RR: 3600,
   },
   {
@@ -175,7 +176,7 @@ const RAMs = [
     Icon: cl3016,
     cost: 120,
     Link: 'https://amzn.to/3YYbBmE',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6000,
   },
   {
@@ -183,7 +184,7 @@ const RAMs = [
     Icon: cl3024,
     cost: 165,
     Link: 'https://amzn.to/3Ohho1Q',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6000,
   },
   {
@@ -191,7 +192,7 @@ const RAMs = [
     Icon: cl3032,
     cost: 220,
     Link: 'https://amzn.to/40Q6irZ',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6000,
   },
   {
@@ -199,7 +200,7 @@ const RAMs = [
     Icon: cl3048,
     cost: 330,
     Link: 'https://amzn.to/4fvUdg5',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6000,
   },
   {
@@ -207,7 +208,7 @@ const RAMs = [
     Icon: cl3616,
     cost: 130,
     Link: 'https://amzn.to/3ZbrdV8',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6400,
   },
   {
@@ -215,7 +216,7 @@ const RAMs = [
     Icon: cl3648,
     cost: 363,
     Link: 'https://amzn.to/3ZabmGq',
-    DDR: 5,
+    DDR: "DDR5",
     RR: 6400,
   },
 ];
@@ -289,6 +290,7 @@ const CPUs = [
     Multi: 98,
     Threads: 32,
     Release: 2022,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/48ICeRb',
   },
@@ -300,6 +302,7 @@ const CPUs = [
     Multi: 70,
     Threads: 24,
     Release: 2021,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UOs37I',
   },
@@ -311,6 +314,7 @@ const CPUs = [
     Multi: 80,
     Threads: 24,
     Release: 2022,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UQQhhJ',
   },
@@ -322,6 +326,7 @@ const CPUs = [
     Multi: 60,
     Threads: 20,
     Release: 2021,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/4hKDR4P',
   },
@@ -333,6 +338,7 @@ const CPUs = [
     Multi: 61,
     Threads: 20,
     Release: 2022,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UNNia1',
   },
@@ -344,6 +350,7 @@ const CPUs = [
     Multi: 46,
     Threads: 16,
     Release: 2021,
+    Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/4hI1Txq',
   },
@@ -356,6 +363,7 @@ const CPUs = [
     Multi: 100.0,
     Threads: 32,
     Release: 2022,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4hI1POc',
   },
@@ -367,6 +375,7 @@ const CPUs = [
     Multi: 94.7,
     Threads: 32,
     Release: 2023,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/48N0UYT',
   },
@@ -378,6 +387,7 @@ const CPUs = [
     Multi: 79.51,
     Threads: 24,
     Release: 2022,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4hGBosf',
   },
@@ -389,6 +399,7 @@ const CPUs = [
     Multi: 69.97,
     Threads: 24,
     Release: 2023,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4euYSxw',
   },
@@ -400,6 +411,7 @@ const CPUs = [
     Multi: 52.3,
     Threads: 16,
     Release: 2023,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3CkuvMS',
   },
@@ -411,6 +423,7 @@ const CPUs = [
     Multi: 56.15,
     Threads: 16,
     Release: 2022,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3AOWiVg',
   },
@@ -422,6 +435,7 @@ const CPUs = [
     Multi: 43.89,
     Threads: 12,
     Release: 2022,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3YNf6fC',
   },
@@ -433,6 +447,7 @@ const CPUs = [
     Multi: 40.61,
     Threads: 12,
     Release: 2023,
+    Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3ABJSQF',
   },
@@ -444,6 +459,7 @@ const CPUs = [
     Multi: 58.02,
     Threads: 24,
     Release: 2020,
+    Chipset: "AM4",
     Design: 'AMD',
     Link: 'https://amzn.to/4etDqJn',
   },
@@ -455,6 +471,7 @@ const CPUs = [
     Multi: 39.77,
     Threads: 16,
     Release: 2022,
+    Chipset: "AM4",
     Design: 'AMD',
     Link: 'https://amzn.to/4etv44i',
   },
@@ -466,6 +483,7 @@ const CPUs = [
     Multi: 32.5,
     Threads: 12,
     Release: 2020,
+    Chipset: "AM4",
     Design: 'AMD',
     Link: 'https://amzn.to/3UNtvam',
   },
@@ -835,24 +853,22 @@ function App() {
 
 
   return (
-
-
-      <div className="container">
-          {YRAMselected.toString}
+    <div className="container">
+      <ParticlesBackground/>
 
 
           <div className="App">
           </div>
 
-          {CASEisPopupOpen && (
-              <PopupCase
-                  CPUs={Case}
-                  onClose={() => setIsCASEPopupOpen(false)}
-                  onSelect={handleSelectCASE}
-              />
-          )}
-          {selected && YCOOLERselected && YCPUselected && YMOBOselected && YPSUselected && YPSUselected && YRAMselected && YSTORselected ? (
-              <div className="case">
+      {CASEisPopupOpen && (
+          <PopupCase
+            CPUs={Case}
+            onClose={() => setCASEIsPopupOpen(false)}
+            onSelect={handleSelectCASE}
+          />
+        )}
+    {selected && YCOOLERselected && YCPUselected && YMOBOselected && YPSUselected && YPSUselected && YRAMselected && YSTORselected ? (
+        <div className="case">
 
 
                   <button
@@ -869,48 +885,96 @@ function App() {
                   </a>
 
 
+          <div className="r2" style={{
+              width: '100%',
+              display: 'block'  // Override flex display
+            }}>
+              <div style={{
+                width: '100%',
+                maxWidth: '800px',
+                margin: '0 auto',
+                display: 'block'  // Override flex display
+              }}>
+                <Treemap data={[
+                  { label: "GPU", value: selectedGPU.cost },
+                  { label: "CPU", value: selectedCPU.cost },
+                  { label: "Cooler", value: selectedCOOLER.cost },
+                  { label: "RAM", value: selectedRAM.cost },
+                  { label: "Storage", value: selectedSTOR.cost },
+                  { label: "Motherboard", value: selectedMOBO.cost },
+                  { label: "PSU", value: selectedPSU.cost },
+                  { label: "Case", value: selectedCASE.cost }
+                ]} />
               </div>
-          ) : (null)}
+            </div>
 
-          <div className="colored-box">
-              {/* GPU Section */}
-              <div className="gpu-container">
-                  {selected ? (
-                      <div className="gray-box">
-                          <img
-                              src={selectedGPU.Icon}
-                              alt="gpu"
-                              className="gpu-background"
-                          />
-                          <button
-                              className="select-gpu-btn"
-                              onClick={() => setIsPopupOpen(true)}
-                          >
-                              {selectedGPU.name}
-                          </button>
-                          <a href={selectedGPU.Link}>
-                              <img src={amazonicon} className="amazonIcon" alt="Amazon"/>
-                              <div className="gpu-cost">${selectedGPU.cost}</div>
-                          </a>
-                          <div className="gpu-vram">{selectedGPU.vram}gbvram</div>
-                      </div>
-                  ) : (
-                      <button
-                          className="select-gpu-btn2"
-                          onClick={() => setIsPopupOpen(true)}
-                      >
-                          Select GPU
-                      </button>
-                  )}
+            <div className="r1" style={{
+              width: '100%',
+              display: 'block'  // Override flex display
+            }}>
+              <div style={{
+                width: '100%',
+                maxWidth: '800px',
+                margin: '0 auto',
+                display: 'block'  // Override flex display
+              }}>
+                <Treemap data={[
+                  { label: "GPU", value: 1 },
+                  { label: "CPU", value: 1 },
+                  { label: "Cooler", value: 1 },
+                  { label: "RAM", value: 1 },
+                  { label: "Storage", value: 1 },
+                  { label: "Motherboard", value: 1 },
+                  { label: "PSU", value: 1 },
+                  { label: "Case", value: 1 }
+                ]} />
               </div>
-              {isPopupOpen && (
-                  <Popup
-                      GPUs={GPUs}
-                      onClose={() => setIsPopupOpen(false)}
-                      onSelect={handleSelectGPU}
-                  />
-              )}
-          </div>
+            </div>
+
+
+      </div>
+      ) : (null)}
+
+
+      <div className="colored-box">
+        {/* GPU Section */}
+        <div className="gpu-container">
+          {selected ? (
+            <div className="gray-box">
+              <img
+                src={selectedGPU.Icon}
+                alt="gpu"
+                className="gpu-background"
+              />
+              <button
+                className="select-gpu-btn"
+                onClick={() => setIsPopupOpen(true)}
+              >
+                {selectedGPU.name}
+              </button>
+              <a href={selectedGPU.Link}>
+                <img src={amazonicon} className="amazonIcon" alt="Amazon" />
+                <div className="gpu-cost">${selectedGPU.cost}</div>
+              </a>
+              <div className="gpu-vram">{selectedGPU.vram}gbvram </div>
+            </div>
+          ) : (
+            <button
+              className="select-gpu-btn2"
+              onClick={() => setIsPopupOpen(true)}
+            >
+              Select GPU
+            </button>
+          )}
+        </div>
+        {isPopupOpen && (
+          <Popup
+            GPUs={GPUs}
+            onClose={() => setIsPopupOpen(false)}
+            onSelect={handleSelectGPU}
+          />
+        )}
+      </div>
 
           <span style={{display: 'inline-block', width: '20px'}}></span>
 
@@ -1053,44 +1117,44 @@ function App() {
 
           <span style={{display: 'inline-block', width: '20px'}}></span>
 
-          <div className="colored-boxSTOR">
-              {/* CPU Section */}
-              <div className="STOR-container">
-                  {YSTORselected ? (
-                      <div className="STOR-box">
-                          <img
-                              src={selectedSTOR.Icon}
-                              alt="cpu"
-                              className="STOR-background"
-                          />
-                          <button
-                              className="select-STOR-btn"
-                              onClick={() => setSTORIsPopupOpen(true)}
-                          >
-                              {selectedSTOR.name}
-                          </button>
-                          <a href={selectedSTOR.Link}>
-                              <img src={amazonicon} className="amazonIconSTOR" alt="Amazon"/>
-                              <div className="STOR-cost">${selectedSTOR.cost}</div>
-                          </a>
-                      </div>
-                  ) : (
-                      <button
-                          className="select-STOR-btn2"
-                          onClick={() => setSTORIsPopupOpen(true)}
-                      >
-                          Select Storage
-                      </button>
-                  )}
-              </div>
-              {STORisPopupOpen && (
-                  <PopupSTOR
-                      CPUs={Storage}
-                      onClose={() => setSTORsPopupOpen(false)}
-                      onSelect={handleSelectSTOR}
-                  />
-              )}
-          </div>
+      <div className="colored-boxSTOR">
+        {/* CPU Section */}
+        <div className="STOR-container">
+          {YSTORselected ? (
+            <div className="STOR-box">
+              <img
+                src={selectedSTOR.Icon}
+                alt="cpu"
+                className="STOR-background"
+              />
+              <button
+                className="select-STOR-btn"
+                onClick={() => setSTORIsPopupOpen(true)}
+              >
+                {selectedSTOR.name}
+              </button>
+              <a href={selectedSTOR.Link}>
+                <img src={amazonicon} className="amazonIconSTOR" alt="Amazon" />
+                <div className="STOR-cost">${selectedSTOR.cost}</div>
+              </a>
+            </div>
+          ) : (
+            <button
+              className="select-STOR-btn2"
+              onClick={() => setSTORIsPopupOpen(true)}
+            >
+              Select Storage
+            </button>
+          )}
+        </div>
+        {STORisPopupOpen && (
+          <PopupSTOR
+            CPUs={Storage}
+            onClose={() => setSTORIsPopupOpen(false)}
+            onSelect={handleSelectSTOR}
+          />
+        )}
+      </div>
 
 
           <div style={{height: "20px"}}></div>
@@ -1137,97 +1201,107 @@ function App() {
 
           <span style={{display: 'inline-block', width: '30px'}}></span>
 
-          <div className="colored-boxPSU">
-              {/* CPU Section */}
-              <div className="PSU-container">
-                  {YPSUselected ? (
-                      <div className="PSU-box">
-                          <img
-                              src={selectedPSU.Icon}
-                              alt="PSU"
-                              className="PSU-background"
-                          />
-                          <button
-                              className="select-PSU-btn"
-                              onClick={() => setPSUIsPopupOpen(true)}
-                          >
-                              {selectedPSU.name}
-                          </button>
-                          <a href={selectedPSU.Link}>
-                              <img src={amazonicon} className="amazonIconPSU" alt="Amazon"/>
-                              <div className="PSU-cost">${selectedPSU.cost}</div>
-                          </a>
-                      </div>
-                  ) : (
-                      <button
-                          className="select-PSU-btn2"
-                          onClick={() => setPSUIsPopupOpen(true)}
-                      >
-                          Select PSU
-                      </button>
-                  )}
-              </div>
-              {PSUisPopupOpen && (
-                  <PopupPSU
-                      CPUs={PSU}
-                      onClose={() => setPSUIsPopupOpen(false)}
-                      onSelect={handleSelectPSU}
-                  />
-              )}
-          </div>
-
-          <div className="map1">
-              <Treemap data={[
-                  {label: "A", value: selectedGPU.cost},
-                  {label: "B", value: selectedCPU.cost},
-                  {label: "C", value: selectedCOOLER.cost},
-                  {label: "D", value: selectedRAM.cost},
-                  {label: "E", value: selectedSTOR.cost},
-                  {label: "F", value: selectedMOBO.cost},
-                  {label: "G", value: selectedPSU.cost},
-                  {label: "H", value: selectedCASE.cost}
-              ]}/>
-          </div>
-
-          <button onClick={addBuild}>Submit Build</button>
-
-          <div>
-              <h1>Builds</h1>
-              <table border="1" style={{width: "100%", textAlign: "left"}}>
-                  <thead>
-                  <tr>
-                      <th>GPU</th>
-                      <th>CPU</th>
-                      <th>Cooler</th>
-                      <th>RAM</th>
-                      <th>Number of RAM Sticks</th>
-                      <th>Drive</th>
-                      <th>Number of Storage Drives</th>
-                      <th>Motherboard</th>
-                      <th>PSU</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {builds.map((build, index) => (
-                      <tr key={index}>
-                          <td>{build.gpu}</td>
-                          <td>{build.cpu}</td>
-                          <td>{build.cooler}</td>
-                          <td>{build.ram}</td>
-                          <td>{build.numram}</td>
-                          <td>{build.drive}</td>
-                          <td>{build.numstorage}</td>
-                          <td>{build.mobo}</td>
-                          <td>{build.psu}</td>
-                      </tr>
-                  ))}
-                  </tbody>
-              </table>
-          </div>
-
+      <div className="colored-boxPSU">
+        {/* CPU Section */}
+        <div className="PSU-container">
+          {YPSUselected ? (
+            <div className="PSU-box">
+              <img
+                src={selectedPSU.Icon}
+                alt="PSU"
+                className="PSU-background"
+              />
+              <button
+                className="select-PSU-btn"
+                onClick={() => setPSUIsPopupOpen(true)}
+              >
+                {selectedPSU.name}
+              </button>
+              <a href={selectedPSU.Link}>
+                <img src={amazonicon} className="amazonIconPSU" alt="Amazon" />
+                <div className="PSU-cost">${selectedPSU.cost}</div>
+              </a>
+            </div>
+          ) : (
+            <button
+              className="select-PSU-btn2"
+              onClick={() => setPSUIsPopupOpen(true)}
+            >
+              Select PSU
+            </button>
+          )}
+        </div>
+        {PSUisPopupOpen && (
+          <PopupPSU
+            CPUs={PSU}
+            onClose={() => setPSUIsPopupOpen(false)}
+            onSelect={handleSelectPSU}
+          />
+        )}
       </div>
+
+      <div
+          className="buildInfo"
+          style={{
+            maxWidth: (selected &&
+                      YCOOLERselected &&
+                      YCPUselected &&
+                      YMOBOselected &&
+                      YPSUselected &&
+                      YRAMselected &&
+                      YSTORselected) ? "950px" : "300px"
+          }}
+        >
+       {selectedMOBO.Ram === selectedRAM.DDR && selectedCPU.Chipset === selectedMOBO.Chipset ? (
+        <p style={{ color: 'green' }}>All components are compatible!</p>
+      ) : (
+        <p style={{ color: 'maroon' }}>
+          Compatibility issues detected:
+          <ul>
+            {selectedMOBO.Ram !== selectedRAM.DDR && (
+              <li>RAM type mismatch: MOBO requires {selectedMOBO.Ram}, but selected RAM is {selectedRAM.DDR}.</li>
+            )}
+            {selectedCPU.Chipset !== selectedMOBO.Chipset && (
+              <li>Chipset mismatch: CPU chipset is {selectedCPU.Chipset}, but MOBO requires {selectedMOBO.Chipset}.</li>
+            )}
+          </ul>
+        </p>
+      )}
+      <br />
+            {(
+        YCPUselected ||
+        YCOOLERselected ||
+        YMOBOselected ||
+        YPSUselected ||
+        YRAMselected ||
+        YSTORselected ||
+        selected
+      ) && (
+
+                <div>
+                    <hr class="build-divider" />
+
+                  Total Cost:
+                  {
+              (YCPUselected ? Number(selectedCPU.cost) : 0) +
+              (YCOOLERselected ? Number(selectedCOOLER.cost) : 0) +
+              (YMOBOselected ? Number(selectedMOBO.cost) : 0) +
+              (YPSUselected ? Number(selectedPSU.cost) : 0) +
+              (YRAMselected ? Number(selectedRAM.cost) * Number(ramcount) : 0) +
+              (YSTORselected ? Number(selectedSTOR.cost) : 0) +
+              (selectedGPU ? Number(selectedGPU.cost) : 0)
+            }
+          </div>
+          )}
+      </div>
+
+
+    </div>
+
+
   );
 }
+
 
 
 export default App;
