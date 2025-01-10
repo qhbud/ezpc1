@@ -5,12 +5,21 @@ input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONL
 type Build @model {
   id: ID!
   gpu: String!
+  gpuCost: Int!
   cpu: String!
+  cpuCost: Int!
   cooler: String!
+  coolerCost: Int!
   ram: String!
+  ramCost: Int!
   numram: Int!
   drive: String!
+  driveCost: Int!
   numstorage: Int!
   mobo: String!
+  moboCost: Int!
   psu: String!
+  psuCost: Int!
+  case: String!
+  caseCost: Int!
 }

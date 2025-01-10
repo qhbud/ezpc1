@@ -6,14 +6,23 @@ export const onCreateBuild = /* GraphQL */ `
     onCreateBuild(filter: $filter) {
       id
       gpu
+      gpuCost
       cpu
+      cpuCost
       cooler
+      coolerCost
       ram
+      ramCost
       numram
       drive
+      driveCost
       numstorage
       mobo
+      moboCost
       psu
+      psuCost
+      case
+      caseCost
       createdAt
       updatedAt
       __typename
@@ -25,14 +34,23 @@ export const onUpdateBuild = /* GraphQL */ `
     onUpdateBuild(filter: $filter) {
       id
       gpu
+      gpuCost
       cpu
+      cpuCost
       cooler
+      coolerCost
       ram
+      ramCost
       numram
       drive
+      driveCost
       numstorage
       mobo
+      moboCost
       psu
+      psuCost
+      case
+      caseCost
       createdAt
       updatedAt
       __typename
@@ -44,14 +62,23 @@ export const onDeleteBuild = /* GraphQL */ `
     onDeleteBuild(filter: $filter) {
       id
       gpu
+      gpuCost
       cpu
+      cpuCost
       cooler
+      coolerCost
       ram
+      ramCost
       numram
       drive
+      driveCost
       numstorage
       mobo
+      moboCost
       psu
+      psuCost
+      case
+      caseCost
       createdAt
       updatedAt
       __typename

@@ -9,14 +9,23 @@ export const createBuild = /* GraphQL */ `
     createBuild(input: $input, condition: $condition) {
       id
       gpu
+      gpuCost
       cpu
+      cpuCost
       cooler
+      coolerCost
       ram
+      ramCost
       numram
       drive
+      driveCost
       numstorage
       mobo
+      moboCost
       psu
+      psuCost
+      case
+      caseCost
       createdAt
       updatedAt
       __typename
@@ -31,14 +40,23 @@ export const updateBuild = /* GraphQL */ `
     updateBuild(input: $input, condition: $condition) {
       id
       gpu
+      gpuCost
       cpu
+      cpuCost
       cooler
+      coolerCost
       ram
+      ramCost
       numram
       drive
+      driveCost
       numstorage
       mobo
+      moboCost
       psu
+      psuCost
+      case
+      caseCost
       createdAt
       updatedAt
       __typename
@@ -53,14 +71,23 @@ export const deleteBuild = /* GraphQL */ `
     deleteBuild(input: $input, condition: $condition) {
       id
       gpu
+      gpuCost
       cpu
+      cpuCost
       cooler
+      coolerCost
       ram
+      ramCost
       numram
       drive
+      driveCost
       numstorage
       mobo
+      moboCost
       psu
+      psuCost
+      case
+      caseCost
       createdAt
       updatedAt
       __typename

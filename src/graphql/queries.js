@@ -6,14 +6,23 @@ export const getBuild = /* GraphQL */ `
     getBuild(id: $id) {
       id
       gpu
+      gpuCost
       cpu
+      cpuCost
       cooler
+      coolerCost
       ram
+      ramCost
       numram
       drive
+      driveCost
       numstorage
       mobo
+      moboCost
       psu
+      psuCost
+      case
+      caseCost
       createdAt
       updatedAt
       __typename
@@ -30,14 +39,23 @@ export const listBuilds = /* GraphQL */ `
       items {
         id
         gpu
+        gpuCost
         cpu
+        cpuCost
         cooler
+        coolerCost
         ram
+        ramCost
         numram
         drive
+        driveCost
         numstorage
         mobo
+        moboCost
         psu
+        psuCost
+        case
+        caseCost
         createdAt
         updatedAt
         __typename
