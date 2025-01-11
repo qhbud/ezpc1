@@ -44,14 +44,18 @@ function Popup({ CPUs, onSelect, onClose }) {
                 onClose();
               }}
             >
-              <img src={cpu.Icon} alt={cpu.name} className="PSUgpu-icon" />
-              <div className="PSUgpu-details">
-                <span>{cpu.name}</span>
-                <span>{cpu.Wattage}</span>
-                <span>{cpu.type}</span>
-                <span>{cpu.Grade}</span>
-                <span>${cpu.cost}</span>
-              </div>
+           <a href={cpu.Link} target="_blank" rel="noopener noreferrer">
+  <img src={cpu.Icon} alt={cpu.name} className="PSUgpu-icon" />
+</a>
+<div className="PSUgpu-details">
+  <a href={cpu.Link} target="_blank" rel="noopener noreferrer">
+    <span>{cpu.name}</span>
+  </a>
+  <span>{cpu.Wattage}</span>
+  <span>{cpu.type}</span>
+  <span>{cpu.Grade}</span>
+  <span>${cpu.cost}</span>
+</div>
             </li>
           ))}
         </ul>

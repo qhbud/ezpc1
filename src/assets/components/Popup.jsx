@@ -44,14 +44,18 @@ function Popup({ GPUs, onSelect, onClose }) {
                 onClose();
               }}
             >
-              <img src={gpu.Icon} alt={gpu.name} className="gpu-icon" />
-              <div className="gpu-details">
-                <span>{gpu.name}</span>
-                <span>{gpu.Release}</span>
-                <span>{gpu.Design}</span>
-                <span>{gpu.Bench}</span>
-                <span>${gpu.cost}</span>
-              </div>
+                        <a href={gpu.Link} target="_blank" rel="noopener noreferrer">
+            <img src={gpu.Icon} alt={gpu.name} className="gpu-icon" />
+          </a>
+          <div className="gpu-details">
+            <a href={gpu.Link} target="_blank" rel="noopener noreferrer">
+              <span>{gpu.name}</span>
+            </a>
+            <span>{gpu.Release}</span>
+            <span>{gpu.Design}</span>
+            <span>{gpu.Bench}</span>
+            <span>${gpu.cost}</span>
+          </div>
             </li>
           ))}
         </ul>

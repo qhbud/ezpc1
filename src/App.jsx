@@ -840,13 +840,16 @@ function App() {
             onClick={() => setCASEIsPopupOpen(true)}
           >
 
-          {selectedCASE ? selectedCASE.name : "Select Case"}
+          {YCASEselected ? selectedCASE.name : "Select Case"}
           </button>
 
-          <a href={selectedCASE.Link} target="_blank" rel="noopener noreferrer">
-                  <img src={amazonicon} className="amazonIconCASE" alt="Amazon" />
-                  <div className="CASE-cost">${selectedCASE.cost}</div>
-                </a>
+
+            {YCASEselected && (
+              <a href={selectedCASE.Link} target="_blank" rel="noopener noreferrer">
+                <img src={amazonicon} className="amazonIconCASE" alt="Amazon" />
+                <div className="CASE-cost">${selectedCASE.cost}</div>
+              </a>
+            )}
 
 
           <div className="r2" style={{

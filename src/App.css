@@ -36,7 +36,7 @@
   left: 50%; /* Centers horizontally */
   transform: translate(-50%, -50%); /* Precisely centers the element */
 
-  z-index: -1; 
+  z-index: 0; 
   border: 20px solid #000000; 
   background-color: transparent; /* Transparent background */
   
@@ -56,6 +56,8 @@
   
   /* Ensure border is included in total size */
   box-sizing: border-box;
+    padding: 10px 20px;
+
 }
 
 .buildInfo {
@@ -83,6 +85,11 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.select-case-btn:hover {
+  background-color: #0056b3;
+}
+
 
 .amazonIconCASE{
   left: 51.4%;
@@ -305,7 +312,7 @@
   position: relative; /* Position the button absolutely within the box */
 
   padding: 10px 20px;
-  background-color: #b80707;
+  background-color: #007bff;
   z-index: 3;
   color: white;
   border: none;
@@ -399,7 +406,7 @@
   position: relative; /* Position the button absolutely within the box */
 
   padding: 10px 20px;
-  background-color: #b80707;
+  background-color: #007bff;
   z-index: 3;
   color: white;
   border: none;
@@ -525,7 +532,7 @@
   position: relative; /* Position the button absolutely within the box */
 
   padding: 10px 20px;
-  background-color: #b80707;
+  background-color: #007bff;
   z-index: 3;
   color: white;
   border: none;
@@ -628,7 +635,7 @@
   position: relative; /* Position the button absolutely within the box */
 
   padding: 10px 20px;
-  background-color: #b80707;
+  background-color: #007bff;
   z-index: 3;
   color: white;
   border: none;
@@ -749,7 +756,7 @@
   position: relative; /* Position the button absolutely within the box */
 
   padding: 10px 20px;
-  background-color: #b80707;
+  background-color: #007bff;
   z-index: 3;
   color: white;
   border: none;
@@ -854,7 +861,7 @@
   position: relative; /* Position the button absolutely within the box */
 
   padding: 10px 20px;
-  background-color: #b80707;
+  background-color: #007bff;
   z-index: 3;
   color: white;
   border: none;
