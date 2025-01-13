@@ -6,7 +6,7 @@ import { listBuilds } from './graphql/queries.js'
 
 Amplify.configure(awsconfig);
 
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import Popup from './assets/components/Popup';
 import PopupCPU from './assets/components/cpuPop';
@@ -860,6 +860,9 @@ function App() {
 
   };
 
+  const [showModal, setShowModal] = React.useState(false);
+
+
 
   return (
       <div className="container">
@@ -896,7 +899,7 @@ function App() {
 
               <div className="r2" style={{
                 width: '100%',
-                display: 'block'  // Override flex display
+                display: 'flex'  // Override flex display
               }}>
                 <div style={{
                   width: '100%',
@@ -904,6 +907,7 @@ function App() {
                   margin: '0 auto',
                   display: 'block'  // Override flex display
                 }}>
+                  <h1>Selected Build</h1>
                   <Treemap data={[
                     {label: "GPU", value: selectedGPU.cost},
                     {label: "CPU", value: selectedCPU.cost},
@@ -912,7 +916,7 @@ function App() {
                     {label: "Storage", value: selectedSTOR.cost},
                     {label: "Motherboard", value: selectedMOBO.cost},
                     {label: "PSU", value: selectedPSU.cost},
-                    {label: "Case", value: selectedCASE.cost }
+                    {label: "Case", value: selectedCASE.cost}
                   ]}/>
                 </div>
               </div>
@@ -927,15 +931,19 @@ function App() {
                   margin: '0 auto',
                   display: 'block'  // Override flex display
                 }}>
+                  <h1>Average Build</h1>
                   <Treemap data={[
                     {label: "GPU", value: builds.reduce((sum, build) => sum + build.gpuCost, 0) / builds.length},
                     {label: "CPU", value: builds.reduce((sum, build) => sum + build.cpuCost, 0) / builds.length},
                     {label: "Cooler", value: builds.reduce((sum, build) => sum + build.coolerCost, 0) / builds.length},
                     {label: "RAM", value: builds.reduce((sum, build) => sum + build.ramCost, 0) / builds.length},
                     {label: "Storage", value: builds.reduce((sum, build) => sum + build.driveCost, 0) / builds.length},
-                    {label: "Motherboard", value: builds.reduce((sum, build) => sum + build.moboCost, 0) / builds.length},
+                    {
+                      label: "Motherboard",
+                      value: builds.reduce((sum, build) => sum + build.moboCost, 0) / builds.length
+                    },
                     {label: "PSU", value: builds.reduce((sum, build) => sum + build.psuCost, 0) / builds.length},
-                    {label: "Case", value: builds.reduce((sum, build) => sum + build.caseCost, 0) / builds.length }
+                    {label: "Case", value: builds.reduce((sum, build) => sum + build.caseCost, 0) / builds.length}
                   ]}/>
                 </div>
               </div>
@@ -1249,7 +1257,15 @@ function App() {
           )}
         </div>
         <div>
-          <button onClick={addBuild}>Submit Build</button>
+          <button
+              className={"dataBaseButtons"}
+              onClick={addBuild}>Submit Build</button>
+          <button
+              className={"dataBaseButtons"}
+              onClick={() => setShowModal(true)}>
+            View All Builds
+          </button>
+
         </div>
         <div
             className="buildInfo"
@@ -1308,41 +1324,57 @@ function App() {
           )}
         </div>
 
-        <div>
-          <h1>Builds</h1>
-          <table border="1" style={{width: "100%", textAlign: "left"}}>
-            <thead>
-            <tr>
-              <th>GPU</th>
-              <th>CPU</th>
-              <th>Cooler</th>
-              <th>RAM</th>
-              <th>Number of RAM Sticks</th>
-              <th>Drive</th>
-              <th>Number of Storage Drives</th>
-              <th>Motherboard</th>
-              <th>PSU</th>
-              <th>Case</th>
-            </tr>
-            </thead>
-            <tbody>
-            {builds.map((build, index) => (
-                <tr key={index}>
-                  <td>{build.gpu}</td>
-                  <td>{build.cpu}</td>
-                  <td>{build.cooler}</td>
-                  <td>{build.ram}</td>
-                  <td>{build.numram}</td>
-                  <td>{build.drive}</td>
-                  <td>{build.numstorage}</td>
-                  <td>{build.mobo}</td>
-                  <td>{build.psu}</td>
-                  <td>{build.case}</td>
+        {showModal ? (
+            <div style={{
+              position: "fixed",
+              left: "auto",
+              top: "20%",
+              backgroundColor: "#ffffff",
+              color: "#333",
+              border: "2px solid #ddd",
+              borderRadius: "10px",
+              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+              padding: "1%",
+              zIndex: "10"
+            }}>
+              <button
+                  className={"closeButton"}
+                  onClick={() => setShowModal(false)}>X</button>
+              <h1>Builds</h1>
+              <table border="1" style={{width: "100%", textAlign: "left"}}>
+                <thead>
+                <tr>
+                  <th>GPU</th>
+                  <th>CPU</th>
+                  <th>Cooler</th>
+                  <th>RAM</th>
+                  <th>Number of RAM Sticks</th>
+                  <th>Drive</th>
+                  <th>Number of Storage Drives</th>
+                  <th>Motherboard</th>
+                  <th>PSU</th>
+                  <th>Case</th>
                 </tr>
-            ))}
-            </tbody>
-          </table>
-        </div>
+                </thead>
+                <tbody>
+                {builds.map((build, index) => (
+                    <tr key={index}>
+                      <td>{build.gpu}</td>
+                      <td>{build.cpu}</td>
+                      <td>{build.cooler}</td>
+                      <td>{build.ram}</td>
+                      <td>{build.numram}</td>
+                      <td>{build.drive}</td>
+                      <td>{build.numstorage}</td>
+                      <td>{build.mobo}</td>
+                      <td>{build.psu}</td>
+                      <td>{build.case}</td>
+                    </tr>
+                ))}
+                </tbody>
+              </table>
+            </div>
+        ) : null}
 
 
       </div>

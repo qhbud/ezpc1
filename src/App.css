@@ -19,13 +19,14 @@
 
 .r2 {
 
-  margin-top: 1065px;
+  margin-top: 125%;
 }
 
 
 .r1 {
 
-  margin-top: 100px;
+  margin-top: 10%;
+  padding-bottom: 5%;
 }
 
 
@@ -874,3 +875,40 @@
   z-index: 2;
 }
 
+.dataBaseButtons{
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  top: 90%;
+  padding: 1%;
+  margin: 1%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dataBaseButtons:hover{
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.closeButton{
+  float: right;
+  background-color: lightgrey;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 1%;
+  margin: 1%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover{
+  background-color: #b80707;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
