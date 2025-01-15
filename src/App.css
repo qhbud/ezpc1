@@ -44,7 +44,7 @@
 
 .r2 {
 
-  margin-top: 1065px;
+  margin-top: 905px;
 }
 
 
@@ -60,7 +60,7 @@
   /* Base size calculation */
   width: min(90vw, 1050px);
   aspect-ratio: 16 / 9;
-  height: min(calc(min(90vw, 1050px) * (9/16)), 800px);
+  height: min(calc(min(90vw, 1050px) * (11/16)), 800px);
   
   border: clamp(8px, 1.5vw, 20px) solid #000000;
   background-color: transparent;
@@ -82,14 +82,18 @@
 
 
 .buildInfo {
-  background-color: #969a9f;
-  margin: 110px;
+  position: absolute;
+  top: 110%;
+  left: 50%;
   padding: 50px;
   max-width: 955px;
   max-height: 8000px;
   width: 80vw; /* 90% of viewport width */
+
   border-radius: 10px;
   text-align: center;
+  transform: translate(-50%, 0%);
+  color: white;
 }
 
 .select-case-btn {
@@ -143,11 +147,10 @@
   position: absolute;
   border-radius: 12px;
   transition: all 0.3s ease;
-  left: 10%;
-  top: 0%;
+  left: 1%;
+  top: 2%;
   width: 45%;
   height: 25%;
-  transform: scale(1);
 
 }
 
@@ -283,8 +286,8 @@
   position: absolute;
   border-radius: 12px;
   transition: all 0.3s ease;
-  left: 10%;
-  top: 10%;
+  left: 43%;
+  top: 2%;
   width: 30%;
   height: 20%;
 }
@@ -379,8 +382,8 @@
   position: absolute;
   border-radius: 12px;
   transition: all 0.3s ease;
-  left: 60%;
-  top: 60%;
+  left: 19%;
+  top: 62%;
   width: 30%;
   height: 25%;
 }
@@ -487,8 +490,8 @@
   position: absolute;
   border-radius: 12px;
   transition: all 0.3s ease;
-  left: 45%;
-  top: 10%;
+  left: 7%;
+  top: 38.5%;
   width: 45%;
   height: 20%;
 }
@@ -613,8 +616,8 @@
   position: absolute;
   border-radius: 12px;
   transition: all 0.3s ease;
-  left: 10%;
-  top: 35%;
+  left: 70%;
+  top: 2%;
   width: 30%;
   height: 20%;
 }
@@ -733,8 +736,8 @@
   position: absolute;
   border-radius: 12px;
   transition: all 0.3s ease;
-  left: 60%;
-  top: 60%;
+  left: 50%;
+  top: 38.5%;
   width: 30%;
   height: 25%;
 }
@@ -841,8 +844,8 @@
   position: absolute;
   border-radius: 12px;
   transition: all 0.3s ease;
-  left: 60%;
-  top: 60%;
+  left: 46.5%;
+  top: 62%;
   width: 30%;
   height: 25%;
 }

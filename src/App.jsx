@@ -1150,23 +1150,28 @@ function App() {
                           YMOBOselected && 
                           YPSUselected && 
                           YRAMselected && 
-                          YSTORselected) ? "950px" : "300px" 
+                          YSTORselected) ? "950px" : "300px",
+                          backgroundColor:
+                          (selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected) ||
+                          (selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected)
+                            ? 'maroon'
+                            : '#00A36C' // Default color 
             }}
         >
-          {(selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected ) || (selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YRAMselected) ? (
-            <p style={{ color: 'maroon' }}>
+          {(selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected ) || (selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected) ? (
+            <p style={{ color: 'white' }}>
               Compatibility issues detected:
               <ul>
-                {selectedMOBO.Ram !== selectedRAM.DDR && (
+                {selectedMOBO.Ram !== selectedRAM.DDR  && YMOBOselected && YRAMselected && (
                   <li>RAM type mismatch: MOBO requires {selectedMOBO.Ram}, but selected RAM is {selectedRAM.DDR}.</li>
                 )}
-                {selectedCPU.Chipset !== selectedMOBO.Chipset && (
+                {selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected && (
                   <li>Chipset mismatch: CPU chipset is {selectedCPU.Chipset}, but MOBO requires {selectedMOBO.Chipset}.</li>
                 )}
               </ul>
             </p>
           ) : (
-            <p style={{ color: 'green' }}>All components are compatible!</p>
+            <p style={{ color: 'white' }}>All components are compatible!</p>
           )}
           <br />
           {(YCPUselected || 
@@ -1209,55 +1214,63 @@ function App() {
                 <div className="CASE-cost">${selectedCASE.cost}</div>
               </a>
             )}
+                          {selected && 
+                          YCOOLERselected && 
+                          YCPUselected && 
+                          YMOBOselected && 
+                          YPSUselected && 
+                          YRAMselected && 
+                          YSTORselected && (
+                  <> 
+                    <div className="r2" style={{
+                      width: '100%',
+                      display: 'block'
+                    }}>
+                      <div style={{ 
+                        width: '100%',
+                        maxWidth: '800px',
+                        margin: '0 auto',
+                        display: 'block'
+                      }}>
+                        <Treemap data={[
+                          { label: "GPU", value: selectedGPU.cost },
+                          { label: "CPU", value: selectedCPU.cost },
+                          { label: "Cooler", value: selectedCOOLER.cost },
+                          { label: "RAM", value: selectedRAM.cost },
+                          { label: "Storage", value: selectedSTOR.cost },
+                          { label: "Motherboard", value: selectedMOBO.cost },
+                          { label: "PSU", value: selectedPSU.cost },
+                          { label: "Case", value: selectedCASE.cost }
+                        ]} />
+                      </div>
+                    </div>
 
-
-          <div className="r2" style={{
-              width: '100%',
-              display: 'block'  // Override flex display
-            }}>
-              <div style={{ 
-                width: '100%',
-                maxWidth: '800px',
-                margin: '0 auto',
-                display: 'block'  // Override flex display
-              }}>
-                <Treemap data={[
-                  { label: "GPU", value: selectedGPU.cost },
-                  { label: "CPU", value: selectedCPU.cost },
-                  { label: "Cooler", value: selectedCOOLER.cost },
-                  { label: "RAM", value: selectedRAM.cost },
-                  { label: "Storage", value: selectedSTOR.cost },
-                  { label: "Motherboard", value: selectedMOBO.cost },
-                  { label: "PSU", value: selectedPSU.cost },
-                  { label: "Case", value: selectedCASE.cost }
-                ]} />
-              </div>
-            </div>
-
-            <div className="r1" style={{
-              width: '100%',
-              display: 'block'  // Override flex display
-            }}>
-              <div style={{ 
-                width: '100%',
-                maxWidth: '800px',
-                margin: '0 auto',
-                display: 'block'  // Override flex display
-              }}>
-                <Treemap data={[
-                  { label: "GPU", value: 1 },
-                  { label: "CPU", value: 1 },
-                  { label: "Cooler", value: 1 },
-                  { label: "RAM", value: 1 },
-                  { label: "Storage", value: 1 },
-                  { label: "Motherboard", value: 1 },
-                  { label: "PSU", value: 1 },
-                  { label: "Case", value: 1 }
-                ]} />
-              </div>
+                    <div className="r1" style={{
+                      width: '100%',
+                      display: 'block'
+                    }}>
+                      <div style={{ 
+                        width: '100%',
+                        maxWidth: '800px',
+                        margin: '0 auto',
+                        display: 'block'
+                      }}>
+                        <Treemap data={[
+                          { label: "GPU", value: 1 },
+                          { label: "CPU", value: 1 },
+                          { label: "Cooler", value: 1 },
+                          { label: "RAM", value: 1 },
+                          { label: "Storage", value: 1 },
+                          { label: "Motherboard", value: 1 },
+                          { label: "PSU", value: 1 },
+                          { label: "Case", value: 1 }
+                        ]} />
+                      </div>
+                    </div>
+                  </>
+              )}
           </div>
       </div>
-    </div>
   );
 }
 
