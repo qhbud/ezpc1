@@ -817,7 +817,11 @@ function App() {
 
   return (
     <div className="container">
-      <ParticlesBackground/>
+            <ParticlesBackground/>
+
+       <div className="case">
+
+
 
 
       <div className="App">
@@ -830,77 +834,6 @@ function App() {
             onSelect={handleSelectCASE}
           />
         )}
-    {selected && YCOOLERselected && YCPUselected && YMOBOselected && YPSUselected && YPSUselected && YRAMselected && YSTORselected ? (
-        <div className="case">
-
-
-
-          <button
-            className="select-case-btn"
-            onClick={() => setCASEIsPopupOpen(true)}
-          >
-
-          {YCASEselected ? selectedCASE.name : "Select Case"}
-          </button>
-
-
-            {YCASEselected && (
-              <a href={selectedCASE.Link} target="_blank" rel="noopener noreferrer">
-                <img src={amazonicon} className="amazonIconCASE" alt="Amazon" />
-                <div className="CASE-cost">${selectedCASE.cost}</div>
-              </a>
-            )}
-
-
-          <div className="r2" style={{
-              width: '100%',
-              display: 'block'  // Override flex display
-            }}>
-              <div style={{ 
-                width: '100%',
-                maxWidth: '800px',
-                margin: '0 auto',
-                display: 'block'  // Override flex display
-              }}>
-                <Treemap data={[
-                  { label: "GPU", value: selectedGPU.cost },
-                  { label: "CPU", value: selectedCPU.cost },
-                  { label: "Cooler", value: selectedCOOLER.cost },
-                  { label: "RAM", value: selectedRAM.cost },
-                  { label: "Storage", value: selectedSTOR.cost },
-                  { label: "Motherboard", value: selectedMOBO.cost },
-                  { label: "PSU", value: selectedPSU.cost },
-                  { label: "Case", value: selectedCASE.cost }
-                ]} />
-              </div>
-            </div>
-
-            <div className="r1" style={{
-              width: '100%',
-              display: 'block'  // Override flex display
-            }}>
-              <div style={{ 
-                width: '100%',
-                maxWidth: '800px',
-                margin: '0 auto',
-                display: 'block'  // Override flex display
-              }}>
-                <Treemap data={[
-                  { label: "GPU", value: 1 },
-                  { label: "CPU", value: 1 },
-                  { label: "Cooler", value: 1 },
-                  { label: "RAM", value: 1 },
-                  { label: "Storage", value: 1 },
-                  { label: "Motherboard", value: 1 },
-                  { label: "PSU", value: 1 },
-                  { label: "Case", value: 1 }
-                ]} />
-              </div>
-            </div>
-
-
-      </div>
-      ) : (null)}
 
 
       <div className="colored-box">
@@ -1261,9 +1194,70 @@ function App() {
         </div>
 
 
-    </div>
+        <button
+            className="select-case-btn"
+            onClick={() => setCASEIsPopupOpen(true)}
+          >
 
-    
+          {YCASEselected ? selectedCASE.name : "Select Case"}
+          </button>
+
+
+            {YCASEselected && (
+              <a href={selectedCASE.Link} target="_blank" rel="noopener noreferrer">
+                <img src={amazonicon} className="amazonIconCASE" alt="Amazon" />
+                <div className="CASE-cost">${selectedCASE.cost}</div>
+              </a>
+            )}
+
+
+          <div className="r2" style={{
+              width: '100%',
+              display: 'block'  // Override flex display
+            }}>
+              <div style={{ 
+                width: '100%',
+                maxWidth: '800px',
+                margin: '0 auto',
+                display: 'block'  // Override flex display
+              }}>
+                <Treemap data={[
+                  { label: "GPU", value: selectedGPU.cost },
+                  { label: "CPU", value: selectedCPU.cost },
+                  { label: "Cooler", value: selectedCOOLER.cost },
+                  { label: "RAM", value: selectedRAM.cost },
+                  { label: "Storage", value: selectedSTOR.cost },
+                  { label: "Motherboard", value: selectedMOBO.cost },
+                  { label: "PSU", value: selectedPSU.cost },
+                  { label: "Case", value: selectedCASE.cost }
+                ]} />
+              </div>
+            </div>
+
+            <div className="r1" style={{
+              width: '100%',
+              display: 'block'  // Override flex display
+            }}>
+              <div style={{ 
+                width: '100%',
+                maxWidth: '800px',
+                margin: '0 auto',
+                display: 'block'  // Override flex display
+              }}>
+                <Treemap data={[
+                  { label: "GPU", value: 1 },
+                  { label: "CPU", value: 1 },
+                  { label: "Cooler", value: 1 },
+                  { label: "RAM", value: 1 },
+                  { label: "Storage", value: 1 },
+                  { label: "Motherboard", value: 1 },
+                  { label: "PSU", value: 1 },
+                  { label: "Case", value: 1 }
+                ]} />
+              </div>
+          </div>
+      </div>
+    </div>
   );
 }
 

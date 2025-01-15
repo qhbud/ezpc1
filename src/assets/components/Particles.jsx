@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const ParticlesBackground = () => {
   const canvasRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
+  const [particleCount, setParticleCount] = useState(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -11,14 +12,25 @@ const ParticlesBackground = () => {
 
     // Handle scroll
     const handleScroll = () => {
-      setScrollY(window.scrollY * 0.2); // Adjust multiplier to control scroll sensitivity
+      setScrollY(window.scrollY * 0.2);
     };
     window.addEventListener('scroll', handleScroll);
 
-    // Set canvas size
+    // Calculate particle count based on screen size
+    const calculateParticleCount = () => {
+      const area = window.innerWidth * window.innerHeight;
+      // Base density of approximately 1 particle per 8000 pixels
+      const particleDensity = 1 / 8000;
+      const count = Math.floor(area * particleDensity);
+      // Clamp the count between 50 and 500 particles
+      return Math.min(Math.max(count, 50), 500);
+    };
+
+    // Set canvas size and update particle count
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      setParticleCount(calculateParticleCount());
     };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
@@ -26,15 +38,20 @@ const ParticlesBackground = () => {
     // Particle class
     class Particle {
       constructor() {
+        this.reset();
+      }
+
+      reset() {
         this.baseX = Math.random() * canvas.width;
         this.baseY = Math.random() * canvas.height;
         this.vx = (Math.random() - 0.5) * 2;
         this.vy = (Math.random() - 0.5) * 2;
-        this.radius = Math.random() * 2 + 1.5;
+        // Scale particle size based on screen width
+        const baseSize = Math.min(canvas.width, canvas.height) * 0.002;
+        this.radius = (Math.random() * baseSize + baseSize) * 0.75;
       }
 
       draw() {
-        // Adjust position based on scroll
         const adjustedY = this.baseY - scrollY;
         
         ctx.beginPath();
@@ -54,21 +71,24 @@ const ParticlesBackground = () => {
     }
 
     // Create particles
-    const particles = Array.from({ length: 300 }, () => new Particle());
+    const particles = Array.from({ length: particleCount }, () => new Particle());
 
     // Draw lines between nearby particles
     const drawLines = () => {
+      // Scale connection distance based on screen size
+      const connectionDistance = Math.min(canvas.width, canvas.height) * 0.15;
+
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].baseX - particles[j].baseX;
           const dy = (particles[i].baseY - scrollY) - (particles[j].baseY - scrollY);
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 150) {
+          if (distance < connectionDistance) {
             ctx.beginPath();
             ctx.moveTo(particles[i].baseX, particles[i].baseY - scrollY);
             ctx.lineTo(particles[j].baseX, particles[j].baseY - scrollY);
-            ctx.strokeStyle = `rgba(74, 144, 226, ${0.2 * (1 - distance / 150)})`;
+            ctx.strokeStyle = `rgba(74, 144, 226, ${0.2 * (1 - distance / connectionDistance)})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -97,7 +117,7 @@ const ParticlesBackground = () => {
       window.removeEventListener('scroll', handleScroll);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [scrollY]); // Add scrollY to dependency array
+  }, [scrollY, particleCount]); // Added particleCount to dependency array
 
   return (
     <canvas
