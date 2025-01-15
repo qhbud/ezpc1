@@ -720,6 +720,7 @@ function App() {
   const [selectedRAM, setSelectedRAM] = useState(RAMs[0]);
   const [selectedCOOLER, setSelectedCOOLER] = useState(Coolers[0]);
   const [selectedSTOR, setSelectedSTOR] = useState(Storage[0]);
+  const [selectedSTOR2, setSelectedSTOR2] = useState(Storage[0]);
   const [selectedPSU, setSelectedPSU] = useState(PSU[0])
   const [selectedMOBO, setSelectedMOBO] = useState(MOBO[0]);
   const [selectedCASE, setSelectedCASE] = useState(Case[0]);
@@ -730,11 +731,13 @@ function App() {
   const [RAMisPopupOpen, setRAMIsPopupOpen] = useState(false); // CPU Popup State
   const [COOLERisPopupOpen, setCOOLERIsPopupOpen] = useState(false); // CPU Popup State
   const [STORisPopupOpen, setSTORIsPopupOpen] = useState(false); // CPU Popup State
+  const [STORisPopupOpen2, setSTORIsPopupOpen2] = useState(false); // CPU Popup State
   const [PSUisPopupOpen, setPSUIsPopupOpen] = useState(false)
   const [MOBOisPopupOpen, setMOBOIsPopupOpen] = useState(false);
   const [CASEisPopupOpen, setCASEIsPopupOpen] = useState(false);
 
   const [ramcount, setramcount] = useState(1); // GPU Selected Toggle
+  const [storcount, setstorcount] = useState(1);
 
   const [selected, setSelected] = useState(false); // GPU Selected Toggle
   const [YCPUselected, setYCPUSelected] = useState(false); // CPU Selected Toggle
@@ -792,6 +795,12 @@ function App() {
     if (selected) setSelectedSTOR(selected);
     setYSTORSelected(true); // Mark CPU as selected
     setSTORIsPopupOpen(false);
+  };
+
+  const handleSelectSTOR2 = (option) => {
+    const selected = Storage.find((stor) => stor.name === option);
+    if (selected) setSelectedSTOR2(selected);
+    setSTORIsPopupOpen2(false);
   };
 
   const handleSelectMOBO = (option) => {
@@ -1022,21 +1031,61 @@ function App() {
         <div className="STOR-container">
           {YSTORselected ? (
             <div className="STOR-box">
+
+            {(storcount === 2) ? (
+              <div>
+                <img
+                  src={selectedSTOR.Icon}
+                  alt="cpu"
+                  className="STOR-background"
+                  style={{
+                    clipPath: "polygon(100% 0, 100% 0%, 100% 100%, 0 100%)",
+                    transition: "clip-path 0.3s ease-in-out"  // Add transition
+                  }}
+                  />
+
+                  <img
+                  src={selectedSTOR2.Icon}
+                  alt="cpu"   
+                  className="STOR2-background"
+                  />
+               </div>
+            ) : (
               <img
                 src={selectedSTOR.Icon}
                 alt="cpu"
                 className="STOR-background"
+                style={{
+                  clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",  // Regular rectangle shape
+                  transition: "clip-path 0.3s ease-in-out"  // Add transition
+                }}
               />
+              )}
+
               <button
                 className="select-STOR-btn"
                 onClick={() => setSTORIsPopupOpen(true)}
               >
                 {selectedSTOR.name}
               </button>
+              <button
+                className="select-newSTOR-btn"
+                onClick={() => setSTORIsPopupOpen2(true)}
+              >
+                {selectedSTOR2.name}
+              </button>
               <a href={selectedSTOR.Link} target="_blank" rel="noopener noreferrer">
                 <img src={amazonicon} className="amazonIconSTOR" alt="Amazon" />
                 <div className="STOR-cost">${selectedSTOR.cost}</div>
               </a>
+
+              <button
+                className="ramCount"
+                onClick={() => setstorcount(storcount === 1 ? 2 : 1)}
+              >
+                ({storcount}x)
+              </button>
+
             </div>
           ) : (
             <button
@@ -1052,6 +1101,13 @@ function App() {
             CPUs={Storage}
             onClose={() => setSTORIsPopupOpen(false)}
             onSelect={handleSelectSTOR}
+          />
+        )}
+         {STORisPopupOpen2 && (
+          <PopupSTOR
+            CPUs={Storage}
+            onClose={() => setSTORIsPopupOpen(false)}
+            onSelect={handleSelectSTOR2}
           />
         )}
       </div>
@@ -1225,7 +1281,7 @@ function App() {
                     <div className="r2" style={{
                       width: '100%',
                       display: 'block'
-                    }}>
+                    }}> 
                       <div style={{ 
                         width: '100%',
                         maxWidth: '800px',

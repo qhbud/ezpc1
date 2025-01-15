@@ -759,6 +759,17 @@
    /* Centers horizontally using its container */
 }
 
+.STOR2-background {
+  transform: translateX(0.1%); /* Center the image horizontally */
+  top: -50px;
+  position: relative; /* Keeps it within the box */
+  width: 320px;
+  height: auto;
+  clip-path: polygon(0 22%, 100% 22%, 100% 77%, 0 77%);
+  z-index: 2;
+   /* Centers horizontally using its container */
+}
+
 
 .STOR-box {
   background-color: #000000;
@@ -775,6 +786,20 @@
 .select-STOR-btn {
   position: absolute; /* Position the button absolutely within the box */
   left: 6px; /* Keep it a fixed distance from the left edge */
+  top: 74%; /* Center the button vertically */
+  transform: translateY(-286%); /* Perfectly center the button */
+  z-index: 3;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-newSTOR-btn {
+  position: absolute; /* Position the button absolutely within the box */
+  left: 35%; /* Keep it a fixed distance from the left edge */
   top: 74%; /* Center the button vertically */
   transform: translateY(-286%); /* Perfectly center the button */
   z-index: 3;
