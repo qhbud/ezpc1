@@ -888,8 +888,8 @@
   border: none;
   border-radius: 5px;
   top: 90%;
-  padding: 1%;
-  margin: 1%;
+  padding: 1em;
+  margin: 1em;
   cursor: pointer;
   transition: all 0.3s ease;
 }

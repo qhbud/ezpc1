@@ -1256,17 +1256,6 @@ function App() {
               />
           )}
         </div>
-        <div>
-          <button
-              className={"dataBaseButtons"}
-              onClick={addBuild}>Submit Build</button>
-          <button
-              className={"dataBaseButtons"}
-              onClick={() => setShowModal(true)}>
-            View All Builds
-          </button>
-
-        </div>
         <div
             className="buildInfo"
             style={{
@@ -1322,24 +1311,42 @@ function App() {
                 }
               </div>
           )}
+
+          <div>
+            <button
+                className={"dataBaseButtons"}
+                onClick={addBuild}>Submit Build
+            </button>
+            <button
+                className={"dataBaseButtons"}
+                onClick={() => setShowModal(true)}>
+              View All Builds
+            </button>
+
+          </div>
         </div>
+
 
         {showModal ? (
             <div style={{
-              position: "fixed",
-              left: "auto",
-              top: "20%",
+              position: "absolute",
+              top: "5%",
+              left: "10%",
+              right: "10%",
+              margin: "0 auto",
               backgroundColor: "#ffffff",
               color: "#333",
               border: "2px solid #ddd",
               borderRadius: "10px",
               boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
               padding: "1%",
-              zIndex: "10"
+              zIndex: "10",
+              minHeight: "10%", // Allow height to expand dynamically
             }}>
               <button
                   className={"closeButton"}
-                  onClick={() => setShowModal(false)}>X</button>
+                  onClick={() => setShowModal(false)}>X
+              </button>
               <h1>Builds</h1>
               <table border="1" style={{width: "100%", textAlign: "left"}}>
                 <thead>
@@ -1376,6 +1383,7 @@ function App() {
             </div>
         ) : null}
 
+        <br/>
 
       </div>
 
