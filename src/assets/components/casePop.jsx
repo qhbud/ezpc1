@@ -43,10 +43,12 @@ function Popup({ CPUs, onSelect, onClose }) {
               }}
             >
               <div className="CASEgpu-details">
-                <span>{cpu.name}</span>
-                <span>{cpu.rgb}</span>
-                <span>${cpu.cost}</span>
-              </div>
+  <a href={cpu.Link} target="_blank" rel="noopener noreferrer">
+    <span>{cpu.name}</span>
+  </a>
+  <span>{cpu.rgb}</span>
+  <span>${cpu.cost}</span>
+</div>
             </li>
           ))}
         </ul>
