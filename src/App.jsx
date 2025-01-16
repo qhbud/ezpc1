@@ -853,7 +853,7 @@ function App() {
             bootDrive: selectedSTOR.name,
             bootDriveCost: selectedSTOR.cost,
             drive: selectedSTOR2.name,
-            driveCost: selectedSTOR2.cost,
+            driveCost: selectedSTOR2.cost, //Second Drive
             numstorage: selectedSTOR.size,
             mobo: selectedMOBO.name,
             moboCost: selectedMOBO.cost,
