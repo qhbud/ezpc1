@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './ram.css';
+import ersymIcon from './ersym.svg';
 
-function Popup({ CPUs, onSelect, onClose }) {
+function Popup({ CPUs, onSelect, onClose, selectedMOBO, YMOBOselected }) {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
 
   const sortedCPUs = React.useMemo(() => {
@@ -21,6 +22,10 @@ function Popup({ CPUs, onSelect, onClose }) {
       key,
       direction: prev.key === key && prev.direction === 'desc' ? 'asc' : 'desc',
     }));
+  };
+
+  const shouldShowErsym = (cpu) => {
+    return (YMOBOselected && selectedMOBO.Ram !== cpu.DDR); /* this is the line giving me errors */
   };
 
   return (
@@ -50,6 +55,12 @@ function Popup({ CPUs, onSelect, onClose }) {
   <a href={cpu.Link} target="_blank" rel="noopener noreferrer">
     <span>{cpu.name}</span>
   </a>
+
+  <span className="symbol-column">
+                  {shouldShowErsym(cpu) && (
+                    <img src={ersymIcon} alt="Symbol" className="ersym-icon" />
+                  )}
+  </span>
   <span>{cpu.DDR}</span>
   <span>{cpu.RR}</span>
   <span>${cpu.cost}</span>

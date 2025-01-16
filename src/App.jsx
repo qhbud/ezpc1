@@ -938,45 +938,47 @@ function App() {
 
         <span style={{display: 'inline-block', width: '20px'}}></span>
 
-        <div className="colored-boxCPU">
-          {/* CPU Section */}
-          <div className="cpu-container">
-            {YCPUselected ? (
-                <div className="cpu-box">
-                  <img
-                      src={selectedCPU.Icon}
-                      alt="cpu"
-                      className="cpu-background"
-                  />
-                  <button
-                      className="select-cpu-btn"
-                      onClick={() => setCPUIsPopupOpen(true)}
-                  >
-                    {selectedCPU.name}
-                  </button>
-                  <a href={selectedCPU.Link}>
-                    <img src={amazonicon} className="amazonIconCPU" alt="Amazon"/>
-                    <div className="cpu-cost">${selectedCPU.cost}</div>
-                  </a>
-                  <div className="cpu-threads">{selectedCPU.Threads} threads</div>
-                </div>
-            ) : (
-                <button
-                    className="select-cpu-btn2"
-                    onClick={() => setCPUIsPopupOpen(true)}
-                >
-                  Select CPU
-                </button>
-            )}
-          </div>
-          {CPUisPopupOpen && (
-              <PopupCPU
-                  CPUs={CPUs}
-                  onClose={() => setCPUIsPopupOpen(false)}
-                  onSelect={handleSelectCPU}
+      <div className="colored-boxCPU">
+        {/* CPU Section */}
+        <div className="cpu-container">
+          {YCPUselected ? (
+            <div className="cpu-box">
+              <img
+                src={selectedCPU.Icon}
+                alt="cpu"
+                className="cpu-background"
               />
+              <button
+                className="select-cpu-btn"
+                onClick={() => setCPUIsPopupOpen(true)}
+              >
+                {selectedCPU.name}
+              </button>
+              <a href={selectedCPU.Link} target="_blank" rel="noopener noreferrer">
+                <img src={amazonicon} className="amazonIconCPU" alt="Amazon" />
+                <div className="cpu-cost">${selectedCPU.cost}</div>
+              </a>
+              <div className="cpu-threads">{selectedCPU.Threads} threads </div>
+            </div>
+          ) : (
+            <button
+              className="select-cpu-btn2"
+              onClick={() => setCPUIsPopupOpen(true)}
+            >
+              Select CPU
+            </button>
           )}
         </div>
+        {CPUisPopupOpen && (
+          <PopupCPU
+          CPUs={CPUs}
+          onClose={() => setCPUIsPopupOpen(false)}
+          onSelect={handleSelectCPU}
+          selectedMOBO={selectedMOBO}
+          YMOBOselected={YMOBOselected}
+        />
+        )}
+      </div>
 
         <span style={{display: 'inline-block', width: '20px'}}></span>
 
@@ -1050,30 +1052,32 @@ function App() {
                   </a>
                   <div className="RAM-threads">{selectedRAM.RR} MHz</div>
 
-                  <button
-                      className="ramCount"
-                      onClick={() => setramcount(ramcount === 1 ? 2 : 1)}
-                  >
-                    ({ramcount}x)
-                  </button>
-                </div>
-            ) : (
-                <button
-                    className="select-RAM-btn2"
-                    onClick={() => setRAMIsPopupOpen(true)}
-                >
-                  Select RAM
-                </button>
-            )}
-          </div>
-          {RAMisPopupOpen && (
-              <PopupRAM
-                  CPUs={RAMs}
-                  onClose={() => setRAMIsPopupOpen(false)}
-                  onSelect={handleSelectRAM}
-              />
+              <button
+                className="ramCount"
+                onClick={() => setramcount(ramcount === 1 ? 2 : 1)}
+              >
+                ({ramcount}x)
+              </button>
+            </div>
+          ) : (
+            <button
+              className="select-RAM-btn2"
+              onClick={() => setRAMIsPopupOpen(true)}
+            >
+              Select RAM
+            </button>
           )}
         </div>
+        {RAMisPopupOpen && (
+          <PopupRAM
+            CPUs={RAMs}
+            onClose={() => setRAMIsPopupOpen(false)}
+            onSelect={handleSelectRAM}
+            selectedMOBO={selectedMOBO}
+            YMOBOselected={YMOBOselected}
+          />
+        )}
+      </div>
 
         <span style={{display: 'inline-block', width: '20px'}}></span>
 
@@ -1181,44 +1185,49 @@ function App() {
         <div style={{height: "20px"}}></div>
 
 
-        <div className="colored-boxMOBO">
-          {/* CPU Section */}
-          <div className="MOBO-container">
-            {YMOBOselected ? (
-                <div className="MOBO-box">
-                  <img
-                      src={selectedMOBO.Icon}
-                      alt="cpu"
-                      className="MOBO-background"
-                  />
-                  <button
-                      className="select-MOBO-btn"
-                      onClick={() => setMOBOIsPopupOpen(true)}
-                  >
-                    {selectedMOBO.name}
-                  </button>
-                  <a href={selectedMOBO.Link}>
-                    <img src={amazonicon} className="amazonIconMOBO" alt="Amazon"/>
-                    <div className="MOBO-cost">${selectedMOBO.cost}</div>
-                  </a>
-                </div>
-            ) : (
-                <button
-                    className="select-MOBO-btn2"
-                    onClick={() => setMOBOIsPopupOpen(true)}
-                >
-                  Select MOBO
-                </button>
-            )}
-          </div>
-          {MOBOisPopupOpen && (
-              <PopupMOBO
-                  CPUs={MOBO}
-                  onClose={() => setMOBOIsPopupOpen(false)}
-                  onSelect={handleSelectMOBO}
+
+      <div className="colored-boxMOBO">
+        {/* CPU Section */}
+        <div className="MOBO-container">
+          {YMOBOselected ? (
+            <div className="MOBO-box">
+              <img
+                src={selectedMOBO.Icon}
+                alt="cpu"
+                className="MOBO-background"
               />
+              <button
+                className="select-MOBO-btn"
+                onClick={() => setMOBOIsPopupOpen(true)}
+              >
+                {selectedMOBO.name}
+              </button>
+              <a href={selectedMOBO.Link} target="_blank" rel="noopener noreferrer">
+                <img src={amazonicon} className="amazonIconMOBO" alt="Amazon" />
+                <div className="MOBO-cost">${selectedMOBO.cost}</div>
+              </a>
+            </div>
+          ) : (
+            <button
+              className="select-MOBO-btn2"
+              onClick={() => setMOBOIsPopupOpen(true)}
+            >
+              Select MOBO
+            </button>
           )}
         </div>
+        {MOBOisPopupOpen && (
+          <PopupMOBO
+          CPUs={MOBO}
+          onClose={() => setMOBOIsPopupOpen(false)}
+          onSelect={handleSelectMOBO}
+          selectedCPU={selectedCPU}
+          selectedRAM={selectedRAM}
+          YRAMselected={YRAMselected}
+          YCPUselected={YCPUselected}
+        />
+        )}
+      </div>
 
         <span style={{display: 'inline-block', width: '30px'}}></span>
 
