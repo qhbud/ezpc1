@@ -755,18 +755,19 @@
   width: 320px;
   height: auto;
   clip-path: polygon(0 22%, 100% 22%, 100% 77%, 0 77%);
-  z-index: 1;
+  
+  z-index: 2;
    /* Centers horizontally using its container */
 }
 
 .STOR2-background {
   transform: translateX(0.1%); /* Center the image horizontally */
-  top: -50px;
-  position: relative; /* Keeps it within the box */
+  top: 500px;
+  position: absolute; 
   width: 320px;
   height: auto;
   clip-path: polygon(0 22%, 100% 22%, 100% 77%, 0 77%);
-  z-index: 2;
+  z-index: 3;
    /* Centers horizontally using its container */
 }
 
@@ -780,7 +781,7 @@
   height: 135px;
   margin: 0 auto;
   text-align: center;
-  overflow: hidden; 
+  /* overflow: hidden; */
 }
 
 .select-STOR-btn {
@@ -799,8 +800,8 @@
 
 .select-newSTOR-btn {
   position: absolute; /* Position the button absolutely within the box */
-  left: 35%; /* Keep it a fixed distance from the left edge */
-  top: 74%; /* Center the button vertically */
+  left: 33%; /* Keep it a fixed distance from the left edge */
+  top: 3.5%; /* Center the button vertically */
   transform: translateY(-286%); /* Perfectly center the button */
   z-index: 3;
   padding: 10px 15px;
@@ -809,6 +810,9 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transform: scale(0.8);
+ 
+
 }
 
 
@@ -839,6 +843,28 @@
   border-radius: 5px;
   font-size: 14px;
   z-index: 2;
+}
+
+.STOR-cost2 {
+  position: absolute;
+  top: 24%;
+  right: 2px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 2;
+  transform: scale(0.8);
+}
+
+.amazonIconSTOR2{
+  top: 24%;
+  right: 38px;
+  max-height: 26px;
+  position: absolute;
+  z-index: 3;
+  transform: scale(0.8);
 }
 
 

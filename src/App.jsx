@@ -720,7 +720,7 @@ function App() {
   const [selectedRAM, setSelectedRAM] = useState(RAMs[0]);
   const [selectedCOOLER, setSelectedCOOLER] = useState(Coolers[0]);
   const [selectedSTOR, setSelectedSTOR] = useState(Storage[0]);
-  const [selectedSTOR2, setSelectedSTOR2] = useState(Storage[0]);
+  const [selectedSTOR2, setSelectedSTOR2] = useState(Storage[3]);
   const [selectedPSU, setSelectedPSU] = useState(PSU[0])
   const [selectedMOBO, setSelectedMOBO] = useState(MOBO[0]);
   const [selectedCASE, setSelectedCASE] = useState(Case[0]);
@@ -1028,64 +1028,78 @@ function App() {
 
       <div className="colored-boxSTOR">
         {/* CPU Section */}
+        
         <div className="STOR-container">
           {YSTORselected ? (
             <div className="STOR-box">
-
-            {(storcount === 2) ? (
-              <div>
-                <img
-                  src={selectedSTOR.Icon}
-                  alt="cpu"
-                  className="STOR-background"
-                  style={{
-                    clipPath: "polygon(100% 0, 100% 0%, 100% 100%, 0 100%)",
-                    transition: "clip-path 0.3s ease-in-out"  // Add transition
-                  }}
-                  />
-
-                  <img
-                  src={selectedSTOR2.Icon}
-                  alt="cpu"   
-                  className="STOR2-background"
-                  />
-               </div>
-            ) : (
+          
               <img
                 src={selectedSTOR.Icon}
                 alt="cpu"
                 className="STOR-background"
                 style={{
-                  clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",  // Regular rectangle shape
-                  transition: "clip-path 0.3s ease-in-out"  // Add transition
+                  transition: "clip-path 0.3s ease-in-out",
+                  zIndex: 1,
+                  clipPath: storcount === 2
+                    ? "polygon(100% 0, 100% 0%, 100% 100%, 0 100%)"
+                    : "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
                 }}
               />
-              )}
-
+          
+              <img
+                src={selectedSTOR2.Icon}
+                alt="cpu"
+                className="STOR-background2"
+                style={{
+                  transform: 'translateX(-100%)',
+                  top: '-45px',
+                  position: 'absolute',
+                  width: '320px',
+                  height: 'auto',
+                  clipPath: 'polygon(0 22%, 100% 22%, 100% 77%, 0 77%)',
+                  zIndex: 0,
+                  opacity: 0.5
+                }}
+              />
+       
+                            
+                            
               <button
                 className="select-STOR-btn"
                 onClick={() => setSTORIsPopupOpen(true)}
               >
                 {selectedSTOR.name}
               </button>
-              <button
-                className="select-newSTOR-btn"
-                onClick={() => setSTORIsPopupOpen2(true)}
-              >
-                {selectedSTOR2.name}
-              </button>
+
+              {(storcount === 2 && 
+                <>
+                <button
+                  className="select-newSTOR-btn"
+                  onClick={() => setSTORIsPopupOpen2(true)}
+                >
+                  {selectedSTOR2.name}
+                </button>
+
+                   <a href={selectedSTOR2.Link} target="_blank" rel="noopener noreferrer">
+                   <img src={amazonicon} className="amazonIconSTOR2" alt="Amazon" />
+                   <div className="STOR-cost2">${selectedSTOR2.cost}</div>
+                 </a>
+                </>
+              )}
+
               <a href={selectedSTOR.Link} target="_blank" rel="noopener noreferrer">
                 <img src={amazonicon} className="amazonIconSTOR" alt="Amazon" />
                 <div className="STOR-cost">${selectedSTOR.cost}</div>
               </a>
 
+           
+
               <button
                 className="ramCount"
                 onClick={() => setstorcount(storcount === 1 ? 2 : 1)}
               >
-                ({storcount}x)
+                {storcount === 1 ? "+" : "-"}
               </button>
-
             </div>
           ) : (
             <button
@@ -1248,6 +1262,7 @@ function App() {
                   (YPSUselected ? Number(selectedPSU.cost) : 0) +
                   (YRAMselected ? Number(selectedRAM.cost) * Number(ramcount) : 0) +
                   (YSTORselected ? Number(selectedSTOR.cost) : 0) +
+                  (storcount === 2 ? Number(selectedSTOR2.cost) : 0) +
                   (selected ? Number(selectedGPU.cost) : 0)
                 }
               </div>
