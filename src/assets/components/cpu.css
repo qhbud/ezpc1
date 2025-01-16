@@ -15,7 +15,7 @@
   background: white;
   padding: 20px;
   border-radius: 8px;
-  max-width: 500px;
+  max-width: 600px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
@@ -25,6 +25,12 @@
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.ersym-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 
 .CPUgpu-item {
@@ -47,7 +53,7 @@
 
 .CPUgpu-details {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; /* Adjust proportions for each detail */
+  grid-template-columns: 0.8fr 0.7fr 1fr 1fr 1fr 1fr 1fr; /* Adjust proportions for each detail */
   column-gap: 15px;
   width: 100%;
   align-items: center;
@@ -78,7 +84,7 @@
 
 .CPUgpu-header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   column-gap: 15px;
   font-weight: bold;
   cursor: pointer;

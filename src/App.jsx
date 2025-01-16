@@ -920,10 +920,12 @@ function App() {
         </div>
         {CPUisPopupOpen && (
           <PopupCPU
-            CPUs={CPUs}
-            onClose={() => setCPUIsPopupOpen(false)}
-            onSelect={handleSelectCPU}
-          />
+          CPUs={CPUs}
+          onClose={() => setCPUIsPopupOpen(false)}
+          onSelect={handleSelectCPU}
+          selectedMOBO={selectedMOBO}
+          YMOBOselected={YMOBOselected}
+        />
         )}
       </div>
 
@@ -1020,6 +1022,8 @@ function App() {
             CPUs={RAMs}
             onClose={() => setRAMIsPopupOpen(false)}
             onSelect={handleSelectRAM}
+            selectedMOBO={selectedMOBO}
+            YMOBOselected={YMOBOselected}
           />
         )}
       </div>
@@ -1163,10 +1167,14 @@ function App() {
         </div>
         {MOBOisPopupOpen && (
           <PopupMOBO
-            CPUs={MOBO}
-            onClose={() => setMOBOIsPopupOpen(false)}
-            onSelect={handleSelectMOBO}
-          />
+          CPUs={MOBO}
+          onClose={() => setMOBOIsPopupOpen(false)}
+          onSelect={handleSelectMOBO}
+          selectedCPU={selectedCPU}
+          selectedRAM={selectedRAM}
+          YRAMselected={YRAMselected}
+          YCPUselected={YCPUselected}
+        />
         )}
       </div>
 

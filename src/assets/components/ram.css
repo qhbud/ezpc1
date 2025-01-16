@@ -11,11 +11,17 @@
   z-index: 1000;
 }
 
+.ersym-icon {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
 .RAMpopup-content {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  max-width: 400px;
+  max-width: 500px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
@@ -47,7 +53,7 @@
 
 .RAMgpu-details {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr 1.5fr; /* Adjust proportions for each detail */
+  grid-template-columns: 1.5fr 1fr 1.5fr 1.5fr 1fr; /* Adjust proportions for each detail */
   column-gap: 15px;
   width: 100%;
   align-items: center;
@@ -78,7 +84,7 @@
 
 .RAMgpu-header {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  grid-template-columns: 3.5fr 1.3fr 1.2fr 1.2fr;
   column-gap: 15px;
   font-weight: bold;
   cursor: pointer;
