@@ -69,7 +69,18 @@ function Popup({ CPUs, onSelect, onClose, selectedMOBO, YMOBOselected }) {
                 <span>{cpu.Single}</span>
                 <span>{cpu.Multi}</span>
                 <span>{cpu.Threads}</span>
-                <span>${cpu.cost}</span>
+                <span>
+                <span
+                  style={{
+                    color: cpu.disc !== 0 ? 'maroon' : 'inherit',
+                    textDecoration: cpu.disc !== 0 ? 'line-through' : 'none',
+                  }}
+                >
+                  {cpu.cost}
+                </span>
+                <br />
+                {cpu.disc !== 0 && <span>{cpu.disc}</span>}
+              </span>
               </div>
             </li>
           ))}
