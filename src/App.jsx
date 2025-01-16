@@ -725,6 +725,7 @@ function App() {
   const [selectedRAM, setSelectedRAM] = useState(RAMs[0]);
   const [selectedCOOLER, setSelectedCOOLER] = useState(Coolers[0]);
   const [selectedSTOR, setSelectedSTOR] = useState(Storage[0]);
+  const [selectedSTOR2, setSelectedSTOR2] = useState(Storage[3]);
   const [selectedPSU, setSelectedPSU] = useState(PSU[0])
   const [selectedMOBO, setSelectedMOBO] = useState(MOBO[0]);
   const [selectedCASE, setSelectedCASE] = useState(Case[0]);
@@ -735,11 +736,13 @@ function App() {
   const [RAMisPopupOpen, setRAMIsPopupOpen] = useState(false); // CPU Popup State
   const [COOLERisPopupOpen, setCOOLERIsPopupOpen] = useState(false); // CPU Popup State
   const [STORisPopupOpen, setSTORIsPopupOpen] = useState(false); // CPU Popup State
+  const [STORisPopupOpen2, setSTORIsPopupOpen2] = useState(false); // CPU Popup State
   const [PSUisPopupOpen, setPSUIsPopupOpen] = useState(false)
   const [MOBOisPopupOpen, setMOBOIsPopupOpen] = useState(false);
   const [CASEisPopupOpen, setCASEIsPopupOpen] = useState(false);
 
   const [ramcount, setramcount] = useState(1); // GPU Selected Toggle
+  const [storcount, setstorcount] = useState(1);
 
   const [selected, setSelected] = useState(false); // GPU Selected Toggle
   const [YCPUselected, setYCPUSelected] = useState(false); // CPU Selected Toggle
@@ -797,6 +800,12 @@ function App() {
     if (selected) setSelectedSTOR(selected);
     setYSTORSelected(true); // Mark CPU as selected
     setSTORIsPopupOpen(false);
+  };
+
+  const handleSelectSTOR2 = (option) => {
+    const selected = Storage.find((stor) => stor.name === option);
+    if (selected) setSelectedSTOR2(selected);
+    setSTORIsPopupOpen2(false);
   };
 
   const handleSelectMOBO = (option) => {
@@ -865,8 +874,12 @@ function App() {
 
 
   return (
-      <div className="container">
-        <ParticlesBackground/>
+    <div className="container">
+      <ParticlesBackground/>
+
+       <div className="case">
+
+
 
 
         <div className="App">
@@ -879,78 +892,6 @@ function App() {
                 onSelect={handleSelectCASE}
             />
         )}
-        {selected && YCOOLERselected && YCPUselected && YMOBOselected && YPSUselected && YPSUselected && YRAMselected && YSTORselected ? (
-            <div className="case">
-
-
-              <button
-                  className="select-case-btn"
-                  onClick={() => setCASEIsPopupOpen(true)}
-              >
-
-                {selectedCASE ? selectedCASE.name : "Select Case"}
-              </button>
-
-              <a href={selectedCASE.Link}>
-                <img src={amazonicon} className="amazonIconCASE" alt="Amazon"/>
-                <div className="CASE-cost">${selectedCASE.cost}</div>
-              </a>
-
-
-              <div className="r2" style={{
-                width: '100%',
-                display: 'flex'  // Override flex display
-              }}>
-                <div style={{
-                  width: '100%',
-                  maxWidth: '800px',
-                  margin: '0 auto',
-                  display: 'block'  // Override flex display
-                }}>
-                  <h1>Selected Build</h1>
-                  <Treemap data={[
-                    {label: "GPU", value: selectedGPU.cost},
-                    {label: "CPU", value: selectedCPU.cost},
-                    {label: "Cooler", value: selectedCOOLER.cost},
-                    {label: "RAM", value: selectedRAM.cost},
-                    {label: "Storage", value: selectedSTOR.cost},
-                    {label: "Motherboard", value: selectedMOBO.cost},
-                    {label: "PSU", value: selectedPSU.cost},
-                    {label: "Case", value: selectedCASE.cost}
-                  ]}/>
-                </div>
-              </div>
-
-              <div className="r1" style={{
-                width: '100%',
-                display: 'block'  // Override flex display
-              }}>
-                <div style={{
-                  width: '100%',
-                  maxWidth: '800px',
-                  margin: '0 auto',
-                  display: 'block'  // Override flex display
-                }}>
-                  <h1>Average Build</h1>
-                  <Treemap data={[
-                    {label: "GPU", value: builds.reduce((sum, build) => sum + build.gpuCost, 0) / builds.length},
-                    {label: "CPU", value: builds.reduce((sum, build) => sum + build.cpuCost, 0) / builds.length},
-                    {label: "Cooler", value: builds.reduce((sum, build) => sum + build.coolerCost, 0) / builds.length},
-                    {label: "RAM", value: builds.reduce((sum, build) => sum + build.ramCost, 0) / builds.length},
-                    {label: "Storage", value: builds.reduce((sum, build) => sum + build.driveCost, 0) / builds.length},
-                    {
-                      label: "Motherboard",
-                      value: builds.reduce((sum, build) => sum + build.moboCost, 0) / builds.length
-                    },
-                    {label: "PSU", value: builds.reduce((sum, build) => sum + build.psuCost, 0) / builds.length},
-                    {label: "Case", value: builds.reduce((sum, build) => sum + build.caseCost, 0) / builds.length}
-                  ]}/>
-                </div>
-              </div>
-
-
-            </div>
-        ) : (null)}
 
 
         <div className="colored-box">
@@ -1134,44 +1075,105 @@ function App() {
 
         <span style={{display: 'inline-block', width: '20px'}}></span>
 
-        <div className="colored-boxSTOR">
-          {/* CPU Section */}
-          <div className="STOR-container">
-            {YSTORselected ? (
-                <div className="STOR-box">
-                  <img
-                      src={selectedSTOR.Icon}
-                      alt="cpu"
-                      className="STOR-background"
-                  />
-                  <button
-                      className="select-STOR-btn"
-                      onClick={() => setSTORIsPopupOpen(true)}
-                  >
-                    {selectedSTOR.name}
-                  </button>
-                  <a href={selectedSTOR.Link}>
-                    <img src={amazonicon} className="amazonIconSTOR" alt="Amazon"/>
-                    <div className="STOR-cost">${selectedSTOR.cost}</div>
-                  </a>
-                </div>
-            ) : (
-                <button
-                    className="select-STOR-btn2"
-                    onClick={() => setSTORIsPopupOpen(true)}
-                >
-                  Select Storage
-                </button>
-            )}
-          </div>
-          {STORisPopupOpen && (
-              <PopupSTOR
-                  CPUs={Storage}
-                  onClose={() => setSTORIsPopupOpen(false)}
-                  onSelect={handleSelectSTOR}
+      <div className="colored-boxSTOR">
+        {/* CPU Section */}
+
+        <div className="STOR-container">
+          {YSTORselected ? (
+            <div className="STOR-box">
+
+              <img
+                src={selectedSTOR.Icon}
+                alt="cpu"
+                className="STOR-background"
+                style={{
+                  transition: "clip-path 0.3s ease-in-out",
+                  zIndex: 1,
+                  clipPath: storcount === 2
+                    ? "polygon(100% 0, 100% 0%, 100% 100%, 0 100%)"
+                    : "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                }}
               />
+
+              <img
+                src={selectedSTOR2.Icon}
+                alt="cpu"
+                className="STOR-background2"
+                style={{
+                  transform: 'translateX(-100%)',
+                  top: '-45px',
+                  position: 'absolute',
+                  width: '320px',
+                  height: 'auto',
+                  clipPath: 'polygon(0 22%, 100% 22%, 100% 77%, 0 77%)',
+                  zIndex: 0,
+                  opacity: 0.5
+                }}
+              />
+
+
+
+              <button
+                className="select-STOR-btn"
+                onClick={() => setSTORIsPopupOpen(true)}
+              >
+                {selectedSTOR.name}
+              </button>
+
+              {(storcount === 2 &&
+                <>
+                <button
+                  className="select-newSTOR-btn"
+                  onClick={() => setSTORIsPopupOpen2(true)}
+                >
+                  {selectedSTOR2.name}
+                </button>
+
+                   <a href={selectedSTOR2.Link} target="_blank" rel="noopener noreferrer">
+                   <img src={amazonicon} className="amazonIconSTOR2" alt="Amazon" />
+                   <div className="STOR-cost2">${selectedSTOR2.cost}</div>
+                 </a>
+                </>
+              )}
+
+              <a href={selectedSTOR.Link} target="_blank" rel="noopener noreferrer">
+                <img src={amazonicon} className="amazonIconSTOR" alt="Amazon" />
+                <div className="STOR-cost">${selectedSTOR.cost}</div>
+              </a>
+
+
+
+              <button
+                className="ramCount"
+                onClick={() => setstorcount(storcount === 1 ? 2 : 1)}
+              >
+                {storcount === 1 ? "+" : "-"}
+              </button>
+            </div>
+          ) : (
+            <button
+              className="select-STOR-btn2"
+              onClick={() => setSTORIsPopupOpen(true)}
+            >
+              Select Storage
+            </button>
           )}
         </div>
+        {STORisPopupOpen && (
+          <PopupSTOR
+            CPUs={Storage}
+            onClose={() => setSTORIsPopupOpen(false)}
+            onSelect={handleSelectSTOR}
+          />
+        )}
+         {STORisPopupOpen2 && (
+          <PopupSTOR
+            CPUs={Storage}
+            onClose={() => setSTORIsPopupOpen(false)}
+            onSelect={handleSelectSTOR2}
+          />
+        )}
+      </div>
 
 
         <div style={{height: "20px"}}></div>
@@ -1218,72 +1220,76 @@ function App() {
 
         <span style={{display: 'inline-block', width: '30px'}}></span>
 
-        <div className="colored-boxPSU">
-          {/* CPU Section */}
-          <div className="PSU-container">
-            {YPSUselected ? (
-                <div className="PSU-box">
-                  <img
-                      src={selectedPSU.Icon}
-                      alt="PSU"
-                      className="PSU-background"
-                  />
-                  <button
-                      className="select-PSU-btn"
-                      onClick={() => setPSUIsPopupOpen(true)}
-                  >
-                    {selectedPSU.name}
-                  </button>
-                  <a href={selectedPSU.Link}>
-                    <img src={amazonicon} className="amazonIconPSU" alt="Amazon"/>
-                    <div className="PSU-cost">${selectedPSU.cost}</div>
-                  </a>
-                </div>
-            ) : (
-                <button
-                    className="select-PSU-btn2"
-                    onClick={() => setPSUIsPopupOpen(true)}
-                >
-                  Select PSU
-                </button>
-            )}
-          </div>
-          {PSUisPopupOpen && (
-              <PopupPSU
-                  CPUs={PSU}
-                  onClose={() => setPSUIsPopupOpen(false)}
-                  onSelect={handleSelectPSU}
+      <div className="colored-boxPSU">
+        {/* CPU Section */}
+        <div className="PSU-container">
+          {YPSUselected ? (
+            <div className="PSU-box">
+              <img
+                src={selectedPSU.Icon}
+                alt="PSU"
+                className="PSU-background"
               />
+              <button
+                className="select-PSU-btn"
+                onClick={() => setPSUIsPopupOpen(true)}
+              >
+                {selectedPSU.name}
+              </button>
+              <a href={selectedPSU.Link} target="_blank" rel="noopener noreferrer">
+                <img src={amazonicon} className="amazonIconPSU" alt="Amazon" />
+                <div className="PSU-cost">${selectedPSU.cost}</div>
+              </a>
+            </div>
+          ) : (
+            <button
+              className="select-PSU-btn2"
+              onClick={() => setPSUIsPopupOpen(true)}
+            >
+              Select PSU
+            </button>
           )}
         </div>
-        <div
-            className="buildInfo"
-            style={{
-              maxWidth: (selected &&
-                  YCOOLERselected &&
-                  YCPUselected &&
-                  YMOBOselected &&
-                  YPSUselected &&
-                  YRAMselected &&
-                  YSTORselected) ? "950px" : "300px"
+        {PSUisPopupOpen && (
+          <PopupPSU
+            CPUs={PSU}
+            onClose={() => setPSUIsPopupOpen(false)}
+            onSelect={handleSelectPSU}
+          />
+        )}
+      </div>
+
+              <div 
+            className="buildInfo" 
+            style={{ 
+                maxWidth: (selected && 
+                          YCOOLERselected && 
+                          YCPUselected && 
+                          YMOBOselected && 
+                          YPSUselected && 
+                          YRAMselected && 
+                          YSTORselected) ? "950px" : "300px",
+                          backgroundColor:
+                          (selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected) ||
+                          (selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected)
+                            ? 'maroon'
+                            : '#00A36C' // Default color
             }}
         >
-          {selectedMOBO.Ram === selectedRAM.DDR && selectedCPU.Chipset === selectedMOBO.Chipset ? (
-              <p style={{color: 'green'}}>All components are compatible!</p>
+          {(selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected ) || (selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected) ? (
+            <p style={{ color: 'white' }}>
+              Compatibility issues detected:
+              <ul>
+                {selectedMOBO.Ram !== selectedRAM.DDR  && YMOBOselected && YRAMselected && (
+                  <li>RAM type mismatch: MOBO requires {selectedMOBO.Ram}, but selected RAM is {selectedRAM.DDR}.</li>
+                )}
+                {selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected && (
+                  <li>Chipset mismatch: CPU chipset is {selectedCPU.Chipset}, but MOBO requires {selectedMOBO.Chipset}.</li>
+                )}
+              </ul>
+            </p>
           ) : (
-              <p style={{color: 'maroon'}}>
-                Compatibility issues detected:
-                <ul>
-                  {selectedMOBO.Ram !== selectedRAM.DDR && (
-                      <li>RAM type mismatch: MOBO requires {selectedMOBO.Ram}, but selected RAM
-                        is {selectedRAM.DDR}.</li>
-                  )}
-                  {selectedCPU.Chipset !== selectedMOBO.Chipset && (
-                      <li>Chipset mismatch: CPU chipset is {selectedCPU.Chipset}, but MOBO
-                        requires {selectedMOBO.Chipset}.</li>
-                  )}
-                </ul>
-              </p>
+            <p style={{ color: 'white' }}>All components are compatible!</p>
           )}
           <br/>
           {(
@@ -1299,15 +1305,16 @@ function App() {
               <div>
                 <hr className="build-divider"/>
 
-                Total Cost:
-                {
-                    (YCPUselected ? Number(selectedCPU.cost) : 0) +
-                    (YCOOLERselected ? Number(selectedCOOLER.cost) : 0) +
-                    (YMOBOselected ? Number(selectedMOBO.cost) : 0) +
-                    (YPSUselected ? Number(selectedPSU.cost) : 0) +
-                    (YRAMselected ? Number(selectedRAM.cost) * Number(ramcount) : 0) +
-                    (YSTORselected ? Number(selectedSTOR.cost) : 0) +
-                    (selectedGPU ? Number(selectedGPU.cost) : 0)
+                Total Cost: 
+                { 
+                  (YCPUselected ? Number(selectedCPU.cost) : 0) +
+                  (YCOOLERselected ? Number(selectedCOOLER.cost) : 0) +
+                  (YMOBOselected ? Number(selectedMOBO.cost) : 0) +
+                  (YPSUselected ? Number(selectedPSU.cost) : 0) +
+                  (YRAMselected ? Number(selectedRAM.cost) * Number(ramcount) : 0) +
+                  (YSTORselected ? Number(selectedSTOR.cost) : 0) +
+                  (storcount === 2 ? Number(selectedSTOR2.cost) : 0) +
+                  (selected ? Number(selectedGPU.cost) : 0)
                 }
               </div>
           )}
@@ -1327,65 +1334,137 @@ function App() {
         </div>
 
 
+        <button
+            className="select-case-btn"
+            onClick={() => setCASEIsPopupOpen(true)}
+          >
+
+          {YCASEselected ? selectedCASE.name : "Select Case"}
+          </button>
+
+
+            {YCASEselected && (
+              <a href={selectedCASE.Link} target="_blank" rel="noopener noreferrer">
+                <img src={amazonicon} className="amazonIconCASE" alt="Amazon" />
+                <div className="CASE-cost">${selectedCASE.cost}</div>
+              </a>
+            )}
+                          {selected &&
+                          YCOOLERselected &&
+                          YCPUselected &&
+                          YMOBOselected &&
+                          YPSUselected &&
+                          YRAMselected &&
+                          YSTORselected && (
+                  <>
+                    <div className="r2" style={{
+                      width: '100%',
+                      display: 'block'
+                    }}>
+                      <div style={{
+                        width: '100%',
+                        maxWidth: '800px',
+                        margin: '0 auto',
+                        display: 'block'
+                      }}>
+                        <Treemap data={[
+                          { label: "GPU", value: selectedGPU.cost },
+                          { label: "CPU", value: selectedCPU.cost },
+                          { label: "Cooler", value: selectedCOOLER.cost },
+                          { label: "RAM", value: selectedRAM.cost },
+                          { label: "Storage", value: selectedSTOR.cost },
+                          { label: "Motherboard", value: selectedMOBO.cost },
+                          { label: "PSU", value: selectedPSU.cost },
+                          { label: "Case", value: selectedCASE.cost }
+                        ]} />
+                      </div>
+                    </div>
+
+                    <div className="r1" style={{
+                      width: '100%',
+                      display: 'block'
+                    }}>
+                      <div style={{
+                        width: '100%',
+                        maxWidth: '800px',
+                        margin: '0 auto',
+                        display: 'block'
+                      }}>
+                        <Treemap data={[
+                          { label: "GPU", value: 1 },
+                          { label: "CPU", value: 1 },
+                          { label: "Cooler", value: 1 },
+                          { label: "RAM", value: 1 },
+                          { label: "Storage", value: 1 },
+                          { label: "Motherboard", value: 1 },
+                          { label: "PSU", value: 1 },
+                          { label: "Case", value: 1 }
+                        ]} />
+                      </div>
+                    </div>
+                  </>
+              )}
+       </div>
         {showModal ? (
             <div style={{
-              position: "absolute",
-              top: "5%",
-              left: "10%",
-              right: "10%",
-              margin: "0 auto",
-              backgroundColor: "#ffffff",
-              color: "#333",
-              border: "2px solid #ddd",
-              borderRadius: "10px",
-              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
-              padding: "1%",
-              zIndex: "10",
-              minHeight: "10%", // Allow height to expand dynamically
+                position: "absolute",
+                top: "5%",
+                left: "10%",
+                right: "10%",
+                margin: "0 auto",
+                backgroundColor: "#ffffff",
+                color: "#333",
+                border: "2px solid #ddd",
+                borderRadius: "10px",
+                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+                padding: "1%",
+                zIndex: "10",
+                minHeight: "10%", // Allow height to expand dynamically
             }}>
-              <button
-                  className={"closeButton"}
-                  onClick={() => setShowModal(false)}>X
-              </button>
-              <h1>Builds</h1>
-              <table border="1" style={{width: "100%", textAlign: "left"}}>
-                <thead>
-                <tr>
-                  <th>GPU</th>
-                  <th>CPU</th>
-                  <th>Cooler</th>
-                  <th>RAM</th>
-                  <th>Number of RAM Sticks</th>
-                  <th>Drive</th>
-                  <th>Number of Storage Drives</th>
-                  <th>Motherboard</th>
-                  <th>PSU</th>
-                  <th>Case</th>
-                </tr>
-                </thead>
-                <tbody>
-                {builds.map((build, index) => (
-                    <tr key={index}>
-                      <td>{build.gpu}</td>
-                      <td>{build.cpu}</td>
-                      <td>{build.cooler}</td>
-                      <td>{build.ram}</td>
-                      <td>{build.numram}</td>
-                      <td>{build.drive}</td>
-                      <td>{build.numstorage}</td>
-                      <td>{build.mobo}</td>
-                      <td>{build.psu}</td>
-                      <td>{build.case}</td>
+                <button
+                    className={"closeButton"}
+                    onClick={() => setShowModal(false)}>X
+                </button>
+                <h1>Builds</h1>
+                <table border="1" style={{width: "100%", textAlign: "left"}}>
+                    <thead>
+                    <tr>
+                        <th>GPU</th>
+                        <th>CPU</th>
+                        <th>Cooler</th>
+                        <th>RAM</th>
+                        <th>Number of RAM Sticks</th>
+                        <th>Drive</th>
+                        <th>Number of Storage Drives</th>
+                        <th>Motherboard</th>
+                        <th>PSU</th>
+                        <th>Case</th>
                     </tr>
-                ))}
-                </tbody>
-              </table>
+                    </thead>
+                    <tbody>
+                    {builds.map((build, index) => (
+                        <tr key={index}>
+                            <td>{build.gpu}</td>
+                            <td>{build.cpu}</td>
+                            <td>{build.cooler}</td>
+                            <td>{build.ram}</td>
+                            <td>{build.numram}</td>
+                            <td>{build.drive}</td>
+                            <td>{build.numstorage}</td>
+                            <td>{build.mobo}</td>
+                            <td>{build.psu}</td>
+                            <td>{build.case}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
             </div>
         ) : null}
 
         <br/>
 
-      </div>
+    </div>
+
 
 
   );
