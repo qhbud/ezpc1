@@ -9,7 +9,6 @@
 }
 
 
-
 /* Media query for portrait orientation */
 @media (orientation: portrait) {
   .case {
@@ -150,6 +149,24 @@
 
 }
 
+
+
+.cart-button {
+  position: absolute;
+  right: 1.5%;
+  bottom: 1.6%;
+  background-color: #007bff;
+  padding: 15px 25px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-button:hover{
+  background-color: #0056b3;
+
+}
 .estWATT {
   position: absolute;
   right: 0.7%;

@@ -114,27 +114,27 @@ import ParticlesBackground from './assets/components/Particles.jsx';
 
 
 const PSU = [
-  {name: "Corsair RM750", Icon: pg80, Wattage: 750, type: "Fully Modular", Grade: "80+ Gold", cost: 100, Link : "https://amzn.to/4iEgQRG", disc: 1},
-  {name: "AGV Series 500", Icon: pbn80, Wattage: 500, type: "Non Modular", Grade: "80+ Bronze", cost: 50, Link : "https://amzn.to/4iA6eTP", disc: 25},
-  {name: "CORSAIR RM850", Icon: pg80, Wattage: 850, type: "Fully Modular", Grade: "80+ Gold", cost: 150, Link : "https://amzn.to/4gxHIkn", disc: 0},
-  {name: "Corsair RM1000", Icon: pg80, Wattage: 1000, type: "Fully Modular", Grade: "80+ Gold", cost: 180, Link : "https://amzn.to/4iA6gep", disc: 0},
-  {name: "TT SMART 600", Icon: pn80, Wattage: 600, type: "Non Modular", Grade: "80+", cost: 55, Link : "https://amzn.to/3DeHy2R", disc: 0},
-  {name: "AGV Series 750", Icon: pbs80, Wattage: 750, type: "Semi Modular", Grade: "80+ Bronze", cost: 80, Link : "https://amzn.to/4gBjMwn", disc: 0},
+  {name: "Corsair RM750", Icon: pg80, Wattage: 750, type: "Fully Modular", Grade: "80+ Gold", cost: 119, Link : "https://amzn.to/4hcXNNj", disc: 0, asin: "B0DJ1M18CY"},
+  {name: "AGV Series 500", Icon: pbn80, Wattage: 500, type: "Non Modular", Grade: "80+ Bronze", cost: 50, Link : "https://amzn.to/4iA6eTP", disc: 38, asin: "B0BDCKFJJT"},
+  {name: "CORSAIR RM850", Icon: pg80, Wattage: 850, type: "Fully Modular", Grade: "80+ Gold", cost: 150, Link : "https://amzn.to/4gxHIkn", disc: 0, asin: "B08R5JPTMZ"},
+  {name: "Corsair RM1000", Icon: pg80, Wattage: 1000, type: "Fully Modular", Grade: "80+ Gold", cost: 189, Link : "https://amzn.to/4akyNAQ", disc: 0, asin: "B08R5PH1VY"},
+  {name: "TT SMART 600", Icon: pn80, Wattage: 600, type: "Non Modular", Grade: "80+", cost: 55, Link : "https://amzn.to/3DeHy2R", disc: 45, asin: "B014W3EMAO"},
+  {name: "AGV Series 750", Icon: pbs80, Wattage: 750, type: "Semi Modular", Grade: "80+ Bronze", cost: 80, Link : "https://amzn.to/4gBjMwn", disc: 62, asin: "B0B4N4T8VW"},
 
 ]
 
 const MOBO = [
-  {name: "MAG B550 TOMAHAWK", Icon: magb550, Chipset: "AM4", Wifi: "Yes", Ram: "DDR4", Form: "ATX", cost: 179, Link: "https://amzn.to/4g00sZO", disc: 0, watts: 30},
-  {name: "MSI B550-A PRO", Icon: msib550, Chipset: "AM4", Wifi: "No", Ram: "DDR4", Form: "ATX", cost: 120, Link: "https://amzn.to/4fiMh17", disc: 0, watts: 25},
-  {name: "MAG B650 TOMAHAWK", Icon: b650, Chipset: "AM5", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 219, Link: "https://amzn.to/3OCHgFH", disc: 0, watts: 40},
-  {name: "GIGABYTE B650M", Icon: b650, Chipset: "AM5", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 159, Link: "https://amzn.to/3OJNseM", disc: 0, watts: 35},
-  {name: "MSI B760 Gaming Plus", Icon: b760p, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 169, Link: "https://amzn.to/3VqOHTZ", disc: 0, watts: 35},
-  {name: "MSI PRO B760-P", Icon: bp760p, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR4", Form: "ATX", cost: 159, Link: "https://amzn.to/4faFq9W", disc: 0, watts: 30},
-  {name: "ASUS TUF Gaming Z790", Icon: a790, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 249, Link: "https://amzn.to/4f0PWQS", disc: 0, watts: 40},
-  {name: "MSI PRO B760M-P", Icon: bp760m, Chipset: "LGA 1700", Wifi: "No", Ram: "DDR4", Form: "ATX", cost: 99, Link: "https://amzn.to/3OJNEuw", disc: 0, watts: 25},
-  {name: "ASUS Prime B450M-A", Icon: aprime, Chipset: "AM4", Wifi: "No", Ram: "DDR4", Form: "mATX", cost: 89, Link: "https://amzn.to/4gjI3a2", disc: 0, watts: 20},
-  {name: "ASRock B660M Pro ", Icon: b660m, Chipset: "LGA 1700", Wifi: "No", Ram: "DDR4", Form: "mATX", cost: 79, Link: "https://amzn.to/3ZD9gPE", disc: 0, watts: 20},
-  {name: "ASRock B650M-H", Icon: b650m, Chipset: "AM5", Wifi: "No", Ram: "DDR5", Form: "mATX", cost: 109, Link: "https://amzn.to/3ZCuA7N", disc: 25, watts: 30},
+  {name: "MAG B550 TOMAHAWK", Icon: magb550, Chipset: "AM4", Wifi: "Yes", Ram: "DDR4", Form: "ATX", cost: 179, Link: "https://amzn.to/4g00sZO", disc: 165, watts: 30, asin: "B09ZJ73LDY"},
+  {name: "MSI B550-A PRO", Icon: msib550, Chipset: "AM4", Wifi: "No", Ram: "DDR4", Form: "ATX", cost: 119, Link: "https://amzn.to/4fiMh17", disc: 109, watts: 25, asin: "B089CZSQB4"},
+  {name: "MAG B650 TOMAHAWK", Icon: b650, Chipset: "AM5", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 219, Link: "https://amzn.to/3OCHgFH", disc: 178, watts: 40, asin: "B0BHCCNSRH"},
+  {name: "GIGABYTE B650M", Icon: b650, Chipset: "AM5", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 159, Link: "https://amzn.to/3OJNseM", disc: 139, watts: 35, asin: "B0D2V4VH2C"},
+  {name: "MSI B760 Gaming Plus", Icon: b760p, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 169, Link: "https://amzn.to/3VqOHTZ", disc: 143, watts: 35, asin: "B0C15THTK7"},
+  {name: "MSI PRO B760-P", Icon: bp760p, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR4", Form: "ATX", cost: 159, Link: "https://amzn.to/4faFq9W", disc: 149, watts: 30, asin: "B0BRQSWSFQ"},
+  {name: "ASUS TUF Gaming Z790", Icon: a790, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 249, Link: "https://amzn.to/4f0PWQS", disc: 198, watts: 40, asin: "B0BQD58D96"},
+  {name: "MSI PRO B760M-P", Icon: bp760m, Chipset: "LGA 1700", Wifi: "No", Ram: "DDR4", Form: "ATX", cost: 99, Link: "https://amzn.to/3OJNEuw", disc: 0, watts: 25, asin: "B0BZ9T4KF6"},
+  {name: "ASUS Prime B450M-A", Icon: aprime, Chipset: "AM4", Wifi: "No", Ram: "DDR4", Form: "mATX", cost: 89, Link: "https://amzn.to/4gjI3a2", disc: 0, watts: 20, asin: "B08KH12V25"},
+  {name: "ASRock B660M Pro ", Icon: b660m, Chipset: "LGA 1700", Wifi: "No", Ram: "DDR4", Form: "mATX", cost: 79, Link: "https://amzn.to/3ZD9gPE", disc: 0, watts: 20, asin: "B09NZPD6WD"},
+  {name: "ASRock B650M-H", Icon: b650m, Chipset: "AM5", Wifi: "No", Ram: "DDR5", Form: "mATX", cost: 109, Link: "https://amzn.to/3ZCuA7N", disc: 99, watts: 30, asin: "B0CJTB2QV2"},
 ]
 
 
@@ -145,44 +145,48 @@ const RAMs = [
   {
     name: 'V16 2x16',
     Icon: cl1616,
-    cost: 80,
+    cost: 79,
     Link: 'https://amzn.to/3YVqSVx',
     DDR: "DDR4",
     RR: 3200,
-    disc: 0,
-    watts: 5
+    disc: 50,
+    watts: 5,
+    asin: "B07RW6Z692"
   },
   {
     name: 'V16 2x32',
     Icon: cl1632,
-    cost: 105,
+    cost: 155,
     Link: 'https://amzn.to/3CA6pOx',
     DDR: "DDR4",
     RR: 3200,
-    disc: 0,
-    watts: 6
+    disc: 99,
+    watts: 6,
+    asin: "B07Y4ZZ7LQ"
 
   },
   {
     name: 'V18 2x16',
     Icon: cl1816,
-    cost: 65,
+    cost: 84,
     Link: 'https://amzn.to/3YYbBmE',
     DDR: "DDR4",
     RR: 3600,
-    disc: 0,
-    watts: 5
+    disc: 67,
+    watts: 5,
+    asin: "B07ZPLM1R1"
 
   },
   {
     name: 'V30 2x16',
     Icon: cl3016,
-    cost: 120,
-    Link: 'https://amzn.to/3YYbBmE',
+    cost: 139,
+    Link: 'https://amzn.to/4jmxvcA',
     DDR: "DDR5",
     RR: 6000,
-    disc: 0,
-    watts: 7
+    disc: 119,
+    watts: 7,
+    asin: "B0C3RYHZJQ"
 
   },
   {
@@ -192,30 +196,33 @@ const RAMs = [
     Link: 'https://amzn.to/3Ohho1Q',
     DDR: "DDR5",
     RR: 6000,
-    disc: 0,
-    watts: 9
+    disc: 150,
+    watts: 9,
+    asin: "B0C5XL5XDS"
 
   },
   {
     name: 'V30 2x32',
     Icon: cl3032,
-    cost: 220,
+    cost: 229,
     Link: 'https://amzn.to/40Q6irZ',
     DDR: "DDR5",
     RR: 6000,
-    disc: 0,
-    watts: 12
+    disc: 209,
+    watts: 12,
+    asin: "B0C5M6SJYW"
 
   },
   {
     name: 'V30 2x48',
     Icon: cl3048,
-    cost: 330,
+    cost: 344,
     Link: 'https://amzn.to/4fvUdg5',
     DDR: "DDR5",
     RR: 6000,
     disc: 0,
-    watts: 14
+    watts: 14,
+    asin: "B0CCXQF414"
 
   },
   {
@@ -225,19 +232,21 @@ const RAMs = [
     Link: 'https://amzn.to/3ZbrdV8',
     DDR: "DDR5",
     RR: 6400,
-    disc: 0,
-    watts: 7 
+    disc: 99,
+    watts: 7,
+    asin: "B0BXHC74WD"
 
   },
   {
     name: 'R36 2x48',
     Icon: cl3648,
-    cost: 363,
+    cost: 394,
     Link: 'https://amzn.to/3ZabmGq',
     DDR: "DDR5",
     RR: 6400,
-    disc: 0,
-    watts: 14
+    disc: 349,
+    watts: 14,
+    asin: "B0CCXT8FX2"
 
   },
 ];
@@ -250,7 +259,8 @@ const Coolers = [
     cost: 60,
     Link: 'https://amzn.to/497NqXF',
     disc: 0,
-    watts: 2
+    watts: 2,
+    asin: "B00TBHYYFK"
     
 
   },
@@ -258,10 +268,11 @@ const Coolers = [
     name: 'Noctua  NH-D15',
     Icon: nhd15,
     Type: 'Large Air',
-    cost: 120,
+    cost: 110,
     Link: 'https://amzn.to/40WiJCA',
     disc: 0,
-    watts: 5
+    watts: 5,
+    asin: "B00L7UZMAK"
     
 
   },
@@ -269,21 +280,23 @@ const Coolers = [
     name: 'Cooler Master Hyper 212S',
     Icon: s212s,
     Type: 'Small Air',
-    cost: 19,
-    Link: 'https://amzn.to/40WiJCA',
+    cost: 29,
+    Link: 'https://amzn.to/40cxi36',
     disc: 0,
-    watts: 2
+    watts: 2,
+    asin: "B07H25DYM3"
     
 
   },
   {
-    name: 'Cooler Master Hyper  260s',
+    name: 'Cooler Master Hyper 622',
     Icon: s260s,
     Type: 'Large Air',
-    cost: 50,
-    Link: 'https://amzn.to/4fHQlc3',
+    cost: 65,
+    Link: 'https://amzn.to/40nTkA3',
     disc: 0,
-    watts: 5
+    watts: 5,
+    asin: "B0BX6JJHLJ"
     
 
   },
@@ -294,7 +307,8 @@ const Coolers = [
     cost: 140,
     Link: 'https://amzn.to/4eFbPF6',
     disc: 0,
-    watts: 5
+    watts: 5,
+    asin: ""
     
 
   },
@@ -302,10 +316,11 @@ const Coolers = [
     name: 'Arctic Freeze III RGB',
     Icon: AFR,
     Type: 'Liquid',
-    cost: 108,
+    cost: 139,
     Link: 'https://amzn.to/4i04hzO',
-    disc: 0,
-    watts: 10
+    disc: 99,
+    watts: 10,
+    asin: "B09VH34TB8"
     
 
   },
@@ -315,8 +330,9 @@ const Coolers = [
     Type: 'Liquid',
     cost: 140,
     Link: 'https://amzn.to/4hRxUmV',
-    disc: 0,
-    watts: 10
+    disc: 109,
+    watts: 10,
+    asin: "B0D4WWSKGQ"
     
 
   },
@@ -327,9 +343,9 @@ const Coolers = [
     cost: 100,
     Link: 'https://amzn.to/4eFPGql',
     disc: 0,
-    watts: 9
+    watts: 9,
+    asin: "B0C4C421RZ"
     
-
   },
 ];
 
@@ -346,15 +362,16 @@ const CPUs = [
     Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/48ICeRb',
-    disc: 0,
-    watts: 253
+    disc: 499,
+    watts: 253,
+    asin: "B0BCF54SR1"
     
 
   },
   {
     name: 'Core I9-12900K',
     Icon: i9129,
-    cost: 276,
+    cost: 287,
     Single: 87,
     Multi: 70,
     Threads: 24,
@@ -363,7 +380,8 @@ const CPUs = [
     Design: 'Intel',
     Link: 'https://amzn.to/3UOs37I',
     disc: 0,
-    watts: 241
+    watts: 241,
+    asin: "B09FXDLX95"
     
 
   },
@@ -378,15 +396,16 @@ const CPUs = [
     Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UQQhhJ',
-    disc: 0,
-    watts: 253
+    disc: 301,
+    watts: 253,
+    asin: "B0BCF57FL5"
     
 
   },
   {
     name: 'Core I7-12700K',
     Icon: i9127,
-    cost: 225,
+    cost: 207,
     Single: 84,
     Multi: 60,
     Threads: 20,
@@ -395,7 +414,8 @@ const CPUs = [
     Design: 'Intel',
     Link: 'https://amzn.to/4hKDR4P',
     disc: 0,
-    watts: 190
+    watts: 190,
+    asin: "B09FXNVDBJ"
     
 
   },
@@ -410,15 +430,16 @@ const CPUs = [
     Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UNNia1',
-    disc: 0,
-    watts: 181
+    disc: 220,
+    watts: 181,
+    asin: "B0BCDR9M33"
     
 
   },
   {
     name: 'Core I5-12600K',
     Icon: i9126,
-    cost: 342,
+    cost: 173,
     Single: 83,
     Multi: 46,
     Threads: 16,
@@ -427,12 +448,13 @@ const CPUs = [
     Design: 'Intel',
     Link: 'https://amzn.to/4hI1Txq',
     disc: 0,
-    watts: 150
+    watts: 150,
+    asin: "B09FX4D72T"
     
 
   },
 
-  {
+  /*{
     name: 'Ryzen 9 7950X',
     Icon: r97X,
     cost: 699,
@@ -443,11 +465,12 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4hI1POc',
-    disc: 0,
-    watts: 170
+    disc: 517,
+    watts: 170,
+    asin: "B0BBHD5D8Y"
     
 
-  },
+  },*/
   {
     name: 'Ryzen 9 7950X3D',
     Icon: r97D,
@@ -458,9 +481,10 @@ const CPUs = [
     Release: 2023,
     Chipset: "AM5",
     Design: 'AMD',
-    Link: 'https://amzn.to/48N0UYT',
-    disc: 0,
-    watts: 120
+    Link: 'https://amzn.to/42h5z3K',
+    disc: 517,
+    watts: 120,
+    asin: "B0BBHD5D8Y"
     
 
   },
@@ -475,15 +499,16 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4hGBosf',
-    disc: 0,
-    watts: 170
+    disc: 391,
+    watts: 170,
+    asin: "B0BBJ59WJ4"
     
 
   },
   {
     name: 'Ryzen 9 7900',
     Icon: r97M,
-    cost: 413,
+    cost: 429,
     Single: 84.1,
     Multi: 69.97,
     Threads: 24,
@@ -491,8 +516,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4euYSxw',
-    disc: 0,
-    watts: 65
+    disc: 401,
+    watts: 65,
+    asin: "B0BMQK718H"
     
 
   },
@@ -508,7 +534,8 @@ const CPUs = [
     Design: 'AMD',
     Link: 'https://amzn.to/3CkuvMS',
     disc: 0,
-    watts: 120
+    watts: 120,
+    asin: "B0BTZB7F88"
     
 
   },
@@ -523,8 +550,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3AOWiVg',
-    disc: 100,
-    watts: 105 
+    disc: 303,
+    watts: 105,
+    asin: "B0BBHHT8LY"
     
 
   },
@@ -539,8 +567,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3YNf6fC',
-    disc: 0,
-    watts: 105
+    disc: 197,
+    watts: 105,
+    asin: "B0BBJDS62N"
     
 
   },
@@ -555,15 +584,16 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3ABJSQF',
-    disc: 0,
-    watts: 65
+    disc: 198,
+    watts: 65,
+    asin: "B0BMQJWBDM"
     
 
   },
   {
     name: 'Ryzen 9 5900X',
     Icon: r95X,
-    cost: 569,
+    cost: 299,
     Single: 71.5,
     Multi: 58.02,
     Threads: 24,
@@ -572,14 +602,15 @@ const CPUs = [
     Design: 'AMD',
     Link: 'https://amzn.to/4etDqJn',
     disc: 0,
-    watts: 105
+    watts: 105,
+    asin: "B08164VTWH"
     
 
   },
   {
     name: 'Ryzen 7 5700X',
     Icon: r75X,
-    cost: 319,
+    cost: 149,
     Single: 67.8,
     Multi: 39.77,
     Threads: 16,
@@ -588,14 +619,15 @@ const CPUs = [
     Design: 'AMD',
     Link: 'https://amzn.to/4etv44i',
     disc: 0,
-    watts: 65
+    watts: 65,
+    asin: "B09VCHQHZ6"
     
 
   },
   {
     name: 'Ryzen 5 5600X',
     Icon: r55X,
-    cost: 127,
+    cost: 119,
     Single: 67.3,
     Multi: 32.5,
     Threads: 12,
@@ -604,7 +636,8 @@ const CPUs = [
     Design: 'AMD',
     Link: 'https://amzn.to/3UNtvam',
     disc: 0,
-    watts: 65
+    watts: 65,
+    asin: "B08166SLDF"
     
 
   },
@@ -618,11 +651,12 @@ const GPUs = [
     Release: 2022,
     Watts: 450,
     Bench: 154,
-    Link: 'https://amzn.to/3UEjQ64',
+    Link: 'https://amzn.to/4hjbYj8',
     Icon: n4090,
-    cost: 1949,
+    cost: 2949,
     disc: 0,
-    watts: 450
+    watts: 450,
+    asin: "B0BHD8MTST"
 
   },
   {
@@ -632,11 +666,12 @@ const GPUs = [
     Release: 2024,
     Watts: 320,
     Bench: 148,
-    Link: 'https://amzn.to/3CjZicV',
+    Link: 'https://amzn.to/40jgV4P',
     Icon: n4080,
-    cost: 999,
+    cost: 1498,
     disc: 0,
-    watts: 320
+    watts: 320,
+    asin: "B0BHDXCXXF"
 
   },
   {
@@ -646,11 +681,12 @@ const GPUs = [
     Release: 2024,
     Watts: 290,
     Bench: 142,
-    Link: 'https://amzn.to/48Ez5BU',
+    Link: 'https://amzn.to/3PEc21h',
     Icon: n4070ti,
-    cost: 820,
+    cost: 926,
     disc: 720,
-    watts: 290
+    watts: 290,
+    asin: "B0CSG8NYT3"
 
   },
   {
@@ -660,11 +696,12 @@ const GPUs = [
     Release: 2024,
     Watts: 220,
     Bench: 138,
-    Link: 'https://amzn.to/3Z06L8L',
+    Link: 'https://amzn.to/3PGnmtQ',
     Icon: n4070,
-    cost: 820,
+    cost: 659,
     disc: 0,
-    watts: 220
+    watts: 220,
+    asin: "B0CSHFM3D5"
 
   },
   {
@@ -674,11 +711,12 @@ const GPUs = [
     Release: 2023,
     Watts: 165,
     Bench: 101,
-    Link: 'https://amzn.to/3NWu3ae',
+    Link: 'https://amzn.to/40j8XbN',
     Icon: n4060ti,
-    cost: 449,
+    cost: 489,
     disc: 0,
-    watts: 165
+    watts: 165,
+    asin: "B0CBVXZDDL"
 
   },
   {
@@ -690,9 +728,10 @@ const GPUs = [
     Bench: 101,
     Link: 'https://amzn.to/40E1NAF',
     Icon: n4060ti,
-    cost: 419,
+    cost: 439,
     disc: 0,
-    watts: 160
+    watts: 160,
+    asin: "B0C5BBWWJP"
 
   },
   {
@@ -704,9 +743,10 @@ const GPUs = [
     Bench: 85,
     Link: 'https://amzn.to/3YVrlIn',
     Icon: n4060,
-    cost: 297,
+    cost: 299,
     disc: 0,
-    watts: 115
+    watts: 115,
+    asin: "B0C8JZNLZL"
 
   },
   {
@@ -716,11 +756,12 @@ const GPUs = [
     Release: 2021,
     Watts: 170,
     Bench: 54,
-    Link: 'https://amzn.to/4fnajc8',
+    Link: 'https://amzn.to/40BEoQ2',
     Icon: n3060,
-    cost: 284,
+    cost: 289,
     disc: 0,
-    watts: 170
+    watts: 170,
+    asin: "B0985X2YR1"
 
   },
   {
@@ -733,8 +774,9 @@ const GPUs = [
     Link: 'https://amzn.to/4hwOkAK',
     Icon: n3050,
     cost: 179,
-    disc: 0,
-    watts: 115
+    disc: 169,
+    watts: 115,
+    asin: "B0D4XZXLL7"
 
   },
   {
@@ -744,11 +786,12 @@ const GPUs = [
     Release: 2022,
     Watts: 355,
     Bench: 149,
-    Link: 'https://amzn.to/3O5FU5L',
+    Link: 'https://amzn.to/40z6rzI',
     Icon: a7900x,
-    cost: 899,
+    cost: 957,
     disc: 0,
-    watts: 355 
+    watts: 355,
+    asin: "B0BR6HZZ6Z" 
 
   },
   {
@@ -758,11 +801,12 @@ const GPUs = [
     Release: 2022,
     Watts: 300,
     Bench: 144,
-    Link: 'https://amzn.to/3YWWV8E',
+    Link: 'https://amzn.to/40Bve63',
     Icon: a7900,
-    cost: 649,
-    disc: 0,
-    watts: 300
+    cost: 799,
+    disc: 691,
+    watts: 300,
+    asin: "B0BNLT17XQ"
 
   },
   {
@@ -774,9 +818,10 @@ const GPUs = [
     Bench: 78,
     Link: 'https://amzn.to/3AvdpLU',
     Icon: a7800,
-    cost: 480,
+    cost: 499,
     disc: 0,
-    watts: 286
+    watts: 286,
+    asin: "B0CGM92TW8"
 
   },
   {
@@ -788,9 +833,10 @@ const GPUs = [
     Bench: 68,
     Link: 'https://amzn.to/3AmxzI1',
     Icon: a7700,
-    cost: 389,
+    cost: 399,
     disc: 0,
-    watts: 245
+    watts: 245,
+    asin: "https://amzn.to/3AmxzI1"
 
   },
   {
@@ -803,8 +849,9 @@ const GPUs = [
     Link: 'https://amzn.to/40xmNJv',
     Icon: a7600,
     cost: 329,
-    disc: 0,
-    watts: 190
+    disc: 314,
+    watts: 190,
+    asin: "B0CSVJZNNX"
 
   },
   {
@@ -818,7 +865,8 @@ const GPUs = [
     Icon: a7600m,
     cost: 269,
     disc: 0,
-    watts: 165
+    watts: 165,
+    asin: "B0C59RVD98"
 
   },
   {
@@ -828,50 +876,76 @@ const GPUs = [
     Release: 2021,
     Watts: 132,
     Bench: 31,
-    Link: 'https://amzn.to/4epHYQS',
+    Link: 'https://amzn.to/4h2OTSs',
     Icon: a6600,
     cost: 199,
     disc: 0,
-    watts: 132
+    watts: 132,
+    asin: "B09H3PY14M"
 
   },
 ];
 
 
 const Case = [
-  {name: "Corsair 5000D", cost: 175, rgb: "no", Link: "https://amzn.to/3VErttR", disc: 0, watts: 10},
-  {name: "CORSAIR 4000D RGB", cost: 105, rgb: "yes", Link: "https://amzn.to/3Bn0agP", disc: 0, watts: 15},
-  {name: "CORSAIR 4000D", cost: 149, rgb: "no", Link: "https://amzn.to/3Dtskak", disc: 0, watts: 10},
-  {name: "CORSAIR 3500X RGB", cost: 110, rgb: "yes", Link: "https://amzn.to/3DwfbNG", disc: 0, watts: 15},
-  {name: "NZXT H5", cost: 95, rgb: "no", Link: "https://amzn.to/3P1O9Au", disc: 0, watts: 10},
-  {name: "NZXT H5 RGB", cost: 120, rgb: "yes", Link: "https://amzn.to/4fhNDck", disc: 0, watts: 15},
-  {name: "NZXT H9", cost: 165, rgb: "no", Link: "https://amzn.to/41DpmKt", disc: 0, watts: 10},
-  {name: "NZXT H9 RGB", cost: 196, rgb: "yes", Link: "https://amzn.to/3VK0c9r", disc: 0, watts: 15},
-
-
-
-
+  {name: "Corsair 5000D", cost: 119, rgb: "no", Link: "https://amzn.to/3VErttR", disc: 0, watts: 10, asin: "B08M49WW51"},
+  {name: "CORSAIR 4000D RGB", cost: 149, rgb: "yes", Link: "https://amzn.to/3Bn0agP", disc: 104, watts: 15, asin: "B0BKBV7QMM"},
+  {name: "CORSAIR 4000D", cost: 104, rgb: "no", Link: "https://amzn.to/3Dtskak", disc: 84, watts: 10, asin: "B08C7BGV3D"},
+  {name: "CORSAIR 3500X RGB", cost: 109, rgb: "yes", Link: "https://amzn.to/3DwfbNG", disc: 0, watts: 15, asin: "B0CZV1KPXL"},
+  {name: "NZXT H5", cost: 95, rgb: "no", Link: "https://amzn.to/3P1O9Au", disc: 79, watts: 10, asin: "B0B6Y15C5L"},
+  {name: "NZXT H5 RGB", cost: 120, rgb: "yes", Link: "https://amzn.to/4fhNDck", disc: 0, watts: 15, asin: "B0BQSJWFQM"},
+  {name: "NZXT H9", cost: 165, rgb: "no", Link: "https://amzn.to/41DpmKt", disc: 0, watts: 10, asin: "B0BFZZ3ZWZ"},
+  {name: "NZXT H9 RGB", cost: 239, rgb: "yes", Link: "https://amzn.to/3VK0c9r", disc: 220, watts: 15, asin: "B0BG196XDP"},
 ]
 
 const Storage = [
-  { name: '870 EVO 4tb', Icon: ss4, cost: 287, size: 4, type: "sata ssd", Link: 'https://amzn.to/49b07kD', disc: 10, watts: 5 },
-  { name: '870 EVO 2tb', Icon: ss2, cost: 165, size: 2, type: "sata ssd", Link: 'https://amzn.to/4gbep7a', disc: 0, watts: 5 },
-  { name: '870 EVO 1tb', Icon: ss1, cost: 98, size: 1, type: "sata ssd", Link: 'https://amzn.to/4eZsOlz', disc: 0, watts: 5 },
-  { name: '870 EVO 0.5tb', Icon: ss05, cost: 53, size: 0.5, type: "sata ssd", Link: 'https://amzn.to/49h02fm', disc: 0, watts: 5 },
-  { name: '990 EVO 4tb', Icon: m24, cost: 345, size: 4, type: "m.2 ssd", Link: 'https://amzn.to/49cbZ5E', disc: 0, watts: 8 },
-  { name: '990 EVO 2tb', Icon: m22, cost: 184, size: 2, type: "m.2 ssd", Link: 'https://amzn.to/3OyWdse', disc: 0, watts: 8 },
-  { name: '990 EVO 1tb', Icon: m21, cost: 110, size: 1, type: "m.2 ssd", Link: 'https://amzn.to/3Z9QkGR', disc: 0, watts: 8 },
-  { name: 'Seagate 12tb', Icon: hd12, cost: 229, size: 12, type: "hard drive", Link: 'https://amzn.to/4eVN1Jg', disc: 0, watts: 12  },
-  { name: 'Seagate 8tb', Icon: hd8, cost: 135, size: 8, type: "hard drive", Link: 'https://amzn.to/4fPciWO', disc: 0, watts: 10  },
-  { name: 'Seagate 4tb', Icon: hd4, cost: 95, size: 4, type: "hard drive", Link: 'https://amzn.to/3ZbLetF', disc: 0, watts: 9 },
-  { name: 'SPower 0.25tb', Icon: sl02, cost: 18, size: 0.25, type: "sata ssd", Link: 'https://amzn.to/3ZgdgnV', disc: 0, watts: 6 },
-  { name: 'SPower 0.5tb', Icon: sl05, cost: 29, size: 0.5, type: "sata ssd", Link: 'https://amzn.to/3OyIf9C', disc: 0, watts: 6 },
-  { name: 'SPower 1tb', Icon: sl1, cost: 54, size: 1, type: "sata ssd", Link: 'https://amzn.to/4fOBL2r', disc: 0, watts: 6 },
-  { name: 'SPower 2tb', Icon: sl2, cost: 86, size: 2, type: "sata ssd", Link: 'https://amzn.to/3ZwFUCF', disc: 0, watts:  6},
-  { name: 'SPower 4tb', Icon: sl4, cost: 179, size: 4, type: "sata ssd", Link: 'https://amzn.to/3Zvhnhk', disc: 0, watts: 6 },
+  { name: '870 EVO 4tb', Icon: ss4, cost: 489, size: 4, type: "sata ssd", Link: 'https://amzn.to/49b07kD', disc: 299, watts: 5, asin: "B08QBL36GF"},
+  { name: '870 EVO 2tb', Icon: ss2, cost: 254, size: 2, type: "sata ssd", Link: 'https://amzn.to/4gbep7a', disc: 169, watts: 5, asin: "B08QB93S6R"},
+  { name: '870 EVO 1tb', Icon: ss1, cost: 145, size: 1, type: "sata ssd", Link: 'https://amzn.to/4eZsOlz', disc: 89, watts: 5, asin: "B08QBJ2YMG"},
+  { name: '870 EVO 0.5tb', Icon: ss05, cost: 84, size: 0.5, type: "sata ssd", Link: 'https://amzn.to/49h02fm', disc: 55, watts: 5, asin: "B08QBMD6P4"},
+  { name: '990 EVO 4tb', Icon: m24, cost: 345, size: 4, type: "m.2 ssd", Link: 'https://amzn.to/3PGdLTG', disc: 249, watts: 8, asin: "B0DHLBDSP7"},
+  { name: '990 EVO 2tb', Icon: m22, cost: 184, size: 2, type: "m.2 ssd", Link: 'https://amzn.to/3OyWdse', disc: 139, watts: 8, asin: "B0DHLCRF91"},
+  { name: '990 EVO 1tb', Icon: m21, cost: 149, size: 1, type: "m.2 ssd", Link: 'https://amzn.to/3Z9QkGR', disc: 74, watts: 8, asin: "B0CRCC9863"},
+  { name: 'Seagate 12tb', Icon: hd12, cost: 580, size: 12, type: "hard drive", Link: 'https://amzn.to/4gilOkN', disc: 0, watts: 12, asin: "B07H557CHQ"},
+  { name: 'Seagate 8tb', Icon: hd8, cost: 135, size: 8, type: "hard drive", Link: 'https://amzn.to/4fPciWO', disc: 0, watts: 10, asin: "B07H289S7C"},
+  { name: 'Seagate 4tb', Icon: hd4, cost: 95, size: 4, type: "hard drive", Link: 'https://amzn.to/3ZbLetF', disc: 0, watts: 9, asin: "B09NHV3CK9"},
+  { name: 'SPower 0.25tb', Icon: sl02, cost: 18, size: 0.25, type: "sata ssd", Link: 'https://amzn.to/3ZgdgnV', disc: 0, watts: 6, asin: "B0CQCH4RSD"},
+  { name: 'SPower 0.5tb', Icon: sl05, cost: 27, size: 0.5, type: "sata ssd", Link: 'https://amzn.to/3DVZYWt', disc: 0, watts: 6, asin: "B07997QV4Z"},
+  { name: 'SPower 1tb', Icon: sl1, cost: 47, size: 1, type: "sata ssd", Link: 'https://amzn.to/4fOBL2r', disc: 0, watts: 6, asin: "B0C69NT8RX"},
+  { name: 'SPower 4tb', Icon: sl4, cost: 179, size: 4, type: "sata ssd", Link: 'https://amzn.to/3Zvhnhk', disc: 0, watts: 6, asin: "B0BVLRFFWQ"},
 ];
 
+
+
+
 function App() {
+  const generateAmazonCart = ({ gPU, cPU, cOOL, rAM, rAM2, sTOR, sTOR2, pSU, mOBO, cASE }, affiliateId, marketplaceId = 'com') => {
+  // Base URL for Amazon cart
+  const baseUrl = `https://www.amazon.${marketplaceId}/gp/aws/cart/add.html`;
+
+  // Filter out undefined/null components
+  const components = [gPU, cPU, cOOL, rAM, rAM2, sTOR, sTOR2, pSU, mOBO, cASE].filter(component => component?.asin);
+  
+  // Create URL parameters for each item
+  const itemParams = components.map((component, index) => {
+    const quantity = 1;
+    return `ASIN.${index + 1}=${component.asin}&Quantity.${index + 1}=${quantity}`;
+  });
+
+  // Add affiliate tag
+  const affiliateParam = `&AssociateTag=${affiliateId}`;
+
+  // Combine all parameters
+  const queryString = itemParams.join('&') + affiliateParam;
+
+  // Return complete URL
+  return `${baseUrl}?${queryString}`;
+  };
+
+
+
+
+
   const [storageComponents, setStorageComponents] = useState([
     { id: 1, isExtra: false },
   ]);
@@ -984,23 +1058,14 @@ function App() {
     setMOBOIsPopupOpen(false);
   };
 
-  const sendBuild = {
-    id: 0,
-    gpu: selectedGPU,
-    cpu: selectedCPU,
-    cooler: selectedCOOLER,
-    ram: selectedRAM,
-    numram: ramcount,
-    drive: selectedSTOR,
-    // no storage count yet
-    mobo: selectedMOBO,
-    psu: selectedPSU,
-    case: selectedCASE
-  }
-
   return (
+    
     <div className="container">
-            <ParticlesBackground/>
+
+      
+
+
+      <ParticlesBackground/>
 
        <div className="case">
 
@@ -1396,14 +1461,8 @@ function App() {
               <div 
             className="buildInfo" 
             style={{ 
-                maxWidth: (selected && 
-                          YCOOLERselected && 
-                          YCPUselected && 
-                          YMOBOselected && 
-                          YPSUselected && 
-                          YRAMselected && 
-                          YSTORselected) ? "950px" : "300px",
-                          backgroundColor:
+                maxWidth: "950px",
+                backgroundColor:
                           (selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected) ||
                           (selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected)
                             ? 'maroon'
@@ -1459,6 +1518,31 @@ function App() {
                   (storcount === 2 ? Number(selectedSTOR2.cost) : 0) +
                   (selected ? Number(selectedGPU.cost) : 0)
                 }
+
+                  <button
+                    className="cart-button"
+                    onClick={() => {
+                      const cartParams = {};
+
+                      if (selected) cartParams.gPU = selectedGPU;
+                      if (YCPUselected) cartParams.cPU = selectedCPU;
+                      if (YCOOLERselected) cartParams.cOOL = selectedCOOLER;
+                      if (YRAMselected) cartParams.rAM = selectedRAM;
+                      if (ramcount == 2) cartParams.rAM2 = selectedRAM;
+                      if (YSTORselected) cartParams.sTOR = selectedSTOR;
+                      if (storcount == 2) cartParams.sTOR2 = selectedSTOR2;
+                      if (YPSUselected) cartParams.pSU = selectedPSU;
+                      if (YMOBOselected) cartParams.mOBO = selectedMOBO;
+                      if (YCASEselected) cartParams.cASE = selectedCASE;
+
+                      const cartUrl = generateAmazonCart(cartParams, 'quinnhenry4-20');
+                      window.open(cartUrl, '_blank');
+                    }}
+                  >
+                    Open Amazon Cart 
+                  </button>
+
+
                 <div className="estWATT"> 
                   Estimaged Wattage:
                   { 
@@ -1522,28 +1606,7 @@ function App() {
                       </div>
                     </div>
 
-                    <div className="r1" style={{
-                      width: '100%',
-                      display: 'block'
-                    }}>
-                      <div style={{ 
-                        width: '100%',
-                        maxWidth: '800px',
-                        margin: '0 auto',
-                        display: 'block'
-                      }}>
-                        <Treemap data={[
-                          { label: "GPU", value: 1 },
-                          { label: "CPU", value: 1 },
-                          { label: "Cooler", value: 1 },
-                          { label: "RAM", value: 1 },
-                          { label: "Storage", value: 1 },
-                          { label: "Motherboard", value: 1 },
-                          { label: "PSU", value: 1 },
-                          { label: "Case", value: 1 }
-                        ]} />
-                      </div>
-                    </div>
+
                   </>
               )}
           </div>
