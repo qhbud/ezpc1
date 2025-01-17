@@ -124,17 +124,17 @@ const PSU = [
 ]
 
 const MOBO = [
-  {name: "MAG B550 TOMAHAWK", Icon: magb550, Chipset: "AM4", Wifi: "Yes", Ram: "DDR4", Form: "ATX", cost: 179, Link: "https://amzn.to/4g00sZO", disc: 0},
-  {name: "MSI B550-A PRO", Icon: msib550, Chipset: "AM4", Wifi: "No", Ram: "DDR4", Form: "ATX", cost: 120, Link: "https://amzn.to/4fiMh17", disc: 0},
-  {name: "MAG B650 TOMAHAWK", Icon: b650, Chipset: "AM5", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 219, Link: "https://amzn.to/3OCHgFH", disc: 0},
-  {name: "GIGABYTE B650M", Icon: b650, Chipset: "AM5", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 159, Link: "https://amzn.to/3OJNseM", disc: 0},
-  {name: "MSI B760 Gaming Plus", Icon: b760p, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 169, Link: "https://amzn.to/3VqOHTZ", disc: 0},
-  {name: "MSI PRO B760-P", Icon: bp760p, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR4", Form: "ATX", cost: 159, Link: "https://amzn.to/4faFq9W", disc: 0},
-  {name: "ASUS TUF Gaming Z790", Icon: a790, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 249, Link: "https://amzn.to/4f0PWQS", disc: 0},
-  {name: "MSI PRO B760M-P", Icon: bp760m, Chipset: "LGA 1700", Wifi: "No", Ram: "DDR4", Form: "ATX", cost: 99, Link: "https://amzn.to/3OJNEuw", disc: 0},
-  {name: "ASUS Prime B450M-A", Icon: aprime, Chipset: "AM4", Wifi: "No", Ram: "DDR4", Form: "mATX", cost: 89, Link: "https://amzn.to/4gjI3a2", disc: 0},
-  {name: "ASRock B660M Pro ", Icon: b660m, Chipset: "LGA 1700", Wifi: "No", Ram: "DDR4", Form: "mATX", cost: 79, Link: "https://amzn.to/3ZD9gPE", disc: 0},
-  {name: "ASRock B650M-H", Icon: b650m, Chipset: "AM5", Wifi: "No", Ram: "DDR5", Form: "mATX", cost: 109, Link: "https://amzn.to/3ZCuA7N", disc: 25},
+  {name: "MAG B550 TOMAHAWK", Icon: magb550, Chipset: "AM4", Wifi: "Yes", Ram: "DDR4", Form: "ATX", cost: 179, Link: "https://amzn.to/4g00sZO", disc: 0, watts: 30},
+  {name: "MSI B550-A PRO", Icon: msib550, Chipset: "AM4", Wifi: "No", Ram: "DDR4", Form: "ATX", cost: 120, Link: "https://amzn.to/4fiMh17", disc: 0, watts: 25},
+  {name: "MAG B650 TOMAHAWK", Icon: b650, Chipset: "AM5", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 219, Link: "https://amzn.to/3OCHgFH", disc: 0, watts: 40},
+  {name: "GIGABYTE B650M", Icon: b650, Chipset: "AM5", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 159, Link: "https://amzn.to/3OJNseM", disc: 0, watts: 35},
+  {name: "MSI B760 Gaming Plus", Icon: b760p, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 169, Link: "https://amzn.to/3VqOHTZ", disc: 0, watts: 35},
+  {name: "MSI PRO B760-P", Icon: bp760p, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR4", Form: "ATX", cost: 159, Link: "https://amzn.to/4faFq9W", disc: 0, watts: 30},
+  {name: "ASUS TUF Gaming Z790", Icon: a790, Chipset: "LGA 1700", Wifi: "Yes", Ram: "DDR5", Form: "ATX", cost: 249, Link: "https://amzn.to/4f0PWQS", disc: 0, watts: 40},
+  {name: "MSI PRO B760M-P", Icon: bp760m, Chipset: "LGA 1700", Wifi: "No", Ram: "DDR4", Form: "ATX", cost: 99, Link: "https://amzn.to/3OJNEuw", disc: 0, watts: 25},
+  {name: "ASUS Prime B450M-A", Icon: aprime, Chipset: "AM4", Wifi: "No", Ram: "DDR4", Form: "mATX", cost: 89, Link: "https://amzn.to/4gjI3a2", disc: 0, watts: 20},
+  {name: "ASRock B660M Pro ", Icon: b660m, Chipset: "LGA 1700", Wifi: "No", Ram: "DDR4", Form: "mATX", cost: 79, Link: "https://amzn.to/3ZD9gPE", disc: 0, watts: 20},
+  {name: "ASRock B650M-H", Icon: b650m, Chipset: "AM5", Wifi: "No", Ram: "DDR5", Form: "mATX", cost: 109, Link: "https://amzn.to/3ZCuA7N", disc: 25, watts: 30},
 ]
 
 
@@ -149,7 +149,8 @@ const RAMs = [
     Link: 'https://amzn.to/3YVqSVx',
     DDR: "DDR4",
     RR: 3200,
-    disc: 0
+    disc: 0,
+    watts: 5
   },
   {
     name: 'V16 2x32',
@@ -158,7 +159,8 @@ const RAMs = [
     Link: 'https://amzn.to/3CA6pOx',
     DDR: "DDR4",
     RR: 3200,
-    disc: 0
+    disc: 0,
+    watts: 6
 
   },
   {
@@ -168,7 +170,8 @@ const RAMs = [
     Link: 'https://amzn.to/3YYbBmE',
     DDR: "DDR4",
     RR: 3600,
-    disc: 0
+    disc: 0,
+    watts: 5
 
   },
   {
@@ -178,7 +181,8 @@ const RAMs = [
     Link: 'https://amzn.to/3YYbBmE',
     DDR: "DDR5",
     RR: 6000,
-    disc: 0
+    disc: 0,
+    watts: 7
 
   },
   {
@@ -188,7 +192,8 @@ const RAMs = [
     Link: 'https://amzn.to/3Ohho1Q',
     DDR: "DDR5",
     RR: 6000,
-    disc: 0
+    disc: 0,
+    watts: 9
 
   },
   {
@@ -198,7 +203,8 @@ const RAMs = [
     Link: 'https://amzn.to/40Q6irZ',
     DDR: "DDR5",
     RR: 6000,
-    disc: 0
+    disc: 0,
+    watts: 12
 
   },
   {
@@ -208,7 +214,8 @@ const RAMs = [
     Link: 'https://amzn.to/4fvUdg5',
     DDR: "DDR5",
     RR: 6000,
-    disc: 0
+    disc: 0,
+    watts: 14
 
   },
   {
@@ -218,7 +225,8 @@ const RAMs = [
     Link: 'https://amzn.to/3ZbrdV8',
     DDR: "DDR5",
     RR: 6400,
-    disc: 0
+    disc: 0,
+    watts: 7 
 
   },
   {
@@ -228,7 +236,8 @@ const RAMs = [
     Link: 'https://amzn.to/3ZabmGq',
     DDR: "DDR5",
     RR: 6400,
-    disc: 0
+    disc: 0,
+    watts: 14
 
   },
 ];
@@ -240,7 +249,9 @@ const Coolers = [
     Type: 'Small Air',
     cost: 60,
     Link: 'https://amzn.to/497NqXF',
-    disc: 0
+    disc: 0,
+    watts: 2
+    
 
   },
   {
@@ -249,7 +260,9 @@ const Coolers = [
     Type: 'Large Air',
     cost: 120,
     Link: 'https://amzn.to/40WiJCA',
-    disc: 0
+    disc: 0,
+    watts: 5
+    
 
   },
   {
@@ -258,7 +271,9 @@ const Coolers = [
     Type: 'Small Air',
     cost: 19,
     Link: 'https://amzn.to/40WiJCA',
-    disc: 0
+    disc: 0,
+    watts: 2
+    
 
   },
   {
@@ -267,7 +282,9 @@ const Coolers = [
     Type: 'Large Air',
     cost: 50,
     Link: 'https://amzn.to/4fHQlc3',
-    disc: 0
+    disc: 0,
+    watts: 5
+    
 
   },
   {
@@ -276,7 +293,9 @@ const Coolers = [
     Type: 'Liquid',
     cost: 140,
     Link: 'https://amzn.to/4eFbPF6',
-    disc: 0
+    disc: 0,
+    watts: 5
+    
 
   },
   {
@@ -285,7 +304,9 @@ const Coolers = [
     Type: 'Liquid',
     cost: 108,
     Link: 'https://amzn.to/4i04hzO',
-    disc: 0
+    disc: 0,
+    watts: 10
+    
 
   },
   {
@@ -294,7 +315,9 @@ const Coolers = [
     Type: 'Liquid',
     cost: 140,
     Link: 'https://amzn.to/4hRxUmV',
-    disc: 0
+    disc: 0,
+    watts: 10
+    
 
   },
   {
@@ -303,7 +326,9 @@ const Coolers = [
     Type: 'Liquid',
     cost: 100,
     Link: 'https://amzn.to/4eFPGql',
-    disc: 0
+    disc: 0,
+    watts: 9
+    
 
   },
 ];
@@ -321,7 +346,9 @@ const CPUs = [
     Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/48ICeRb',
-    disc: 0
+    disc: 0,
+    watts: 253
+    
 
   },
   {
@@ -335,7 +362,9 @@ const CPUs = [
     Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UOs37I',
-    disc: 0
+    disc: 0,
+    watts: 241
+    
 
   },
   {
@@ -349,7 +378,9 @@ const CPUs = [
     Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UQQhhJ',
-    disc: 0
+    disc: 0,
+    watts: 253
+    
 
   },
   {
@@ -363,7 +394,9 @@ const CPUs = [
     Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/4hKDR4P',
-    disc: 0
+    disc: 0,
+    watts: 190
+    
 
   },
   {
@@ -377,7 +410,9 @@ const CPUs = [
     Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/3UNNia1',
-    disc: 0
+    disc: 0,
+    watts: 181
+    
 
   },
   {
@@ -391,7 +426,9 @@ const CPUs = [
     Chipset: "LGA 1700",
     Design: 'Intel',
     Link: 'https://amzn.to/4hI1Txq',
-    disc: 0
+    disc: 0,
+    watts: 150
+    
 
   },
 
@@ -406,7 +443,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4hI1POc',
-    disc: 0
+    disc: 0,
+    watts: 170
+    
 
   },
   {
@@ -420,7 +459,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/48N0UYT',
-    disc: 0
+    disc: 0,
+    watts: 120
+    
 
   },
   {
@@ -434,7 +475,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4hGBosf',
-    disc: 0
+    disc: 0,
+    watts: 170
+    
 
   },
   {
@@ -448,7 +491,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/4euYSxw',
-    disc: 0
+    disc: 0,
+    watts: 65
+    
 
   },
   {
@@ -462,7 +507,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3CkuvMS',
-    disc: 0
+    disc: 0,
+    watts: 120
+    
 
   },
   {
@@ -476,7 +523,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3AOWiVg',
-    disc: 100
+    disc: 100,
+    watts: 105 
+    
 
   },
   {
@@ -490,7 +539,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3YNf6fC',
-    disc: 0
+    disc: 0,
+    watts: 105
+    
 
   },
   {
@@ -504,7 +555,9 @@ const CPUs = [
     Chipset: "AM5",
     Design: 'AMD',
     Link: 'https://amzn.to/3ABJSQF',
-    disc: 0
+    disc: 0,
+    watts: 65
+    
 
   },
   {
@@ -518,7 +571,9 @@ const CPUs = [
     Chipset: "AM4",
     Design: 'AMD',
     Link: 'https://amzn.to/4etDqJn',
-    disc: 0
+    disc: 0,
+    watts: 105
+    
 
   },
   {
@@ -532,7 +587,9 @@ const CPUs = [
     Chipset: "AM4",
     Design: 'AMD',
     Link: 'https://amzn.to/4etv44i',
-    disc: 0
+    disc: 0,
+    watts: 65
+    
 
   },
   {
@@ -546,7 +603,9 @@ const CPUs = [
     Chipset: "AM4",
     Design: 'AMD',
     Link: 'https://amzn.to/3UNtvam',
-    disc: 0
+    disc: 0,
+    watts: 65
+    
 
   },
 ];
@@ -562,7 +621,8 @@ const GPUs = [
     Link: 'https://amzn.to/3UEjQ64',
     Icon: n4090,
     cost: 1949,
-    disc: 0
+    disc: 0,
+    watts: 450
 
   },
   {
@@ -575,7 +635,8 @@ const GPUs = [
     Link: 'https://amzn.to/3CjZicV',
     Icon: n4080,
     cost: 999,
-    disc: 0
+    disc: 0,
+    watts: 320
 
   },
   {
@@ -588,7 +649,8 @@ const GPUs = [
     Link: 'https://amzn.to/48Ez5BU',
     Icon: n4070ti,
     cost: 820,
-    disc: 720
+    disc: 720,
+    watts: 290
 
   },
   {
@@ -601,7 +663,8 @@ const GPUs = [
     Link: 'https://amzn.to/3Z06L8L',
     Icon: n4070,
     cost: 820,
-    disc: 0
+    disc: 0,
+    watts: 220
 
   },
   {
@@ -614,7 +677,8 @@ const GPUs = [
     Link: 'https://amzn.to/3NWu3ae',
     Icon: n4060ti,
     cost: 449,
-    disc: 0
+    disc: 0,
+    watts: 165
 
   },
   {
@@ -627,7 +691,8 @@ const GPUs = [
     Link: 'https://amzn.to/40E1NAF',
     Icon: n4060ti,
     cost: 419,
-    disc: 0
+    disc: 0,
+    watts: 160
 
   },
   {
@@ -640,7 +705,8 @@ const GPUs = [
     Link: 'https://amzn.to/3YVrlIn',
     Icon: n4060,
     cost: 297,
-    disc: 0
+    disc: 0,
+    watts: 115
 
   },
   {
@@ -653,7 +719,8 @@ const GPUs = [
     Link: 'https://amzn.to/4fnajc8',
     Icon: n3060,
     cost: 284,
-    disc: 0
+    disc: 0,
+    watts: 170
 
   },
   {
@@ -666,7 +733,8 @@ const GPUs = [
     Link: 'https://amzn.to/4hwOkAK',
     Icon: n3050,
     cost: 179,
-    disc: 0
+    disc: 0,
+    watts: 115
 
   },
   {
@@ -679,7 +747,8 @@ const GPUs = [
     Link: 'https://amzn.to/3O5FU5L',
     Icon: a7900x,
     cost: 899,
-    disc: 0
+    disc: 0,
+    watts: 355 
 
   },
   {
@@ -692,7 +761,8 @@ const GPUs = [
     Link: 'https://amzn.to/3YWWV8E',
     Icon: a7900,
     cost: 649,
-    disc: 0
+    disc: 0,
+    watts: 300
 
   },
   {
@@ -705,7 +775,8 @@ const GPUs = [
     Link: 'https://amzn.to/3AvdpLU',
     Icon: a7800,
     cost: 480,
-    disc: 0
+    disc: 0,
+    watts: 286
 
   },
   {
@@ -718,7 +789,8 @@ const GPUs = [
     Link: 'https://amzn.to/3AmxzI1',
     Icon: a7700,
     cost: 389,
-    disc: 0
+    disc: 0,
+    watts: 245
 
   },
   {
@@ -731,7 +803,8 @@ const GPUs = [
     Link: 'https://amzn.to/40xmNJv',
     Icon: a7600,
     cost: 329,
-    disc: 0
+    disc: 0,
+    watts: 190
 
   },
   {
@@ -744,7 +817,8 @@ const GPUs = [
     Link: 'https://amzn.to/40VYGEH',
     Icon: a7600m,
     cost: 269,
-    disc: 0
+    disc: 0,
+    watts: 165
 
   },
   {
@@ -757,21 +831,22 @@ const GPUs = [
     Link: 'https://amzn.to/4epHYQS',
     Icon: a6600,
     cost: 199,
-    disc: 0
+    disc: 0,
+    watts: 132
 
   },
 ];
 
 
 const Case = [
-  {name: "Corsair 5000D", cost: 175, rgb: "no", Link: "https://amzn.to/3VErttR", disc: 0},
-  {name: "CORSAIR 4000D RGB", cost: 105, rgb: "yes", Link: "https://amzn.to/3Bn0agP", disc: 0},
-  {name: "CORSAIR 4000D", cost: 149, rgb: "no", Link: "https://amzn.to/3Dtskak", disc: 0},
-  {name: "CORSAIR 3500X RGB", cost: 110, rgb: "yes", Link: "https://amzn.to/3DwfbNG", disc: 0},
-  {name: "NZXT H5", cost: 95, rgb: "no", Link: "https://amzn.to/3P1O9Au", disc: 0},
-  {name: "NZXT H5 RGB", cost: 120, rgb: "yes", Link: "https://amzn.to/4fhNDck", disc: 0},
-  {name: "NZXT H9", cost: 165, rgb: "no", Link: "https://amzn.to/41DpmKt", disc: 0},
-  {name: "NZXT H9 RGB", cost: 196, rgb: "yes", Link: "https://amzn.to/3VK0c9r", disc: 0},
+  {name: "Corsair 5000D", cost: 175, rgb: "no", Link: "https://amzn.to/3VErttR", disc: 0, watts: 10},
+  {name: "CORSAIR 4000D RGB", cost: 105, rgb: "yes", Link: "https://amzn.to/3Bn0agP", disc: 0, watts: 15},
+  {name: "CORSAIR 4000D", cost: 149, rgb: "no", Link: "https://amzn.to/3Dtskak", disc: 0, watts: 10},
+  {name: "CORSAIR 3500X RGB", cost: 110, rgb: "yes", Link: "https://amzn.to/3DwfbNG", disc: 0, watts: 15},
+  {name: "NZXT H5", cost: 95, rgb: "no", Link: "https://amzn.to/3P1O9Au", disc: 0, watts: 10},
+  {name: "NZXT H5 RGB", cost: 120, rgb: "yes", Link: "https://amzn.to/4fhNDck", disc: 0, watts: 15},
+  {name: "NZXT H9", cost: 165, rgb: "no", Link: "https://amzn.to/41DpmKt", disc: 0, watts: 10},
+  {name: "NZXT H9 RGB", cost: 196, rgb: "yes", Link: "https://amzn.to/3VK0c9r", disc: 0, watts: 15},
 
 
 
@@ -779,21 +854,21 @@ const Case = [
 ]
 
 const Storage = [
-  { name: '870 EVO 4tb', Icon: ss4, cost: 287, size: 4, type: "sata ssd", Link: 'https://amzn.to/49b07kD', disc: 10},
-  { name: '870 EVO 2tb', Icon: ss2, cost: 165, size: 2, type: "sata ssd", Link: 'https://amzn.to/4gbep7a', disc: 0 },
-  { name: '870 EVO 1tb', Icon: ss1, cost: 98, size: 1, type: "sata ssd", Link: 'https://amzn.to/4eZsOlz', disc: 0 },
-  { name: '870 EVO 0.5tb', Icon: ss05, cost: 53, size: 0.5, type: "sata ssd", Link: 'https://amzn.to/49h02fm', disc: 0 },
-  { name: '990 EVO 4tb', Icon: m24, cost: 345, size: 4, type: "m.2 ssd", Link: 'https://amzn.to/49cbZ5E', disc: 0 },
-  { name: '990 EVO 2tb', Icon: m22, cost: 184, size: 2, type: "m.2 ssd", Link: 'https://amzn.to/3OyWdse', disc: 0 },
-  { name: '990 EVO 1tb', Icon: m21, cost: 110, size: 1, type: "m.2 ssd", Link: 'https://amzn.to/3Z9QkGR', disc: 0 },
-  { name: 'Seagate 12tb', Icon: hd12, cost: 229, size: 12, type: "hard drive", Link: 'https://amzn.to/4eVN1Jg', disc: 0  },
-  { name: 'Seagate 8tb', Icon: hd8, cost: 135, size: 8, type: "hard drive", Link: 'https://amzn.to/4fPciWO', disc: 0  },
-  { name: 'Seagate 4tb', Icon: hd4, cost: 95, size: 4, type: "hard drive", Link: 'https://amzn.to/3ZbLetF', disc: 0 },
-  { name: 'SPower 0.25tb', Icon: sl02, cost: 18, size: 0.25, type: "sata ssd", Link: 'https://amzn.to/3ZgdgnV', disc: 0 },
-  { name: 'SPower 0.5tb', Icon: sl05, cost: 29, size: 0.5, type: "sata ssd", Link: 'https://amzn.to/3OyIf9C', disc: 0 },
-  { name: 'SPower 1tb', Icon: sl1, cost: 54, size: 1, type: "sata ssd", Link: 'https://amzn.to/4fOBL2r', disc: 0 },
-  { name: 'SPower 2tb', Icon: sl2, cost: 86, size: 2, type: "sata ssd", Link: 'https://amzn.to/3ZwFUCF', disc: 0 },
-  { name: 'SPower 4tb', Icon: sl4, cost: 179, size: 4, type: "sata ssd", Link: 'https://amzn.to/3Zvhnhk', disc: 0 },
+  { name: '870 EVO 4tb', Icon: ss4, cost: 287, size: 4, type: "sata ssd", Link: 'https://amzn.to/49b07kD', disc: 10, watts: 5 },
+  { name: '870 EVO 2tb', Icon: ss2, cost: 165, size: 2, type: "sata ssd", Link: 'https://amzn.to/4gbep7a', disc: 0, watts: 5 },
+  { name: '870 EVO 1tb', Icon: ss1, cost: 98, size: 1, type: "sata ssd", Link: 'https://amzn.to/4eZsOlz', disc: 0, watts: 5 },
+  { name: '870 EVO 0.5tb', Icon: ss05, cost: 53, size: 0.5, type: "sata ssd", Link: 'https://amzn.to/49h02fm', disc: 0, watts: 5 },
+  { name: '990 EVO 4tb', Icon: m24, cost: 345, size: 4, type: "m.2 ssd", Link: 'https://amzn.to/49cbZ5E', disc: 0, watts: 8 },
+  { name: '990 EVO 2tb', Icon: m22, cost: 184, size: 2, type: "m.2 ssd", Link: 'https://amzn.to/3OyWdse', disc: 0, watts: 8 },
+  { name: '990 EVO 1tb', Icon: m21, cost: 110, size: 1, type: "m.2 ssd", Link: 'https://amzn.to/3Z9QkGR', disc: 0, watts: 8 },
+  { name: 'Seagate 12tb', Icon: hd12, cost: 229, size: 12, type: "hard drive", Link: 'https://amzn.to/4eVN1Jg', disc: 0, watts: 12  },
+  { name: 'Seagate 8tb', Icon: hd8, cost: 135, size: 8, type: "hard drive", Link: 'https://amzn.to/4fPciWO', disc: 0, watts: 10  },
+  { name: 'Seagate 4tb', Icon: hd4, cost: 95, size: 4, type: "hard drive", Link: 'https://amzn.to/3ZbLetF', disc: 0, watts: 9 },
+  { name: 'SPower 0.25tb', Icon: sl02, cost: 18, size: 0.25, type: "sata ssd", Link: 'https://amzn.to/3ZgdgnV', disc: 0, watts: 6 },
+  { name: 'SPower 0.5tb', Icon: sl05, cost: 29, size: 0.5, type: "sata ssd", Link: 'https://amzn.to/3OyIf9C', disc: 0, watts: 6 },
+  { name: 'SPower 1tb', Icon: sl1, cost: 54, size: 1, type: "sata ssd", Link: 'https://amzn.to/4fOBL2r', disc: 0, watts: 6 },
+  { name: 'SPower 2tb', Icon: sl2, cost: 86, size: 2, type: "sata ssd", Link: 'https://amzn.to/3ZwFUCF', disc: 0, watts:  6},
+  { name: 'SPower 4tb', Icon: sl4, cost: 179, size: 4, type: "sata ssd", Link: 'https://amzn.to/3Zvhnhk', disc: 0, watts: 6 },
 ];
 
 function App() {
@@ -1334,22 +1409,34 @@ function App() {
                             ? 'maroon'
                             : '#00A36C' // Default color 
             }}
-        >
-          {(selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected ) || (selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected) ? (
-            <p style={{ color: 'white' }}>
-              Compatibility issues detected:
-              <ul>
-                {selectedMOBO.Ram !== selectedRAM.DDR  && YMOBOselected && YRAMselected && (
-                  <li>RAM type mismatch: MOBO requires {selectedMOBO.Ram}, but selected RAM is {selectedRAM.DDR}.</li>
-                )}
-                {selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected && (
-                  <li>Chipset mismatch: CPU chipset is {selectedCPU.Chipset}, but MOBO requires {selectedMOBO.Chipset}.</li>
-                )}
-              </ul>
-            </p>
-          ) : (
-            <p style={{ color: 'white' }}>All components are compatible!</p>
-          )}
+          >
+
+                    <div className="watts">
+                    {Number(selectedPSU.Wattage) < ((YCPUselected ? Number(selectedCPU.watts) : 0) + (YCOOLERselected ? Number(selectedCOOLER.watts) : 0) + (YMOBOselected ? Number(selectedMOBO.watts) : 0) + (YRAMselected ? Number(selectedRAM.watts) * Number(ramcount) : 0) + (YSTORselected ? Number(selectedSTOR.watts) : 0) + (storcount === 2 ? Number(selectedSTOR2.watts) : 0) + (selected ? Number(selectedGPU.watts) : 0)) && YPSUselected && (
+                      <li>{selectedPSU.name} may not have sufficient wattage!</li>
+                    )}
+                    </div>
+
+
+            {(selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected) || 
+            (selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected) ? (
+              <>
+                <p style={{ color: 'white' }}>
+                  Compatibility issues detected:
+                  <ul>
+                    {selectedMOBO.Ram !== selectedRAM.DDR && YMOBOselected && YRAMselected && (
+                      <li>RAM type mismatch: MOBO requires {selectedMOBO.Ram}, but selected RAM is {selectedRAM.DDR}!</li>
+                    )}
+                    {selectedCPU.Chipset !== selectedMOBO.Chipset && YCPUselected && YMOBOselected && (
+                      <li>Chipset mismatch: CPU chipset is {selectedCPU.Chipset}, but MOBO requires {selectedMOBO.Chipset}!</li>
+                    )}
+
+                  </ul>
+                </p>
+              </>
+            ) : (
+              <p style={{ color: 'white' }}>All components are compatible!</p>
+            )}
           <br />
           {(YCPUselected || 
             YCOOLERselected || 
@@ -1372,6 +1459,18 @@ function App() {
                   (storcount === 2 ? Number(selectedSTOR2.cost) : 0) +
                   (selected ? Number(selectedGPU.cost) : 0)
                 }
+                <div className="estWATT"> 
+                  Estimaged Wattage:
+                  { 
+                    (YCPUselected ? Number(selectedCPU.watts) : 0) +
+                    (YCOOLERselected ? Number(selectedCOOLER.watts) : 0) +
+                    (YMOBOselected ? Number(selectedMOBO.watts) : 0) +
+                    (YRAMselected ? Number(selectedRAM.watts) * Number(ramcount) : 0) +
+                    (YSTORselected ? Number(selectedSTOR.watts) : 0) +
+                    (storcount === 2 ? Number(selectedSTOR2.watts) : 0) +
+                    (selected ? Number(selectedGPU.watts) : 0)
+                  }
+                </div>
               </div>
           )}
         </div>
