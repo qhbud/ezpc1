@@ -47,7 +47,7 @@
 
 .STORgpu-details {
   display: grid;
-  grid-template-columns: 1.7fr 1fr 1fr 1fr 1fr 1fr; /* Adjust proportions for each detail */
+  grid-template-columns: 1.7fr 1fr 0.5fr 0.7fr ; /* Adjust proportions for each detail */
   column-gap: 15px;
   width: 100%;
   align-items: center;
@@ -78,7 +78,7 @@
 
 .STORgpu-header {
   display: grid;
-  grid-template-columns: 2.6fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2.6fr 0.7fr 1fr 1fr ;
   column-gap: 15px;
   font-weight: bold;
   cursor: pointer;

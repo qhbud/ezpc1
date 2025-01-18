@@ -48,7 +48,18 @@ function Popup({ CPUs, onSelect, onClose }) {
   <a href={cpu.Link} target="_blank" rel="noopener noreferrer">
     <span>{cpu.name}</span>
   </a>
-  <span>${cpu.cost}</span>
+  <span>
+  <span
+    style={{
+      color: cpu.disc !== 0 ? 'maroon' : 'inherit',
+      textDecoration: cpu.disc !== 0 ? 'line-through' : 'none',
+    }}
+  >
+    {cpu.cost}
+  </span>
+  <br />
+  {cpu.disc !== 0 && <span>{cpu.disc}</span>}
+</span>
 </div>
 
             </li>

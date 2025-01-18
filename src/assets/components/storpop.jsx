@@ -52,7 +52,18 @@ function Popup({ CPUs, onSelect, onClose }) {
                 </a>
                 <span>{cpu.type}</span>
                 <span>{cpu.size}</span>
-                <span>${cpu.cost}</span>
+                <span>
+                <span
+                  style={{
+                    color: cpu.disc !== 0 ? 'maroon' : 'inherit',
+                    textDecoration: cpu.disc !== 0 ? 'line-through' : 'none',
+                  }}
+                >
+                  {cpu.cost}
+                </span>
+                <br />
+                {cpu.disc !== 0 && <span>{cpu.disc}</span>}
+              </span>
               </div>
             </li>
           ))}

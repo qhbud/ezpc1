@@ -54,7 +54,18 @@ function Popup({ GPUs, onSelect, onClose }) {
             <span>{gpu.Release}</span>
             <span>{gpu.Design}</span>
             <span>{gpu.Bench}</span>
-            <span>${gpu.cost}</span>
+            <span>
+            <span
+              style={{
+                color: gpu.disc !== 0 ? 'maroon' : 'inherit',
+                textDecoration: gpu.disc !== 0 ? 'line-through' : 'none',
+              }}
+            >
+              {gpu.cost}
+            </span>
+            <br />
+            {gpu.disc !== 0 && <span>{gpu.disc}</span>}
+          </span>
           </div>
             </li>
           ))}
